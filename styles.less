@@ -1,0 +1,46 @@
+//out:styles.css
+
+@color-1: pink;
+@color-2: #000;
+
+* {
+  margin: 0;
+  font-family: monospace;
+}
+
+body {
+  background-color: @color-1;
+}
+
+.wrapper {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+#metronome {
+
+}
+
+h1 {
+  text-align: center;
+  font-size: 400%;
+}
+
+#bpm-readout {
+  font-size: 400%;
+  display: flex;
+  justify-content: center;
+}
+
+#play-stop {
+  font-size: 400%;
+  display: flex;
+  justify-content: center;
+}
+
+@media screen and (min-width: 768px) {
+  .wrapper {
+    width: 66.666%;
+  }
+}
