@@ -18,25 +18,41 @@ body {
   margin: 0 auto;
 }
 
-#metronome {
-
-}
-
-h1 {
+#title {
   text-align: center;
   font-size: 400%;
+  margin-top: 20px;
 }
 
-#bpm-readout {
-  font-size: 400%;
-  display: flex;
-  justify-content: center;
-}
+#metronome {
+  #readout-plus-minus {
+    display: flex;
+    font-size: 300%;
+    align-items: center;
+    #minus-button, #bpm-readout, #plus-button {
+      width: 32%;
+      font-weight: bold;
+    }
+    #minus-button {
+      text-align:right;
+    }
+    #bpm-readout {
+      display: flex;
+      justify-content: center;
+      font-size: 200%;
+      margin: 20px 0;
+    }
+  }
 
-#play-stop {
-  font-size: 400%;
-  display: flex;
-  justify-content: center;
+  #play-stop-parent {
+    display: flex;
+    #play-stop {
+      font-size: 500%;
+      margin-top: 20px;
+      margin: 0 auto;
+    }
+  }
+
 }
 
 @media screen and (min-width: 768px) {
