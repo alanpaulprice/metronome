@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function () {
   let minusButton = document.getElementById('minus-button');
   let plusButton = document.getElementById('plus-button');
   let playStop = document.getElementById('play-stop');
-  let audio = new Audio("http://freesound.org/data/previews/250/250552_4570971-lq.mp3");
+  let audio1 = new Audio("/audio/Click-1.mp3");
 
   minusButton.onclick = () => {
     bpm--;
@@ -33,13 +33,31 @@ document.addEventListener('DOMContentLoaded', function () {
   function metronomeAudio() {
 
     if (playing) {
-      //console.log("Hello"); //TODO: Change to a click
-      audio.currentTime = 0;
-      audio.play();
+      audio1.currentTime = 0;
+      audio1.play();
       setTimeout(() => {
         metronomeAudio();
       }, 60000/bpm)
     }
   }
+
+  document.onkeydown = (e) => {
+    //console.log(e.key);
+    switch (e.key) {
+      case " ":
+      playStop.click();
+      break;
+
+      case "ArrowLeft":
+      minusButton .click();
+      break;
+
+      case "ArrowRight":
+      plusButton.click();
+      break;
+
+      default: return;
+    }
+  };
 
 });

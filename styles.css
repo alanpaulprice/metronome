@@ -3,7 +3,7 @@
   font-family: monospace;
 }
 body {
-  background-color: pink;
+  background-color: #8EAF9D;
 }
 .wrapper {
   width: 100%;
@@ -14,6 +14,7 @@ body {
   text-align: center;
   font-size: 400%;
   margin-top: 20px;
+  color: #ffffff;
 }
 #metronome #readout-plus-minus {
   display: flex;
@@ -25,6 +26,7 @@ body {
 #metronome #readout-plus-minus #plus-button {
   width: 32%;
   font-weight: bold;
+  color: #ffffff;
 }
 #metronome #readout-plus-minus #minus-button {
   text-align: right;
@@ -42,6 +44,7 @@ body {
   font-size: 500%;
   margin-top: 20px;
   margin: 0 auto;
+  color: #ffffff;
 }
 @media screen and (min-width: 768px) {
   .wrapper {
