@@ -24,9 +24,13 @@ document.addEventListener('DOMContentLoaded', function () {
   playStop.onclick = () => {
     if (!playing) {
       playing = true;
+      playStop.classList.toggle("fa-play");
+      playStop.classList.toggle("fa-stop");
       metronomeAudio();
     } else {
       playing = false;
+      playStop.classList.toggle("fa-play");
+      playStop.classList.toggle("fa-stop");
     }
   }
 

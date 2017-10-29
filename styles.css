@@ -2,8 +2,12 @@
   margin: 0;
   font-family: monospace;
 }
+html {
+  height: 100%;
+}
 body {
-  background-color: #8EAF9D;
+  height: 100%;
+  background: linear-gradient(#8EAF9D, #4f6f5d);
 }
 .wrapper {
   width: 100%;
@@ -20,11 +24,12 @@ body {
   display: flex;
   font-size: 300%;
   align-items: center;
+  justify-content: space-between;
 }
 #metronome #readout-plus-minus #minus-button,
 #metronome #readout-plus-minus #bpm-readout,
 #metronome #readout-plus-minus #plus-button {
-  width: 32%;
+  width: 30%;
   font-weight: bold;
   color: #ffffff;
 }
@@ -45,6 +50,21 @@ body {
   margin-top: 20px;
   margin: 0 auto;
   color: #ffffff;
+}
+#metronome #bpm-table {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  border: 2.5px solid white;
+  border-radius: 5px;
+}
+#metronome #bpm-table .bpm-table-cell {
+  border: 2.5px solid white;
+  flex: 1 1 24%;
+  font-size: 150%;
+  text-align: center;
+  color: #ffffff;
+  padding: 5px 0;
 }
 @media screen and (min-width: 768px) {
   .wrapper {
