@@ -6,18 +6,18 @@ html {
   height: 100%;
 }
 body {
-  height: 100%;
-  background: linear-gradient(#8EAF9D, #4f6f5d);
+  height: 90%;
+  background: linear-gradient(#4f6f5d, #8EAF9D);
 }
 .wrapper {
   width: 100%;
-  max-width: 960px;
+  max-width: 500px;
   margin: 0 auto;
 }
 #title {
   text-align: center;
   font-size: 400%;
-  margin-top: 20px;
+  margin-top: 40px;
   color: #ffffff;
 }
 #metronome #readout-plus-minus {
@@ -66,8 +66,22 @@ body {
   color: #ffffff;
   padding: 5px 0;
 }
+#metronome #volume-control-parent {
+  width: 50%;
+  margin: 0 auto;
+}
+#metronome #volume-control {
+  width: 100%;
+  margin-top: 20px;
+}
+#metronome #volume-readout {
+  width: 100%;
+  text-align: center;
+  color: #ffffff;
+  font-weight: bold;
+}
 @media screen and (min-width: 768px) {
   .wrapper {
-    width: 66.666%;
+    width: 50%;
   }
 }

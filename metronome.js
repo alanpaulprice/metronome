@@ -1,4 +1,9 @@
 /*jshint esversion: 6 */
+//TODO: volume control
+//TODO: button hover css
+//TODO: play button pulse with clicks
+//TODO: set max/min tempo values
+//TODO: add up down keybinds for +/- 10bpm
 
 document.addEventListener('DOMContentLoaded', function () {
   console.clear();
@@ -6,9 +11,11 @@ document.addEventListener('DOMContentLoaded', function () {
   let bpm = 120;
   let playing = false;
   let bpmReadout = document.getElementById('bpm-readout');
+  let volumeReadout = document.getElementById('volume-readout');
   let minusButton = document.getElementById('minus-button');
   let plusButton = document.getElementById('plus-button');
   let playStop = document.getElementById('play-stop');
+  let volumeControl = document.getElementById('volume-control');
   let audio1 = new Audio("/audio/Click-1.mp3");
 
   // ===== UPDATE READOUT =====
@@ -55,7 +62,7 @@ document.addEventListener('DOMContentLoaded', function () {
     bpm = newBpm;
     updateReadout();
   }
-  
+
   document.getElementById("bpm-cell-50").onclick = () => bpmTableClick(50);
   document.getElementById("bpm-cell-60").onclick = () => bpmTableClick(60);
   document.getElementById("bpm-cell-70").onclick = () => bpmTableClick(70);
@@ -69,9 +76,18 @@ document.addEventListener('DOMContentLoaded', function () {
   document.getElementById("bpm-cell-150").onclick = () => bpmTableClick(150);
   document.getElementById("bpm-cell-160").onclick = () => bpmTableClick(160);
 
+  // ===== VOLUME CONTROL =====
+  function updateVolume (newVol) {
+    audio1.volume = newVol/5;
+    volumeReadout.innerHTML = "VOLUME: " + (newVol/0.05) + "%";
+  }
+
+  volumeControl.oninput = (val) => {
+    updateVolume(val.target.valueAsNumber);
+  }
+
   // ===== KEYBINDS =====
   document.onkeydown = (e) => {
-    //console.log(e.key);
     switch (e.key) {
       case " ":
       playStop.click();
@@ -83,6 +99,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
       case "ArrowRight":
       plusButton.click();
+      break;
+
+      case "ArrowUp":
+      volumeControl.value++;
+      updateVolume(volumeControl.value);
+      break;
+
+      case "ArrowDown":
+      volumeControl.value--;
+      updateVolume(volumeControl.value);
       break;
 
       default: return;

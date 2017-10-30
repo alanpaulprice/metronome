@@ -12,20 +12,21 @@ html {
   height: 100%;
 }
 body {
-  height: 100%;
-  background: linear-gradient(@color-1, darken(@color-1, 25%));//@color-1;
+  height: 90%;
+  background: linear-gradient(darken(@color-1, 25%), @color-1);
+  //background: radial-gradient(darken(@color-1, 25%), @color-1);
 }
 
 .wrapper {
   width: 100%;
-  max-width: 960px;
+  max-width: 500px;//960px;
   margin: 0 auto;
 }
 
 #title {
   text-align: center;
   font-size: 400%;
-  margin-top: 20px;
+  margin-top: 40px;
   color: @color-2;
 }
 
@@ -84,10 +85,29 @@ body {
     }
   }
 
+  // ===== VOLUME CONTROL =====
+
+  #volume-control-parent {
+    width: 50%;
+    margin: 0 auto;
+  }
+
+  #volume-control {
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  #volume-readout {
+    width: 100%;
+    text-align: center;
+    color: @color-2;
+    font-weight: bold;
+  }
+
 }
 
 @media screen and (min-width: 768px) {
   .wrapper {
-    width: 66.666%;
+    width: 50%;//66.666%;
   }
 }
