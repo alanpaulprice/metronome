@@ -2,6 +2,7 @@
 //TODO: style silder?
 //TODO: make bpm readout clickable as text input thing
 //TODO: play button pulse with clicks
+//TODO: solve slider focus issue
 
 document.addEventListener('DOMContentLoaded', function () {
   console.clear();
@@ -87,6 +88,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   volumeControl.oninput = (val) => {
     updateVolume(val.target.valueAsNumber);
+    volumeControl.blur();
   }
 
   // ===== KEYBINDS =====
