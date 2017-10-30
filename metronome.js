@@ -1,5 +1,6 @@
 /*jshint esversion: 6 */
-//TODO: button hover css
+//TODO: style silder?
+//TODO: make bpm readout clickable as text input thing
 //TODO: play button pulse with clicks
 
 document.addEventListener('DOMContentLoaded', function () {

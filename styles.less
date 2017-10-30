@@ -1,7 +1,8 @@
 //out:styles.css
-// pink
+// pink, 8EAF9D
 @color-1: #8EAF9D;
-@color-2: #FFF + #8EAF9D;
+@color-2: #FFF;
+@color-3: average(#fff, #8EAF9D);
 
 * {
   margin: 0;
@@ -23,11 +24,17 @@ body {
   margin: 0 auto;
 }
 
-#title {
-  text-align: center;
-  font-size: 400%;
-  margin-top: 40px;
-  color: @color-2;
+#title-a {
+  text-decoration: none;
+  outline: none;
+  #title {
+    text-align: center;
+    font-size: 400%;
+    margin-top: 40px;
+    color: @color-2;
+    text-decoration: none;
+    .mouseover;
+  }
 }
 
 #metronome {
@@ -44,8 +51,12 @@ body {
       font-weight: bold;
       color: @color-2;
     }
+    #plus-button {
+      .mouseover;
+    }
     #minus-button {
       text-align:right;
+      .mouseover;
     }
     #bpm-readout {
       display: flex;
@@ -64,6 +75,7 @@ body {
       margin-top: 20px;
       margin: 0 auto;
       color: @color-2;
+      .mouseover;
     }
   }
 
@@ -82,6 +94,7 @@ body {
       text-align: center;
       color: @color-2;
       padding: 5px 0;
+      .mouseover;
     }
   }
 
@@ -105,6 +118,16 @@ body {
   }
 
 }
+
+// ===== MOUSEOVER =====
+
+.mouseover {
+  &:hover {
+    color: @color-3;
+  }
+}
+
+// ===== RESPONSIVE =====
 
 @media screen and (min-width: 768px) {
   .wrapper {

@@ -14,11 +14,19 @@ body {
   max-width: 500px;
   margin: 0 auto;
 }
-#title {
+#title-a {
+  text-decoration: none;
+  outline: none;
+}
+#title-a #title {
   text-align: center;
   font-size: 400%;
   margin-top: 40px;
-  color: #ffffff;
+  color: #FFF;
+  text-decoration: none;
+}
+#title-a #title:hover {
+  color: #c7d7ce;
 }
 #metronome #readout-plus-minus {
   display: flex;
@@ -31,10 +39,16 @@ body {
 #metronome #readout-plus-minus #plus-button {
   width: 30%;
   font-weight: bold;
-  color: #ffffff;
+  color: #FFF;
+}
+#metronome #readout-plus-minus #plus-button:hover {
+  color: #c7d7ce;
 }
 #metronome #readout-plus-minus #minus-button {
   text-align: right;
+}
+#metronome #readout-plus-minus #minus-button:hover {
+  color: #c7d7ce;
 }
 #metronome #readout-plus-minus #bpm-readout {
   display: flex;
@@ -49,7 +63,10 @@ body {
   font-size: 500%;
   margin-top: 20px;
   margin: 0 auto;
-  color: #ffffff;
+  color: #FFF;
+}
+#metronome #play-stop-parent #play-stop:hover {
+  color: #c7d7ce;
 }
 #metronome #bpm-table {
   display: flex;
@@ -63,8 +80,11 @@ body {
   flex: 1 1 24%;
   font-size: 150%;
   text-align: center;
-  color: #ffffff;
+  color: #FFF;
   padding: 5px 0;
+}
+#metronome #bpm-table .bpm-table-cell:hover {
+  color: #c7d7ce;
 }
 #metronome #volume-control-parent {
   width: 50%;
@@ -77,8 +97,11 @@ body {
 #metronome #volume-readout {
   width: 100%;
   text-align: center;
-  color: #ffffff;
+  color: #FFF;
   font-weight: bold;
+}
+.mouseover:hover {
+  color: #c7d7ce;
 }
 @media screen and (min-width: 768px) {
   .wrapper {
