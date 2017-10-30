@@ -1,9 +1,6 @@
 /*jshint esversion: 6 */
-//TODO: volume control
 //TODO: button hover css
 //TODO: play button pulse with clicks
-//TODO: set max/min tempo values
-//TODO: add up down keybinds for +/- 10bpm
 
 document.addEventListener('DOMContentLoaded', function () {
   console.clear();
@@ -25,11 +22,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // ===== MINUS BUTTON =====
   minusButton.onclick = () => {
+    if (bpm <= 50) return;
     bpm--;
     updateReadout();
   }
   // ===== PLUS BUTTON =====
   plusButton.onclick = () => {
+    if (bpm >= 190) return;
     bpm++;
     updateReadout();
   }
@@ -75,6 +74,9 @@ document.addEventListener('DOMContentLoaded', function () {
   document.getElementById("bpm-cell-140").onclick = () => bpmTableClick(140);
   document.getElementById("bpm-cell-150").onclick = () => bpmTableClick(150);
   document.getElementById("bpm-cell-160").onclick = () => bpmTableClick(160);
+  document.getElementById("bpm-cell-170").onclick = () => bpmTableClick(170);
+  document.getElementById("bpm-cell-180").onclick = () => bpmTableClick(180);
+  document.getElementById("bpm-cell-190").onclick = () => bpmTableClick(190);
 
   // ===== VOLUME CONTROL =====
   function updateVolume (newVol) {
@@ -94,7 +96,7 @@ document.addEventListener('DOMContentLoaded', function () {
       break;
 
       case "ArrowLeft":
-      minusButton .click();
+      minusButton.click();
       break;
 
       case "ArrowRight":
