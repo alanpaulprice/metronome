@@ -1,8 +1,8 @@
 /*jshint esversion: 6 */
-//TODO: style silder?
+
 //TODO: make bpm readout clickable as text input thing
-//TODO: play button pulse with clicks
-//TODO: solve slider focus issue
+//TODO: play button pulse/animate with clicks
+//TODO: style silder?
 
 document.addEventListener('DOMContentLoaded', function () {
   console.clear();
@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function () {
   let plusButton = document.getElementById('plus-button');
   let playStop = document.getElementById('play-stop');
   let volumeControl = document.getElementById('volume-control');
-  let audio1 = new Audio("/audio/Click-1.mp3");
+  let audio1 = new Audio("audio/Click-1.mp3");
 
   // ===== UPDATE READOUT =====
   function updateReadout () {

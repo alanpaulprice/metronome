@@ -14,18 +14,14 @@ body {
   max-width: 500px;
   margin: 0 auto;
 }
-#title-a {
-  text-decoration: none;
-  outline: none;
-}
-#title-a #title {
+#title {
   text-align: center;
   font-size: 400%;
   margin-top: 40px;
   color: #FFF;
   text-decoration: none;
 }
-#title-a #title:hover {
+#title:hover {
   color: #c7d7ce;
 }
 #metronome #readout-plus-minus {
