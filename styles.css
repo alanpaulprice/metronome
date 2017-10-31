@@ -49,8 +49,16 @@ body {
 #metronome #readout-plus-minus #bpm-readout {
   display: flex;
   justify-content: center;
-  font-size: 200%;
   margin: 20px 0;
+}
+#metronome #readout-plus-minus #bpm-readout input {
+  width: 100%;
+  font-size: 200%;
+  background: none;
+  border: none;
+  outline: none;
+  color: #FFF;
+  text-align: center;
 }
 #metronome #play-stop-parent {
   display: flex;

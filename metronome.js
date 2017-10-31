@@ -1,15 +1,15 @@
 /*jshint esversion: 6 */
 
-//TODO: make bpm readout clickable as text input thing
+//TODO: make it so that you can only enter numbers in input (atm it accepts "50.")
 //TODO: play button pulse/animate with clicks
 //TODO: style silder?
 
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function() {
   console.clear();
 
   let bpm = 120;
   let playing = false;
-  let bpmReadout = document.getElementById('bpm-readout');
+  let bpmReadout = document.getElementById('bpm-readout-input');
   let volumeReadout = document.getElementById('volume-readout');
   let minusButton = document.getElementById('minus-button');
   let plusButton = document.getElementById('plus-button');
@@ -18,8 +18,8 @@ document.addEventListener('DOMContentLoaded', function () {
   let audio1 = new Audio("audio/Click-1.mp3");
 
   // ===== UPDATE READOUT =====
-  function updateReadout () {
-    bpmReadout.innerHTML = (bpm);
+  function updateReadout() {
+    bpmReadout.value = (bpm);
   }
 
   // ===== MINUS BUTTON =====
@@ -54,12 +54,12 @@ document.addEventListener('DOMContentLoaded', function () {
       audio1.play();
       setTimeout(() => {
         metronomeAudio();
-      }, 60000/bpm)
+      }, 60000 / bpm)
     }
   }
 
   // ===== BPM TABLE =====
-  function bpmTableClick (newBpm) {
+  function bpmTableClick(newBpm) {
     bpm = newBpm;
     updateReadout();
   }
@@ -81,9 +81,9 @@ document.addEventListener('DOMContentLoaded', function () {
   document.getElementById("bpm-cell-190").onclick = () => bpmTableClick(190);
 
   // ===== VOLUME CONTROL =====
-  function updateVolume (newVol) {
-    audio1.volume = newVol/5;
-    volumeReadout.innerHTML = "VOLUME: " + (newVol/0.05) + "%";
+  function updateVolume(newVol) {
+    audio1.volume = newVol / 5;
+    volumeReadout.innerHTML = "VOLUME: " + (newVol / 0.05) + "%";
   }
 
   volumeControl.oninput = (val) => {
@@ -93,31 +93,44 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // ===== KEYBINDS =====
   document.onkeydown = (e) => {
-    switch (e.key) {
-      case " ":
-      playStop.click();
-      break;
 
-      case "ArrowLeft":
-      minusButton.click();
-      break;
+    if (document.activeElement !== bpmReadout) {
 
-      case "ArrowRight":
-      plusButton.click();
-      break;
+      switch (e.key) {
+        case " ":
+          playStop.click();
+          break;
 
-      case "ArrowUp":
-      volumeControl.value++;
-      updateVolume(volumeControl.value);
-      break;
+        case "ArrowLeft":
+          minusButton.click();
+          break;
 
-      case "ArrowDown":
-      volumeControl.value--;
-      updateVolume(volumeControl.value);
-      break;
+        case "ArrowRight":
+          plusButton.click();
+          break;
 
-      default: return;
+        case "ArrowUp":
+          volumeControl.value++;
+          updateVolume(volumeControl.value);
+          break;
+
+        case "ArrowDown":
+          volumeControl.value--;
+          updateVolume(volumeControl.value);
+          break;
+
+        default:
+          return;
+      }
+    } else if (document.activeElement === bpmReadout && e.key === "Enter") {
+
+      if (bpmReadout.value >= 50 && bpmReadout.value <= 190) {
+        bpm = bpmReadout.value;
+      } else {
+        bpmReadout.value = bpm;
+      }
+      bpmReadout.blur();
     }
-  };
+  }; /* onkeydown */
 
-});
+}); /* dom content loaded */
