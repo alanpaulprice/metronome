@@ -1,12 +1,15 @@
 * {
   margin: 0;
   font-family: monospace;
+  box-sizing: border-box;
 }
 html {
   height: 100%;
 }
 body {
   height: 90%;
+  display: flex;
+  align-items: center;
   background: linear-gradient(#354b3f, #000000);
 }
 ::selection {
@@ -14,8 +17,6 @@ body {
   color: #000;
 }
 .wrapper {
-  width: 100%;
-  max-width: 500px;
   margin: 0 auto;
 }
 #title {
@@ -54,7 +55,7 @@ body {
   display: flex;
   justify-content: center;
   margin: 20px 0;
-  min-width: 200px;
+  min-width: 5em;
 }
 #metronome #readout-plus-minus #bpm-readout input {
   width: 100%;
@@ -64,6 +65,9 @@ body {
   outline: none;
   color: #FFF;
   text-align: center;
+}
+#metronome #readout-plus-minus #bpm-readout input:hover {
+  color: #b4cbbe;
 }
 #metronome #play-stop-parent {
   display: flex;
@@ -80,13 +84,14 @@ body {
 #metronome #bpm-table {
   display: flex;
   flex-wrap: wrap;
-  margin-top: 20px;
+  margin: 20px auto 0 auto;
   border: 2.5px solid white;
   border-radius: 5px;
+  width: 50%;
 }
 #metronome #bpm-table .bpm-table-cell {
   border: 2.5px solid white;
-  flex: 1 1 24%;
+  flex: 1 1 32%;
   font-size: 150%;
   text-align: center;
   color: #FFF;
@@ -96,7 +101,7 @@ body {
   color: #b4cbbe;
 }
 #metronome #volume-control-parent {
-  width: 50%;
+  width: 25%;
   margin: 0 auto;
 }
 #metronome #volume-control {
@@ -111,9 +116,4 @@ body {
 }
 .mouseover:hover {
   color: #b4cbbe;
-}
-@media screen and (min-width: 768px) {
-  .wrapper {
-    width: 50%;
-  }
 }

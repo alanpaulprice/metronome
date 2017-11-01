@@ -1,5 +1,7 @@
 /*jshint esversion: 6 */
 
+//TODO: make it responsive
+
 document.addEventListener('DOMContentLoaded', function() {
   console.clear();
 
