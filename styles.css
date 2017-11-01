@@ -50,6 +50,7 @@ body {
   display: flex;
   justify-content: center;
   margin: 20px 0;
+  min-width: 200px;
 }
 #metronome #readout-plus-minus #bpm-readout input {
   width: 100%;

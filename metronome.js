@@ -1,6 +1,5 @@
 /*jshint esversion: 6 */
 
-//TODO: make it so that you can only enter numbers in input (atm it accepts "50.")
 //TODO: play button pulse/animate with clicks
 //TODO: style silder?
 
@@ -92,8 +91,15 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   // ===== KEYBINDS =====
-  document.onkeydown = (e) => {
+  // regex to check the string starts with a 1-9 followed by 1 or 2 digits
 
+  function isValidBpm (str) {
+    let patt = /^[1-9][0-9][0-9]?$/
+    return str.match(patt)
+  }
+
+  document.onkeydown = (e) => {
+    // ===== PLAY/STOP VOLUME TEMPO =====
     if (document.activeElement !== bpmReadout) {
 
       switch (e.key) {
@@ -122,12 +128,13 @@ document.addEventListener('DOMContentLoaded', function() {
         default:
           return;
       }
+      // ===== INPUT =====
     } else if (document.activeElement === bpmReadout && e.key === "Enter") {
 
-      if (bpmReadout.value >= 50 && bpmReadout.value <= 190) {
+      if (isValidBpm(bpmReadout.value) && bpmReadout.value >= 50 && bpmReadout.value <= 190) {
         bpm = bpmReadout.value;
       } else {
-        bpmReadout.value = bpm;
+        updateReadout();
       }
       bpmReadout.blur();
     }
