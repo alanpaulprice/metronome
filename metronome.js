@@ -1,8 +1,5 @@
 /*jshint esversion: 6 */
 
-//TODO: play button pulse/animate with clicks
-//TODO: style silder?
-
 document.addEventListener('DOMContentLoaded', function() {
   console.clear();
 
@@ -92,7 +89,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // ===== KEYBINDS =====
   // regex to check the string starts with a 1-9 followed by 1 or 2 digits
-
   function isValidBpm (str) {
     let patt = /^[1-9][0-9][0-9]?$/
     return str.match(patt)
@@ -139,5 +135,7 @@ document.addEventListener('DOMContentLoaded', function() {
       bpmReadout.blur();
     }
   }; /* onkeydown */
+
+  bpmReadout.onblur = () => updateReadout();
 
 }); /* dom content loaded */

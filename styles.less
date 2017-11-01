@@ -1,8 +1,8 @@
 //out:styles.css
-// pink, 8EAF9D
-@color-1: #8EAF9D;
+// pink, 8EAF9D, 69967d
+@color-1: #69967d;
 @color-2: #FFF;
-@color-3: average(#fff, #8EAF9D);
+@color-3: average(#fff, @color-1);
 
 * {
   margin: 0;
@@ -14,7 +14,12 @@ html {
 }
 body {
   height: 90%;
-  background: linear-gradient(darken(@color-1, 25%), @color-1);
+  background: linear-gradient(darken(@color-1, 25%), darken(@color-3, 100%));
+}
+
+::selection{
+    background-color: none;
+    color: #000;
 }
 
 .wrapper {
