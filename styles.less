@@ -132,6 +132,26 @@ body {
   font-weight: bold;
 }
 
+#keybinds-h1 {
+  text-align: center;
+  color: @color-2;
+  margin-top: 40px;
+}
+
+#keybinds-legend {
+  margin: auto 0;
+  color: @color-2;
+  display: flex;
+  div {
+    flex: 1 1 46%;
+    margin: 10px 2% 0;
+    white-space: nowrap;
+  }
+  #keybinds-legend-actions {
+    font-weight: bold;
+    text-align: right;
+  }
+}
 
 // ===== MOUSEOVER =====
 
@@ -142,7 +162,7 @@ body {
   }
 }
 
-// ===== RESPONSIVE =====
+// ===== MEDIA QUERIES =====
 
 // ===== TABLET =====
 
@@ -151,10 +171,6 @@ body {
   .wrapper {
     width: 75%;
     max-width: none;
-  }
-
-  #bpm-table .bpm-table-cell {
-    //flex: 1 1 25%;
   }
 
   #volume-control-parent {
@@ -180,4 +196,5 @@ body {
   #volume-control-parent {
     width: 90%;
   }
+
 }

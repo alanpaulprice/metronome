@@ -16,41 +16,58 @@
 
 
 
-      <h1 id="title" onclick="javascript:window.location.reload();">METRONOME</h1>
+    <h1 id="title" onclick="javascript:window.location.reload();">METRONOME</h1>
 
-      <div id="readout-plus-minus">
-        <div id="minus-button-parent"><i id="minus-button" class="fa fa-minus"></i></div>
-        <div id="bpm-readout"><input id="bpm-readout-input" type="text" maxLength="3" value="120" onfocusin="this.value =''"></input></div>
-        <div id="plus-button-parent"><i id="plus-button" class="fa fa-plus"></i></div>
+    <div id="readout-plus-minus">
+      <div id="minus-button-parent"><i id="minus-button" class="fa fa-minus"></i></div>
+      <div id="bpm-readout"><input id="bpm-readout-input" type="text" maxLength="3" value="120" onfocusin="this.value =''"></input></div>
+      <div id="plus-button-parent"><i id="plus-button" class="fa fa-plus"></i></div>
+    </div>
+
+    <div id="play-stop-parent">
+      <i id="play-stop" class="fa fa-play"></i>
+    </div>
+
+    <div id="bpm-table">
+      <div id="bpm-cell-50" class="bpm-table-cell">50</div>
+      <div id="bpm-cell-60" class="bpm-table-cell">60</div>
+      <div id="bpm-cell-70" class="bpm-table-cell">70</div>
+      <div id="bpm-cell-80" class="bpm-table-cell">80</div>
+      <div id="bpm-cell-90" class="bpm-table-cell">90</div>
+      <div id="bpm-cell-100" class="bpm-table-cell">100</div>
+      <div id="bpm-cell-110" class="bpm-table-cell">110</div>
+      <div id="bpm-cell-120" class="bpm-table-cell">120</div>
+      <div id="bpm-cell-130" class="bpm-table-cell">130</div>
+      <div id="bpm-cell-140" class="bpm-table-cell">140</div>
+      <div id="bpm-cell-150" class="bpm-table-cell">150</div>
+      <div id="bpm-cell-160" class="bpm-table-cell">160</div>
+      <div id="bpm-cell-170" class="bpm-table-cell">170</div>
+      <div id="bpm-cell-180" class="bpm-table-cell">180</div>
+      <div id="bpm-cell-190" class="bpm-table-cell">190</div>
+    </div>
+
+    <div id="volume-control-parent">
+      <input type="range" value="5" min="1" max="5" id="volume-control">
+    </div>
+    <div id="volume-readout">VOLUME: 100%</div>
+
+    <h1 id="keybinds-h1">KEYBINDS</h1>
+    <div id="keybinds-legend">
+      <div id="keybinds-legend-actions">
+        START / STOP<br>
+        TEMPO DOWN<br>
+        TEMPO UP<br>
+        VOLUME DOWN<br>
+        VOLUME UP<br>
       </div>
-
-      <div id="play-stop-parent">
-        <i id="play-stop" class="fa fa-play"></i>
+      <div id="keybinds-legend-keys">
+        SPACEBAR<br>
+        ARROW LEFT<br>
+        ARROW RIGHT<br>
+        ARROW DOWN<br>
+        ARROW UP<br>
       </div>
-
-      <div id="bpm-table">
-        <div id="bpm-cell-50" class="bpm-table-cell">50</div>
-        <div id="bpm-cell-60" class="bpm-table-cell">60</div>
-        <div id="bpm-cell-70" class="bpm-table-cell">70</div>
-        <div id="bpm-cell-80" class="bpm-table-cell">80</div>
-        <div id="bpm-cell-90" class="bpm-table-cell">90</div>
-        <div id="bpm-cell-100" class="bpm-table-cell">100</div>
-        <div id="bpm-cell-110" class="bpm-table-cell">110</div>
-        <div id="bpm-cell-120" class="bpm-table-cell">120</div>
-        <div id="bpm-cell-130" class="bpm-table-cell">130</div>
-        <div id="bpm-cell-140" class="bpm-table-cell">140</div>
-        <div id="bpm-cell-150" class="bpm-table-cell">150</div>
-        <div id="bpm-cell-160" class="bpm-table-cell">160</div>
-        <div id="bpm-cell-170" class="bpm-table-cell">170</div>
-        <div id="bpm-cell-180" class="bpm-table-cell">180</div>
-        <div id="bpm-cell-190" class="bpm-table-cell">190</div>
-      </div>
-
-      <div id="volume-control-parent">
-        <input type="range" value="5" min="1" max="5" id="volume-control">
-      </div>
-      <div id="volume-readout">VOLUME: 100%</div>
-
+    </div>
 
   </div>
 </body>

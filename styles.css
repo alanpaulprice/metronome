@@ -131,6 +131,25 @@ body {
   color: #FFF;
   font-weight: bold;
 }
+#keybinds-h1 {
+  text-align: center;
+  color: #FFF;
+  margin-top: 40px;
+}
+#keybinds-legend {
+  margin: auto 0;
+  color: #FFF;
+  display: flex;
+}
+#keybinds-legend div {
+  flex: 1 1 46%;
+  margin: 10px 2% 0;
+  white-space: nowrap;
+}
+#keybinds-legend #keybinds-legend-actions {
+  font-weight: bold;
+  text-align: right;
+}
 .mouseover {
   cursor: pointer;
 }

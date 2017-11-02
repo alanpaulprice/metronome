@@ -1,5 +1,8 @@
 /*jshint esversion: 6 */
 
+//TODO: add shift key = +-10 bpm?
+//TODO: comment js
+
 document.addEventListener('DOMContentLoaded', function() {
   console.clear();
 
@@ -95,6 +98,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   document.onkeydown = (e) => {
+
     // ===== PLAY/STOP VOLUME TEMPO =====
     if (document.activeElement !== bpmReadout) {
 
