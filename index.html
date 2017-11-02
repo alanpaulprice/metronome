@@ -3,6 +3,7 @@
 
 <head>
   <script src="metronome.js"></script>
+  <meta name="viewport" content="width=device-width">
   <meta charset="UTF-8">
   <title>Metronome</title>
   <link rel="stylesheet" type="text/css" href="styles.css">
@@ -13,14 +14,14 @@
 
   <div class="wrapper">
 
-    <div id="metronome">
+
 
       <h1 id="title" onclick="javascript:window.location.reload();">METRONOME</h1>
 
       <div id="readout-plus-minus">
-        <div id="minus-button"><i class="fa fa-minus"></i></div>
+        <div id="minus-button-parent"><i id="minus-button" class="fa fa-minus"></i></div>
         <div id="bpm-readout"><input id="bpm-readout-input" type="text" maxLength="3" value="120" onfocusin="this.value =''"></input></div>
-        <div id="plus-button"><i class="fa fa-plus"></i></div>
+        <div id="plus-button-parent"><i id="plus-button" class="fa fa-plus"></i></div>
       </div>
 
       <div id="play-stop-parent">
@@ -49,7 +50,7 @@
         <input type="range" value="5" min="1" max="5" id="volume-control">
       </div>
       <div id="volume-readout">VOLUME: 100%</div>
-    </div>
+
 
   </div>
 </body>

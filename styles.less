@@ -21,12 +21,15 @@ body {
 }
 
 ::selection{
-    background-color: none;
-    color: #000;
+  background-color: none;
+  color: #000;
 }
 
 .wrapper {
   margin: 0 auto;
+  width: 50%;
+  max-width: 450px;
+  min-width: 320px;
 }
 
 #title {
@@ -38,104 +41,143 @@ body {
   .mouseover;
 }
 
-#metronome {
-
-  // ===== READOUT / PLUS / MINUS
-  #readout-plus-minus {
-    display: flex;
-    font-size: 300%;
-    align-items: center;
-    justify-content: space-between;
-    #minus-button, #bpm-readout, #plus-button {
-      width: 30%;
-      font-weight: bold;
-      color: @color-2;
-    }
-    #plus-button {
-      .mouseover;
-    }
-    #minus-button {
-      text-align:right;
-      .mouseover;
-    }
-    #bpm-readout {
-      display: flex;
-      justify-content: center;
-      margin: 20px 0;
-      min-width: 5em;
-      input {
-        width: 100%;
-        font-size: 200%;
-        background: none;
-        border: none;
-        outline: none;
-        color: @color-2;
-        text-align: center;
-        .mouseover;
-      }
-    }
+// ===== READOUT / PLUS / MINUS
+#readout-plus-minus {
+  display: flex;
+  font-size: 300%;
+  align-items: center;
+  justify-content: space-around;
+  width: 80%;
+  margin: 0 auto;
+  #minus-button-parent, #bpm-readout, #plus-button-parent {
+    width: 32%;
+    font-weight: bold;
+    color: @color-2;
   }
-
-  // ===== PLAY / STOP =====
-
-  #play-stop-parent {
-    display: flex;
-    #play-stop {
-      font-size: 500%;
-      margin-top: 20px;
-      margin: 0 auto;
-      color: @color-2;
+  #plus-button-parent, #minus-button-parent {
+    text-align: center;
+    i {
+      vertical-align: middle;
       .mouseover;
     }
   }
-
-  // ===== BPM TABLE =====
-
-  #bpm-table {
+  #bpm-readout {
     display: flex;
-    flex-wrap: wrap;
-    margin: 20px auto 0 auto;
-    border: 2.5px solid white;
-    border-radius: 5px;
-    width: 50%;
-    .bpm-table-cell {
-      border: 2.5px solid white;
-      flex: 1 1 32%;
-      font-size: 150%;
+    justify-content: center;
+    margin: 20px 0;
+    min-width: 5em;
+    input {
+      width: 100%;
+      font-size: 200%;
+      background: none;
+      border: none;
+      outline: none;
+      color: @color-2;
       text-align: center;
-      color: @color-2;
-      padding: 5px 0;
       .mouseover;
     }
   }
+}
 
-  // ===== VOLUME CONTROL =====
+// ===== PLAY / STOP =====
 
-  #volume-control-parent {
-    width: 25%;
-    margin: 0 auto;
-  }
-
-  #volume-control {
-    width: 100%;
+#play-stop-parent {
+  display: flex;
+  #play-stop {
+    font-size: 500%;
     margin-top: 20px;
+    margin: 0 auto;
+    color: @color-2;
+    .mouseover;
   }
+}
 
-  #volume-readout {
-    width: 100%;
+// ===== BPM TABLE =====
+
+#bpm-table {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 20px auto 0 auto;
+  border: 2.5px solid white;
+  border-radius: 5px;
+  width: 100%;
+  .bpm-table-cell {
+    border: 2.5px solid white;
+    flex: 1 1 20%;
+    font-size: 150%;
     text-align: center;
     color: @color-2;
-    font-weight: bold;
+    padding: 5px 0;
+    .mouseover;
   }
-
 }
+
+// ===== VOLUME CONTROL =====
+
+#volume-control-parent {
+  width: 25%;
+  margin: 0 auto;
+}
+
+#volume-control {
+  width: 100%;
+  margin-top: 20px;
+  .mouseover;
+}
+
+#volume-readout {
+  width: 100%;
+  text-align: center;
+  color: @color-2;
+  font-weight: bold;
+}
+
 
 // ===== MOUSEOVER =====
 
 .mouseover {
+  cursor: pointer;
   &:hover {
     color: @color-3;
   }
 }
 
 // ===== RESPONSIVE =====
+
+// ===== TABLET =====
+
+@media screen and (max-width: 768px) {
+
+  .wrapper {
+    width: 75%;
+    max-width: none;
+  }
+
+  #bpm-table .bpm-table-cell {
+    //flex: 1 1 25%;
+  }
+
+  #volume-control-parent {
+    width: 50%;
+  }
+}
+
+// ===== MOBILE =====
+
+@media screen and (max-width: 480px) {
+
+  .wrapper {
+    width: 90%;
+  }
+
+  #readout-plus-minus {
+    width: 100%;
+  }
+
+  #bpm-table .bpm-table-cell {
+    flex: 1 1 32%;
+  }
+  #volume-control-parent {
+    width: 90%;
+  }
+}
