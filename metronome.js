@@ -47,6 +47,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
   // ===== METRONOME AUDIO =====
+  // if nome engaged, reset audio n play it,
+  // wait a beat before recursively calling func again
   function metronomeAudio() {
     if (playing) {
       audio1.currentTime = 0;
@@ -80,11 +82,12 @@ document.addEventListener('DOMContentLoaded', function() {
   document.getElementById("bpm-cell-190").onclick = () => bpmTableClick(190);
 
   // ===== VOLUME CONTROL =====
+  // converts output of slider to useable values and updates volume n display
   function updateVolume(newVol) {
     audio1.volume = newVol / 5;
     volumeReadout.innerHTML = "VOLUME: " + (newVol / 0.05) + "%";
   }
-
+  // when slider is moved, changes volume and removes focus (caused keyb issues)
   volumeControl.oninput = (val) => {
     updateVolume(val.target.valueAsNumber);
     volumeControl.blur();
@@ -129,8 +132,9 @@ document.addEventListener('DOMContentLoaded', function() {
           return;
       }
       // ===== INPUT =====
+      // if focus is on readout and enter is hit:
     } else if (document.activeElement === bpmReadout && e.key === "Enter") {
-
+      // if bpm is valid, update bpm, else, reset display to prev val, then remove focus
       if (isValidBpm(bpmReadout.value) && bpmReadout.value >= 50 && bpmReadout.value <= 190) {
         bpm = bpmReadout.value;
       } else {
@@ -139,7 +143,7 @@ document.addEventListener('DOMContentLoaded', function() {
       bpmReadout.blur();
     }
   }; /* onkeydown */
-
+  // when readout is left without enter being hit, reset display
   bpmReadout.onblur = () => updateReadout();
 
 }); /* dom content loaded */
