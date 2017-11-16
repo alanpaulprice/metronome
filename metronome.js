@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
   let plusButton = document.getElementById('plus-button');
   let playStop = document.getElementById('play-stop');
   let volumeControl = document.getElementById('volume-control');
-  let audio1 = new Audio("audio/Click-1.mp3");
+  let audio1 = new Audio("https://raw.githubusercontent.com/alanpaulprice/metronome/master/Audio/Click-1.mp3");
 
   // ===== UPDATE READOUT =====
   function updateReadout() {
