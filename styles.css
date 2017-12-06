@@ -14,9 +14,9 @@ body {
 }
 ::selection {
   background-color: none;
-  color: #000;
+  color: #354b3f;
 }
-.wrapper {
+#wrapper {
   margin: 0 auto;
   width: 50%;
   max-width: 450px;
@@ -182,5 +182,34 @@ body {
 @media screen and (max-height: 700px) {
   body {
     align-items: stretch;
+  }
+}
+#bpm-readout {
+  animation: animateFade 1.5s ease-in both;
+}
+#keybinds-legend-keys,
+#keybinds-legend {
+  animation: animateFade 1.5s 1.5s ease-in both;
+}
+@keyframes animateFade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
+#wrapper {
+  animation: descend 1.5s ease-out both;
+}
+@keyframes descend {
+  0% {
+    margin-top: -1750px;
+  }
+  75% {
+    margin-top: 25px;
+  }
+  100% {
+    margin-top: 0;
   }
 }
