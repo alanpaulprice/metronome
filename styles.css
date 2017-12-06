@@ -179,3 +179,8 @@ body {
     width: 90%;
   }
 }
+@media screen and (max-height: 700px) {
+  body {
+    align-items: stretch;
+  }
+}

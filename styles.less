@@ -20,7 +20,7 @@ body {
   background: linear-gradient(darken(@color-1, 25%), darken(@color-3, 100%));
 }
 
-::selection{
+::selection{ // Changes the colors of highlighted items
   background-color: none;
   color: #000;
 }
@@ -200,4 +200,12 @@ body {
     width: 90%;
   }
 
+}
+
+// ===== IF SCREEN IS LONG ENOUGH, CENTRE CONTENT =====
+
+@media screen and (max-height: 700px) {
+  body {
+    align-items: stretch;
+  }
 }
