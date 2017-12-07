@@ -3,6 +3,7 @@
 @color-1: #69967d;
 @color-2: #FFF;
 @color-3: average(#fff, @color-1);
+@color-4: #000;
 
 * {
   margin: 0;
@@ -12,12 +13,13 @@
 
 html {
   height: 100%;
+  background-color: @color-4;
 }
 body {
   height: 90%;
   display: flex;
   align-items: center;
-  background: linear-gradient(darken(@color-1, 25%), darken(@color-3, 100%));
+  background: linear-gradient(darken(@color-1, 25%), @color-4);
 }
 
 ::selection{ // Changes the colors of highlighted items
@@ -142,7 +144,7 @@ body {
 }
 
 #keybinds-legend {
-  margin: auto 0;
+  margin-bottom: 40px;
   color: @color-2;
   display: flex;
   div {
@@ -216,8 +218,16 @@ body {
   animation: animateFade 1.5s ease-in both;
 }
 
-#keybinds-legend-keys, #keybinds-legend {
+#keybinds-h1 {
+  animation: animateFade 1.5s 1s ease-in both;
+}
+
+#keybinds-legend-actions {
   animation: animateFade 1.5s 1.5s ease-in both;
+}
+
+#keybinds-legend-keys {
+  animation: animateFade 1.5s 2s ease-in both;
 }
 
 @keyframes animateFade {

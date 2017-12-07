@@ -5,12 +5,13 @@
 }
 html {
   height: 100%;
+  background-color: #000;
 }
 body {
   height: 90%;
   display: flex;
   align-items: center;
-  background: linear-gradient(#354b3f, #000000);
+  background: linear-gradient(#354b3f, #000);
 }
 ::selection {
   background-color: none;
@@ -137,7 +138,7 @@ body {
   margin-top: 40px;
 }
 #keybinds-legend {
-  margin: auto 0;
+  margin-bottom: 40px;
   color: #FFF;
   display: flex;
 }
@@ -187,9 +188,14 @@ body {
 #bpm-readout {
   animation: animateFade 1.5s ease-in both;
 }
-#keybinds-legend-keys,
-#keybinds-legend {
+#keybinds-h1 {
+  animation: animateFade 1.5s 1s ease-in both;
+}
+#keybinds-legend-actions {
   animation: animateFade 1.5s 1.5s ease-in both;
+}
+#keybinds-legend-keys {
+  animation: animateFade 1.5s 2s ease-in both;
 }
 @keyframes animateFade {
   0% {
