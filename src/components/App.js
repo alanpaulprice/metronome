@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import TempoControls from './TempoControls';
 
 class App extends Component {
+  state = {
+    tempo: 120
+  };
+  setTempo = tempo => this.setState({ tempo });
   render() {
     return (
       <div className="App">
