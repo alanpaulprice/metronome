@@ -1,8 +1,8 @@
 import React from 'react';
 
-const IncrementButton = ({ text, increment, clickEvent }) => {
+const IncrementButton = ({ children, increment, clickEvent }) => {
   const onClick = () => clickEvent(increment);
-  return <div onClick={onClick}>{text}</div>;
+  return <button onClick={onClick}>{children}</button>;
 };
 
 export default IncrementButton;

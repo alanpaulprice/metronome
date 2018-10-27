@@ -31,12 +31,14 @@ class App extends Component {
     return (
       <div className="App">
         <h1>metronome</h1>
+
         <div className="TempoControls">
           <IncrementButton
-            text={'-'}
             increment={-1}
             clickEvent={this.incrementTempo}
-          />
+          >
+            <i className="fa fa-minus"></i>
+          </IncrementButton>
           <Input
             reference={this.inputRef}
             value={this.state.inputValue}
@@ -46,10 +48,11 @@ class App extends Component {
             onBlur={this.onInputBlur}
           />
           <IncrementButton
-            text={'+'}
             increment={1}
             clickEvent={this.incrementTempo}
-          />
+          >
+            <i className="fa fa-plus"></i>
+          </IncrementButton>
         </div>
       </div>
     );
