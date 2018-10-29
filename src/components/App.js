@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import IncrementButton from './IncrementButton';
-import Input from './Input';
+import TempoInput from './TempoInput';
 
 class App extends Component {
   state = { tempo: 120, inputValue: '120' };
-  inputRef = React.createRef();
+  TempoInputRef = React.createRef();
 
   setTempo = newTempo => this.setState({ tempo: newTempo });
   incrementTempo = incr =>
@@ -16,7 +16,7 @@ class App extends Component {
   onInputSubmit = async event => {
     event.preventDefault();
     await this.setTempo(parseInt(this.state.inputValue));
-    this.inputRef.current.blur();
+    this.TempoInputRef.current.blur();
   };
   onInputChange = event => {
     this.setState({
@@ -39,8 +39,8 @@ class App extends Component {
           >
             <i className="fa fa-minus"></i>
           </IncrementButton>
-          <Input
-            reference={this.inputRef}
+          <TempoInput
+            TempoInputRef={this.TempoInputRef}
             value={this.state.inputValue}
             onChange={this.onInputChange}
             onSubmit={this.onInputSubmit}
