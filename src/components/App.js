@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
-import IncrementButton from './IncrementButton';
 import TempoInput from './TempoInput';
 import PlayStopButton from './PlayStopButton';
 
 class App extends Component {
-  state = { tempo: 120, inputValue: '120' };
   state = { tempo: 120, inputValue: '120', playing: false };
   TempoInputRef = React.createRef();
 
@@ -36,12 +34,11 @@ class App extends Component {
         <h1>metronome</h1>
 
         <div className="TempoControls">
-          <IncrementButton
-            increment={-1}
-            clickEvent={this.incrementTempo}
+          <button className="incrementButton"
+            onClick={() => this.incrementTempo(-1)}
           >
             <i className="fa fa-minus"></i>
-          </IncrementButton>
+          </button>
           <TempoInput
             TempoInputRef={this.TempoInputRef}
             value={this.state.inputValue}
@@ -50,12 +47,11 @@ class App extends Component {
             onFocus={this.onInputFocus}
             onBlur={this.onInputBlur}
           />
-          <IncrementButton
-            increment={1}
-            clickEvent={this.incrementTempo}
+          <button className="incrementButton"
+            onClick={() => this.incrementTempo(1)}
           >
             <i className="fa fa-plus"></i>
-          </IncrementButton>
+          </button>
         </div>
         <PlayStopButton playing={this.state.playing} togglePlayback={this.togglePlayback} />
       </div>
