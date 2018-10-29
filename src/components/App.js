@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import IncrementButton from './IncrementButton';
 import TempoInput from './TempoInput';
+import PlayStopButton from './PlayStopButton';
 
 class App extends Component {
   state = { tempo: 120, inputValue: '120' };
+  state = { tempo: 120, inputValue: '120', playing: false };
   TempoInputRef = React.createRef();
 
+  togglePlayback = () => this.setState({ playing: !this.state.playing })
   setTempo = newTempo => this.setState({ tempo: newTempo });
   incrementTempo = incr =>
     this.setState(prevState => ({
@@ -54,6 +57,7 @@ class App extends Component {
             <i className="fa fa-plus"></i>
           </IncrementButton>
         </div>
+        <PlayStopButton playing={this.state.playing} togglePlayback={this.togglePlayback} />
       </div>
     );
   }
