@@ -14,15 +14,16 @@ class App extends Component {
       tempo: prevState.tempo + incr,
       inputValue: prevState.tempo + incr
     }));
-  onInputSubmit = async event => {
-    event.preventDefault();
-    await this.setTempo(parseInt(this.state.inputValue));
+  onInputSubmit = async e => {
+    e.preventDefault();
+    const newTempo = parseInt(this.state.inputValue);
+    if (newTempo >= 40 && newTempo <= 240) await this.setTempo(parseInt(this.state.inputValue));
     this.TempoInputRef.current.blur();
   };
-  onInputChange = event => {
+  onInputChange = e => {
     this.setState({
       // Only allows 3 digits to be entered
-      inputValue: event.currentTarget.value.replace(/\D/g, '').slice(0, 3)
+      inputValue: e.currentTarget.value.replace(/\D/g, '').slice(0, 3)
     });
   };
   onInputFocus = () => this.setState({ inputValue: '' });
@@ -39,6 +40,7 @@ class App extends Component {
           >
             <i className="fa fa-minus"></i>
           </button>
+
           <TempoInput
             TempoInputRef={this.TempoInputRef}
             value={this.state.inputValue}
@@ -47,11 +49,13 @@ class App extends Component {
             onFocus={this.onInputFocus}
             onBlur={this.onInputBlur}
           />
+
           <button className="incrementButton"
             onClick={() => this.incrementTempo(1)}
           >
             <i className="fa fa-plus"></i>
           </button>
+
         </div>
         <PlayStopButton playing={this.state.playing} togglePlayback={this.togglePlayback} />
       </div>
