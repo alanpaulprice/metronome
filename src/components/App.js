@@ -7,7 +7,7 @@ class App extends Component {
   TempoInputRef = React.createRef();
 
   togglePlayback = () => this.setState({ playing: !this.state.playing })
-  setTempo = newTempo => this.setState({ tempo: newTempo });
+  setTempo = newTempo => this.setState({ tempo: newTempo, inputValue: newTempo });
   incrementTempo = incr =>
     this.setState(prevState => ({
       ...prevState,
