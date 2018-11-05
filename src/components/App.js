@@ -21,7 +21,7 @@ class App extends Component {
     if (newTempo >= 40 && newTempo <= 240) await this.setTempo(parseInt(this.state.inputValue));
     this.TempoInputRef.current.blur();
   };
-  onInputChange = e => {
+  onTempoInputChange = e => {
     this.setState({
       // Only allows 3 digits to be entered
       inputValue: e.currentTarget.value.replace(/\D/g, '').slice(0, 3)
@@ -44,7 +44,7 @@ class App extends Component {
         <TempoInput
           TempoInputRef={this.TempoInputRef}
           value={this.state.inputValue}
-          onChange={this.onInputChange}
+          onChange={this.onTempoInputChange}
           onSubmit={this.onInputSubmit}
           onFocus={this.onInputFocus}
           onBlur={this.onInputBlur}
