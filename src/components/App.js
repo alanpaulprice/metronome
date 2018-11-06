@@ -4,31 +4,31 @@ import PlayStopButton from './PlayStopButton';
 import TempoSelectGrid from './TempoSelectGrid';
 
 class App extends Component {
-  state = { tempo: 120, inputValue: '120', playing: false };
+  state = { tempo: 120, tempoInputValue: '120', playing: false };
   TempoInputRef = React.createRef();
 
   togglePlayback = () => this.setState({ playing: !this.state.playing })
-  setTempo = newTempo => this.setState({ tempo: newTempo, inputValue: newTempo });
+  setTempo = newTempo => this.setState({ tempo: newTempo, tempoInputValue: newTempo });
   incrementTempo = incr =>
     this.setState(prevState => ({
       ...prevState,
       tempo: prevState.tempo + incr,
-      inputValue: prevState.tempo + incr
+      tempoInputValue: prevState.tempo + incr
     }));
   onInputSubmit = async e => {
     e.preventDefault();
-    const newTempo = parseInt(this.state.inputValue);
-    if (newTempo >= 40 && newTempo <= 240) await this.setTempo(parseInt(this.state.inputValue));
+    const newTempo = parseInt(this.state.tempoInputValue);
+    if (newTempo >= 40 && newTempo <= 240) await this.setTempo(parseInt(this.state.tempoInputValue));
     this.TempoInputRef.current.blur();
   };
   onTempoInputChange = e => {
     this.setState({
       // Only allows 3 digits to be entered
-      inputValue: e.currentTarget.value.replace(/\D/g, '').slice(0, 3)
+      tempoInputValue: e.currentTarget.value.replace(/\D/g, '').slice(0, 3)
     });
   };
-  onInputFocus = () => this.setState({ inputValue: '' });
-  onInputBlur = () => this.setState({ inputValue: this.state.tempo });
+  onInputFocus = () => this.setState({ tempoInputValue: '' });
+  onInputBlur = () => this.setState({ tempoInputValue: this.state.tempo });
 
   render() {
     return (
@@ -43,7 +43,7 @@ class App extends Component {
 
         <TempoInput
           TempoInputRef={this.TempoInputRef}
-          value={this.state.inputValue}
+          value={this.state.tempoInputValue}
           onChange={this.onTempoInputChange}
           onSubmit={this.onInputSubmit}
           onFocus={this.onInputFocus}
