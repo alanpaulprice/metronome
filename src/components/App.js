@@ -6,7 +6,7 @@ import TempoSelectGrid from './TempoSelectGrid';
 const withinAllowedRange = (num) => num >= 40 && num <= 230;
 
 class App extends Component {
-  state = { tempo: 120, tempoInputValue: '120', playing: false };
+  state = { tempo: 120, tempoInputValue: '120', playing: false, volume: 100 };
   TempoInputRef = React.createRef();
 
   togglePlayback = () => this.setState({ playing: !this.state.playing })
@@ -36,6 +36,7 @@ class App extends Component {
   onInputBlur = () => this.setState({ tempoInputValue: this.state.tempo });
   onIncrementButtonMinusClick = () => this.incrementTempo(-1);
   onIncrementButtonPlusClick = () => this.incrementTempo(1);
+  onVolumeInputChange = (e) => this.setState({ volume: e.currentTarget.value });
 
   render() {
     return (
@@ -62,6 +63,10 @@ class App extends Component {
         <PlayStopButton playing={this.state.playing} togglePlayback={this.togglePlayback} />
 
         <TempoSelectGrid setTempo={this.setTempo} />
+        <div className="volumeControl">
+          <input type="range" step="10" value={this.state.volume} onChange={this.onVolumeInputChange} />
+          <div className="volumeReadout">Volume: {this.state.volume}%</div>
+        </div>
       </div>
     );
   }
