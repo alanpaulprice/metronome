@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import TempoInput from './TempoInput';
-import PlayStopButton from './PlayStopButton';
+import StartStopButton from './StartStopButton';
 import TempoSelectGrid from './TempoSelectGrid';
 
 const withinAllowedRange = (num) => num >= 40 && num <= 230;
@@ -60,9 +60,10 @@ class App extends Component {
           <i className="fa fa-plus"></i>
         </button>
 
-        <PlayStopButton playing={this.state.playing} togglePlayback={this.togglePlayback} />
+        <StartStopButton playing={this.state.playing} togglePlayback={this.togglePlayback} />
 
         <TempoSelectGrid setTempo={this.setTempo} />
+
         <div className="volumeControl">
           <input type="range" step="10" value={this.state.volume} onChange={this.onVolumeInputChange} />
           <div className="volumeReadout">Volume: {this.state.volume}%</div>
