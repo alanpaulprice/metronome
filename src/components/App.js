@@ -3,6 +3,8 @@ import TempoInput from './TempoInput';
 import PlayStopButton from './PlayStopButton';
 import TempoSelectGrid from './TempoSelectGrid';
 
+const withinAllowedRange = (num) => num >= 40 && num <= 230;
+
 class App extends Component {
   state = { tempo: 120, tempoInputValue: '120', playing: false };
   TempoInputRef = React.createRef();
@@ -10,15 +12,18 @@ class App extends Component {
   togglePlayback = () => this.setState({ playing: !this.state.playing })
   setTempo = newTempo => this.setState({ tempo: newTempo, tempoInputValue: newTempo });
   incrementTempo = incr =>
-    this.setState(prevState => ({
-      ...prevState,
-      tempo: prevState.tempo + incr,
-      tempoInputValue: prevState.tempo + incr
-    }));
+    this.setState(prevState => (
+      {
+        ...prevState,
+        // Only edit state if the new tempo is within the allowed range
+        tempo: (withinAllowedRange(prevState.tempo + incr)) ? prevState.tempo + incr : prevState.tempo,
+        tempoInputValue: (withinAllowedRange(prevState.tempo + incr)) ? prevState.tempo + incr : prevState.tempo
+      }
+    ));
   onInputSubmit = async e => {
     e.preventDefault();
     const newTempo = parseInt(this.state.tempoInputValue);
-    if (newTempo >= 40 && newTempo <= 240) await this.setTempo(parseInt(this.state.tempoInputValue));
+    if (withinAllowedRange(newTempo)) await this.setTempo(parseInt(this.state.tempoInputValue));
     this.TempoInputRef.current.blur();
   };
   onTempoInputChange = e => {
