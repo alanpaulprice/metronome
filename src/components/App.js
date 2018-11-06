@@ -29,15 +29,15 @@ class App extends Component {
   };
   onInputFocus = () => this.setState({ tempoInputValue: '' });
   onInputBlur = () => this.setState({ tempoInputValue: this.state.tempo });
+  onIncrementButtonMinusClick = () => this.incrementTempo(-1);
+  onIncrementButtonPlusClick = () => this.incrementTempo(1);
 
   render() {
     return (
       <div className="App">
         <h1>metronome</h1>
 
-        <button className="incrementButton"
-          onClick={() => this.incrementTempo(-1)}
-        >
+        <button className="incrementButton" onClick={this.onIncrementButtonMinusClick}>
           <i className="fa fa-minus"></i>
         </button>
 
@@ -50,9 +50,7 @@ class App extends Component {
           onBlur={this.onInputBlur}
         />
 
-        <button className="incrementButton"
-          onClick={() => this.incrementTempo(1)}
-        >
+        <button className="incrementButton" onClick={this.onIncrementButtonPlusClick}>
           <i className="fa fa-plus"></i>
         </button>
 
