@@ -25,7 +25,7 @@ class App extends Component {
         : prevState.tempo
     }));
 
-  onInputSubmit = async e => {
+  onInputFormSubmit = async e => {
     e.preventDefault();
     const newTempo = parseInt(this.state.tempoInputValue);
     if (withinAllowedRange(newTempo))
@@ -63,7 +63,7 @@ class App extends Component {
           <i className="fa fa-minus" />
         </button>
 
-        <form onSubmit={this.onInputSubmit}>
+        <form onSubmit={this.onInputFormSubmit}>
           <input
             className="tempoInput"
             ref={this.TempoInputRef}
