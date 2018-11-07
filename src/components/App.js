@@ -11,8 +11,10 @@ class App extends Component {
   TempoInputRef = React.createRef();
 
   togglePlayback = () => this.setState({ playing: !this.state.playing });
+
   setTempo = newTempo =>
     this.setState({ tempo: newTempo, tempoInputValue: newTempo });
+
   incrementTempo = incr =>
     this.setState(prevState => ({
       ...prevState,
@@ -24,6 +26,7 @@ class App extends Component {
         ? prevState.tempo + incr
         : prevState.tempo
     }));
+
   onInputSubmit = async e => {
     e.preventDefault();
     const newTempo = parseInt(this.state.tempoInputValue);
@@ -31,15 +34,21 @@ class App extends Component {
       await this.setTempo(parseInt(this.state.tempoInputValue));
     this.TempoInputRef.current.blur();
   };
+
   // Only allows 3 digits to be entered
   onTempoInputChange = e =>
     this.setState({
       tempoInputValue: e.currentTarget.value.replace(/\D/g, '').slice(0, 3)
     });
+
   onInputFocus = () => this.setState({ tempoInputValue: '' });
+
   onInputBlur = () => this.setState({ tempoInputValue: this.state.tempo });
+
   onIncrementButtonMinusClick = () => this.incrementTempo(-1);
+
   onIncrementButtonPlusClick = () => this.incrementTempo(1);
+
   onVolumeInputChange = e => this.setState({ volume: e.currentTarget.value });
 
   render() {
