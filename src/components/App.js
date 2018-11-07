@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import TempoInput from './TempoInput';
 import TempoSelectGrid from './TempoSelectGrid';
 import KeyboardShortcuts from './KeyboardShortcuts';
 
@@ -64,14 +63,16 @@ class App extends Component {
           <i className="fa fa-minus" />
         </button>
 
-        <input
-          ref={this.TempoInputRef}
-          value={this.state.tempoInputValue}
-          onChange={this.onTempoInputChange}
-          onSubmit={this.onInputSubmit}
-          onFocus={this.onInputFocus}
-          onBlur={this.onInputBlur}
-        />
+        <form onSubmit={this.onInputSubmit}>
+          <input
+            className="tempoInput"
+            ref={this.TempoInputRef}
+            value={this.state.tempoInputValue}
+            onChange={this.onTempoInputChange}
+            onFocus={this.onInputFocus}
+            onBlur={this.onInputBlur}
+          />
+        </form>
 
         <button
           className="incrementButton"
