@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import TempoInput from './TempoInput';
-import StartStopButton from './StartStopButton';
 import TempoSelectGrid from './TempoSelectGrid';
 import KeyboardShortcuts from './KeyboardShortcuts';
 
@@ -49,6 +48,8 @@ class App extends Component {
 
   onIncrementButtonPlusClick = () => this.incrementTempo(1);
 
+  onPlayStopButtonClick = () => this.togglePlayback();
+
   onVolumeInputChange = e => this.setState({ volume: e.currentTarget.value });
 
   render() {
@@ -63,8 +64,8 @@ class App extends Component {
           <i className="fa fa-minus" />
         </button>
 
-        <TempoInput
-          TempoInputRef={this.TempoInputRef}
+        <input
+          ref={this.TempoInputRef}
           value={this.state.tempoInputValue}
           onChange={this.onTempoInputChange}
           onSubmit={this.onInputSubmit}
@@ -79,10 +80,9 @@ class App extends Component {
           <i className="fa fa-plus" />
         </button>
 
-        <StartStopButton
-          playing={this.state.playing}
-          togglePlayback={this.togglePlayback}
-        />
+        <button className="playStopButton" onClick={this.onPlayStopButtonClick}>
+          <i className={`fa ' ${this.state.playing ? 'fa-stop' : 'fa-play'}`} />
+        </button>
 
         <TempoSelectGrid setTempo={this.setTempo} />
 
