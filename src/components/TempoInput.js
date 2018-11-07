@@ -1,6 +1,13 @@
 import React from 'react';
 
-const Input = ({ TempoInputRef, value, onChange, onSubmit, onFocus, onBlur }) => {
+const Input = ({
+  TempoInputRef,
+  value,
+  onChange,
+  onSubmit,
+  onFocus,
+  onBlur
+}) => {
   return (
     <form className="TempoInput" onSubmit={onSubmit}>
       <input
