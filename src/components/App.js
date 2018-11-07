@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import TempoInput from './TempoInput';
 import StartStopButton from './StartStopButton';
 import TempoSelectGrid from './TempoSelectGrid';
+import KeyboardShortcuts from './KeyboardShortcuts';
 
 const withinAllowedRange = (num) => num >= 40 && num <= 230;
 
@@ -66,8 +67,10 @@ class App extends Component {
 
         <div className="volumeControl">
           <input type="range" step="10" value={this.state.volume} onChange={this.onVolumeInputChange} />
-          <div className="volumeReadout">Volume: {this.state.volume}%</div>
+          <div className="volumeReadout">volume: {this.state.volume}%</div>
         </div>
+
+        <KeyboardShortcuts />
       </div>
     );
   }
