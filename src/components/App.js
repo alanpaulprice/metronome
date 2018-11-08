@@ -82,7 +82,7 @@ class App extends Component {
         </button>
 
         <button className="playStopButton" onClick={this.onPlayStopButtonClick}>
-          <i className={`fa ' ${this.state.playing ? 'fa-stop' : 'fa-play'}`} />
+          <i className={`fa fa-${this.state.playing ? 'stop' : 'play'}`} />
         </button>
 
         <TempoSelectGrid setTempo={this.setTempo} />
