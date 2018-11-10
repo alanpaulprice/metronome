@@ -1,8 +1,14 @@
 import React, { Component } from 'react';
+import styled, { ThemeProvider } from 'styled-components';
 import TempoSelectGrid from './TempoSelectGrid';
 import KeyboardShortcuts from './KeyboardShortcuts';
 
 const withinAllowedRange = num => num >= 40 && num <= 230;
+
+const theme = {
+  main: 'hsl(34, 78%, 91%)',
+  secondary: 'hsl(34, 76%, 15%)'
+};
 
 class App extends Component {
   state = { tempo: 120, tempoInputValue: '120', playing: false, volume: 100 };
@@ -53,6 +59,7 @@ class App extends Component {
 
   render() {
     return (
+      <ThemeProvider theme={{ theme }}>
       <div className="App">
         <h1>metronome</h1>
 
@@ -99,6 +106,7 @@ class App extends Component {
 
         <KeyboardShortcuts />
       </div>
+      </ThemeProvider>
     );
   }
 }
