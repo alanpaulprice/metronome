@@ -1,8 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 
-export default ({ children }) => {
-  const Button = styled.button``;
+const Button = styled.button``;
 
-  return <Button>{children}</Button>;
-};
+export default Button;
