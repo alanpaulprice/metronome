@@ -1,7 +1,8 @@
 import React, { Component, Fragment } from 'react';
-import styled, { ThemeProvider, createGlobalStyle } from 'styled-components';
+import { ThemeProvider, createGlobalStyle } from 'styled-components';
 import TempoSelectGrid from './TempoSelectGrid';
 import KeyboardShortcuts from './KeyboardShortcuts';
+import Wrapper from '../elements/Wrapper';
 import Button from '../elements/Button';
 
 const withinAllowedRange = num => num >= 40 && num <= 230;
@@ -69,22 +70,18 @@ class App extends Component {
 
   render() {
     return (
-      <ThemeProvider theme={{ theme }}>
+      <ThemeProvider theme={theme}>
         <Fragment>
           <GlobalStyle />
-          <div className="App">
+          <Wrapper>
             <h1>metronome</h1>
 
-            <Button
-              className="incrementButton"
-              onClick={this.onIncrementButtonMinusClick}
-            >
+            <Button onClick={this.onIncrementButtonMinusClick}>
               <i className="fa fa-minus" />
             </Button>
 
             <form onSubmit={this.onInputFormSubmit}>
               <input
-                className="tempoInput"
                 ref={this.TempoInputRef}
                 value={this.state.tempoInputValue}
                 onChange={this.onTempoInputChange}
@@ -93,34 +90,28 @@ class App extends Component {
               />
             </form>
 
-            <Button
-              className="incrementButton"
-              onClick={this.onIncrementButtonPlusClick}
-            >
+            <Button onClick={this.onIncrementButtonPlusClick}>
               <i className="fa fa-plus" />
             </Button>
 
-            <Button
-              className="playStopButton"
-              onClick={this.onPlayStopButtonClick}
-            >
+            <Button onClick={this.onPlayStopButtonClick}>
               <i className={`fa fa-${this.state.playing ? 'stop' : 'play'}`} />
             </Button>
 
             <TempoSelectGrid setTempo={this.setTempo} />
 
-            <div className="volumeControl">
+            <div>
               <input
                 type="range"
                 step="10"
                 value={this.state.volume}
                 onChange={this.onVolumeInputChange}
               />
-              <div className="volumeReadout">volume: {this.state.volume}%</div>
+              <div>volume: {this.state.volume}%</div>
             </div>
 
             <KeyboardShortcuts />
-          </div>
+          </Wrapper>
         </Fragment>
       </ThemeProvider>
     );
