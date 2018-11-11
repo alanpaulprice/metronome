@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styled, { ThemeProvider } from 'styled-components';
 import TempoSelectGrid from './TempoSelectGrid';
 import KeyboardShortcuts from './KeyboardShortcuts';
-import Button from './Button';
+import Button from '../elements/Button';
 
 const withinAllowedRange = num => num >= 40 && num <= 230;
 
