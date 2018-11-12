@@ -1,15 +1,18 @@
 import React, { Component, Fragment } from 'react';
 import { ThemeProvider, createGlobalStyle } from 'styled-components';
+
 import TempoSelectGrid from './TempoSelectGrid';
 import KeyboardShortcuts from './KeyboardShortcuts';
+
 import Wrapper from '../elements/Wrapper';
+import H1 from '../elements/H1';
 import Button from '../elements/Button';
 
 const withinAllowedRange = num => num >= 40 && num <= 230;
 
 const theme = {
-  main: 'hsl(34, 78%, 91%)',
-  secondary: 'hsl(34, 76%, 15%)'
+  bg: 'hsl(34, 78%, 91%)',
+  fg: 'hsl(34, 76%, 15%)'
 };
 
 const GlobalStyle = createGlobalStyle`
@@ -74,7 +77,7 @@ class App extends Component {
         <Fragment>
           <GlobalStyle />
           <Wrapper>
-            <h1>metronome</h1>
+            <H1>metronome</H1>
 
             <Button onClick={this.onIncrementButtonMinusClick}>
               <i className="fa fa-minus" />
