@@ -79,7 +79,7 @@ class App extends Component {
           <Wrapper>
             <H1>metronome</H1>
 
-            <Button onClick={this.onIncrementButtonMinusClick}>
+            <Button noBorder onClick={this.onIncrementButtonMinusClick}>
               <i className="fa fa-minus" />
             </Button>
 
@@ -93,11 +93,11 @@ class App extends Component {
               />
             </form>
 
-            <Button onClick={this.onIncrementButtonPlusClick}>
+            <Button noBorder onClick={this.onIncrementButtonPlusClick}>
               <i className="fa fa-plus" />
             </Button>
 
-            <Button onClick={this.onPlayStopButtonClick}>
+            <Button noBorder onClick={this.onPlayStopButtonClick}>
               <i className={`fa fa-${this.state.playing ? 'stop' : 'play'}`} />
             </Button>
 
