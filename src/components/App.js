@@ -22,6 +22,9 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     font-family: monospace;
   }
+  html {
+    background: ${theme.bg};
+  }
 `;
 
 class App extends Component {
