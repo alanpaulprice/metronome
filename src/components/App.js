@@ -31,7 +31,7 @@ class App extends Component {
   state = { tempo: 120, tempoInputValue: '120', playing: false, volume: 100 };
   TempoInputRef = React.createRef();
 
-  togglePlayback = () => this.setState({ playing: !this.state.playing });
+  togglePlaybackState = () => this.setState({ playing: !this.state.playing });
 
   setTempo = newTempo =>
     this.setState({ tempo: newTempo, tempoInputValue: newTempo });
@@ -70,7 +70,7 @@ class App extends Component {
 
   onIncrementButtonPlusClick = () => this.incrementTempo(1);
 
-  onPlayStopButtonClick = () => this.togglePlayback();
+  onPlayStopButtonClick = () => this.togglePlaybackState();
 
   onVolumeInputChange = e => this.setState({ volume: e.currentTarget.value });
 
