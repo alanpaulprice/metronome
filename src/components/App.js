@@ -30,6 +30,7 @@ const GlobalStyle = createGlobalStyle`
 class App extends Component {
   state = { tempo: 120, tempoInputValue: '120', playing: false, volume: 100 };
   TempoInputRef = React.createRef();
+  audioCtx = null;
 
   togglePlaybackState = () => this.setState({ playing: !this.state.playing });
 
@@ -73,6 +74,15 @@ class App extends Component {
   onPlayStopButtonClick = () => this.togglePlaybackState();
 
   onVolumeInputChange = e => this.setState({ volume: e.currentTarget.value });
+
+  componentDidMount() {
+    try {
+      const AudioContext = window.AudioContext || window.webkitAudioContext;
+      this.audioCtx = new AudioContext();
+    } catch (e) {
+      alert('Web Audio API is not supported in this browser');
+    }
+  }
 
   render() {
     return (
