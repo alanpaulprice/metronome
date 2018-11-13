@@ -31,6 +31,8 @@ class App extends Component {
   state = { tempo: 120, tempoInputValue: '120', playing: false, volume: 100 };
   TempoInputRef = React.createRef();
   audioCtx = null;
+  osc = null;
+  gain = null;
 
   togglePlaybackState = () => this.setState({ playing: !this.state.playing });
 
@@ -71,14 +73,28 @@ class App extends Component {
 
   onIncrementButtonPlusClick = () => this.incrementTempo(1);
 
-  onPlayStopButtonClick = () => this.togglePlaybackState();
+  onPlayStopButtonClick = () => {
+    this.togglePlaybackState();
+    this.state.playing
+      ? this.gain.disconnect(this.audioCtx.destination)
+      : this.gain.connect(this.audioCtx.destination);
+  };
 
   onVolumeInputChange = e => this.setState({ volume: e.currentTarget.value });
 
   componentDidMount() {
     try {
+      // Create audio context
       const AudioContext = window.AudioContext || window.webkitAudioContext;
       this.audioCtx = new AudioContext();
+      // Create gain node
+      this.gain = this.audioCtx.createGain();
+      this.gain.gain.value = 0.1;
+      // Create oscillator
+      this.osc = this.audioCtx.createOscillator();
+      this.osc.type = 'sine';
+      this.osc.connect(this.gain);
+      this.osc.start();
     } catch (e) {
       alert('Web Audio API is not supported in this browser');
     }
