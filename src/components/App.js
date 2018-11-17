@@ -11,8 +11,8 @@ import Button from '../elements/Button';
 const withinAllowedRange = num => num >= 40 && num <= 230;
 
 const theme = {
-  bg: 'hsl(34, 78%, 91%)',
-  fg: 'hsl(34, 76%, 15%)'
+  bg: '#333', //'hsl(34, 78%, 91%)',
+  fg: '#ccc' //'hsl(34, 76%, 15%)'
 };
 
 const GlobalStyle = createGlobalStyle`
@@ -28,7 +28,7 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 class App extends Component {
-  state = { tempo: 120, tempoInputValue: '120', playing: false, volume: 100 };
+  state = { tempo: 120, tempoInputValue: '120', playing: false, volume: 1 };
   TempoInputRef = React.createRef();
   audioCtx = null;
   osc = null;
@@ -135,11 +135,13 @@ class App extends Component {
             <div>
               <input
                 type="range"
-                step="10"
+                min="0.1"
+                max="1"
+                step="0.1"
                 value={this.state.volume}
                 onChange={this.onVolumeInputChange}
               />
-              <div>volume: {this.state.volume}%</div>
+              <div>volume: {this.state.volume * 100}%</div>
             </div>
 
             <KeyboardShortcuts />
