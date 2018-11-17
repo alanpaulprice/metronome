@@ -30,9 +30,6 @@ const GlobalStyle = createGlobalStyle`
 class App extends Component {
   state = { tempo: 120, tempoInputValue: '120', playing: false, volume: 1 };
   TempoInputRef = React.createRef();
-  audioCtx = null;
-  osc = null;
-  gain = null;
 
   togglePlaybackState = () => this.setState({ playing: !this.state.playing });
 
