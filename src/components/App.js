@@ -99,6 +99,15 @@ class App extends Component {
     }
   }
 
+  componentDidUpdate = (prevProps, prevState) => {
+    if (this.volumeGain.gain.value !== this.state.volume) {
+      this.volumeGain.gain.exponentialRampToValueAtTime(
+        this.state.volume,
+        this.ctx.currentTime + 0.005
+      );
+    }
+  };
+
   render() {
     return (
       <ThemeProvider theme={theme}>
