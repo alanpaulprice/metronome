@@ -51,7 +51,7 @@ class App extends Component {
         ? prevState.tempo + incr
         : prevState.tempo
     }));
-  // Only blur (triggering input value update) once state has been updated
+  // Blur (triggering input value update) after state has been updated
   onInputFormSubmit = async e => {
     e.preventDefault();
     const newTempo = parseInt(this.state.tempoInputValue);
