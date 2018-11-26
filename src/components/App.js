@@ -31,7 +31,11 @@ class App extends Component {
   state = { tempo: 120, tempoInputValue: '120', playing: false, volume: 1 };
   TempoInputRef = React.createRef();
 
-  togglePlaybackState = () => this.setState({ playing: !this.state.playing });
+  togglePlaybackState = () =>
+    this.setState(prevState => ({
+      ...prevState,
+      playing: !prevState.playing
+    }));
 
   setTempo = newTempo =>
     this.setState({ tempo: newTempo, tempoInputValue: newTempo });
