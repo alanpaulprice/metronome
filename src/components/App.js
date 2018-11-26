@@ -79,7 +79,13 @@ class App extends Component {
     this.ctx[this.state.playing ? 'resume' : 'suspend']();
   };
 
-  onVolumeInputChange = e => this.setState({ volume: e.currentTarget.value });
+  onVolumeInputChange = e => {
+    this.setState({ volume: e.currentTarget.value });
+    this.volumeGain.gain.exponentialRampToValueAtTime(
+      e.currentTarget.value,
+      this.ctx.currentTime + 0.005
+    );
+  };
 
   componentDidMount() {
     try {
@@ -98,15 +104,6 @@ class App extends Component {
       alert('Web Audio API is not supported in this browser');
     }
   }
-
-  componentDidUpdate = (prevProps, prevState) => {
-    if (this.volumeGain.gain.value !== this.state.volume) {
-      this.volumeGain.gain.exponentialRampToValueAtTime(
-        this.state.volume,
-        this.ctx.currentTime + 0.005
-      );
-    }
-  };
 
   render() {
     return (
