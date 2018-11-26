@@ -74,28 +74,26 @@ class App extends Component {
 
   onIncrementButtonPlusClick = () => this.incrementTempo(1);
 
-  onPlayStopButtonClick = () => {
-    this.togglePlaybackState();
-    this.state.playing
-      ? this.gain.disconnect(this.audioCtx.destination)
-      : this.gain.connect(this.audioCtx.destination);
+  onPlayStopButtonClick = async () => {
+    await this.togglePlaybackState();
+    this.ctx[this.state.playing ? 'resume' : 'suspend']();
   };
 
   onVolumeInputChange = e => this.setState({ volume: e.currentTarget.value });
 
   componentDidMount() {
     try {
-      // Create audio context
-      const AudioContext = window.AudioContext || window.webkitAudioContext;
-      this.audioCtx = new AudioContext();
-      // Create gain node
-      this.gain = this.audioCtx.createGain();
-      this.gain.gain.value = 0.1;
-      // Create oscillator
-      this.osc = this.audioCtx.createOscillator();
-      this.osc.type = 'sine';
-      this.osc.connect(this.gain);
+      // Initialize the nodes
+      this.ctx = new (window.AudioContext || window.webkitAudioContext)();
+      this.ctx.suspend();
+      this.osc = this.ctx.createOscillator();
+      this.osc.frequency.value = 50;
+      this.osc.type = 'sawtooth';
       this.osc.start();
+      this.volumeGain = this.ctx.createGain();
+      // Connect the nodes
+      this.osc.connect(this.volumeGain);
+      this.volumeGain.connect(this.ctx.destination);
     } catch (e) {
       alert('Web Audio API is not supported in this browser');
     }
