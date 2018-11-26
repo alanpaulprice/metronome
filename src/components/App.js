@@ -81,7 +81,7 @@ class App extends Component {
 
   onVolumeInputChange = e => {
     this.setState({ volume: e.currentTarget.value });
-    this.volumeGain.gain.exponentialRampToValueAtTime(
+    this.volumeGain.gain.linearRampToValueAtTime(
       e.currentTarget.value,
       this.ctx.currentTime + 0.005
     );
