@@ -140,7 +140,7 @@ class App extends Component {
             <div>
               <input
                 type="range"
-                min="0.1"
+                min="0"
                 max="1"
                 step="0.1"
                 value={this.state.volume}
