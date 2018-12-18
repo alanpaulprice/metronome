@@ -3,6 +3,7 @@ import { ThemeProvider, createGlobalStyle } from 'styled-components';
 
 import TempoSelectGrid from './TempoSelectGrid';
 import KeyboardShortcuts from './KeyboardShortcuts';
+import Sound from './Sound';
 
 import Wrapper from '../elements/Wrapper';
 import H1 from '../elements/H1';
@@ -87,28 +88,11 @@ class App extends Component {
     );
   };
 
-  componentDidMount() {
-    try {
-      // Initialize the nodes
-      this.ctx = new (window.AudioContext || window.webkitAudioContext)();
-      this.ctx.suspend();
-      this.osc = this.ctx.createOscillator();
-      this.osc.frequency.value = 50;
-      this.osc.type = 'sawtooth';
-      this.osc.start();
-      this.volumeGain = this.ctx.createGain();
-      // Connect the nodes
-      this.osc.connect(this.volumeGain);
-      this.volumeGain.connect(this.ctx.destination);
-    } catch (e) {
-      alert('Web Audio API is not supported in this browser');
-    }
-  }
-
   render() {
     return (
       <ThemeProvider theme={theme}>
         <Fragment>
+          <Sound />
           <GlobalStyle />
           <Wrapper>
             <H1>metronome</H1>
