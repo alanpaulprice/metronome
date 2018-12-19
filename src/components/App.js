@@ -29,7 +29,13 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 class App extends Component {
-  state = { tempo: 120, tempoInputValue: '120', playing: false, volume: 1 };
+  state = {
+    tempo: 120,
+    tempoInputValue: '120',
+    playing: false,
+    volume: 1
+  };
+
   TempoInputRef = React.createRef();
 
   togglePlaybackState = () =>
@@ -92,7 +98,9 @@ class App extends Component {
     return (
       <ThemeProvider theme={theme}>
         <Fragment>
-          <Sound />
+          {this.state.playing ? (
+            <Sound tempo={this.state.tempo} volume={this.state.volume} />
+          ) : null}
           <GlobalStyle />
           <Wrapper>
             <H1>metronome</H1>
