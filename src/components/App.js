@@ -47,10 +47,10 @@ class App extends Component {
   setTempo = newTempo =>
     this.setState({ tempo: newTempo, tempoInputValue: newTempo });
 
+  // Only increment if the new tempo is within the allowed range
   incrementTempo = incr =>
     this.setState(prevState => ({
       ...prevState,
-      // Only edit state if the new tempo is within the allowed range
       tempo: withinAllowedRange(prevState.tempo + incr)
         ? prevState.tempo + incr
         : prevState.tempo,
@@ -83,15 +83,10 @@ class App extends Component {
 
   onPlayStopButtonClick = async () => {
     await this.togglePlaybackState();
-    this.ctx[this.state.playing ? 'resume' : 'suspend']();
   };
 
   onVolumeInputChange = e => {
     this.setState({ volume: e.currentTarget.value });
-    this.volumeGain.gain.linearRampToValueAtTime(
-      e.currentTarget.value,
-      this.ctx.currentTime + 0.005
-    );
   };
 
   render() {
