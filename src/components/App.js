@@ -93,9 +93,11 @@ class App extends Component {
     return (
       <ThemeProvider theme={theme}>
         <Fragment>
-          {this.state.playing ? (
-            <Sound tempo={this.state.tempo} volume={this.state.volume} />
-          ) : null}
+          <Sound
+            tempo={this.state.tempo}
+            playing={this.state.playing}
+            volume={this.state.volume}
+          />
           <GlobalStyle />
           <Wrapper>
             <H1>metronome</H1>
