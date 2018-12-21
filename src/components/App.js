@@ -81,8 +81,8 @@ class App extends Component {
 
   onIncrementButtonPlusClick = () => this.incrementTempo(1);
 
-  onPlayStopButtonClick = async () => {
-    await this.togglePlaybackState();
+  onPlayStopButtonClick = () => {
+    this.togglePlaybackState();
   };
 
   onVolumeInputChange = e => {
