@@ -33,7 +33,8 @@ class App extends Component {
     tempo: 120,
     tempoInputValue: '120',
     playing: false,
-    volume: 1
+    volume: 1,
+    accent: false
   };
 
   TempoInputRef = React.createRef();
@@ -47,7 +48,7 @@ class App extends Component {
   setTempo = newTempo =>
     this.setState({ tempo: newTempo, tempoInputValue: newTempo });
 
-  // Only increment if the new tempo is within the allowed range
+  // only increment if the new tempo is within the allowed range
   incrementTempo = incr =>
     this.setState(prevState => ({
       ...prevState,
@@ -58,7 +59,14 @@ class App extends Component {
         ? prevState.tempo + incr
         : prevState.tempo
     }));
-  // Blur (triggering input value update) after state has been updated
+
+  toggleAccentState = () =>
+    this.setState(prevState => ({
+      ...prevState,
+      accent: !prevState.accent
+    }));
+
+  // blur (triggering input value update) after state has been updated
   onInputFormSubmit = async e => {
     e.preventDefault();
     const newTempo = parseInt(this.state.tempoInputValue);
@@ -67,7 +75,7 @@ class App extends Component {
     this.TempoInputRef.current.blur();
   };
 
-  // Only allows 3 digits to be entered
+  // only allows 3 digits to be entered
   onTempoInputChange = e =>
     this.setState({
       tempoInputValue: e.currentTarget.value.replace(/\D/g, '').slice(0, 3)
@@ -89,6 +97,8 @@ class App extends Component {
     this.setState({ volume: e.currentTarget.value });
   };
 
+  onAccentButtonClick = () => this.toggleAccentState();
+
   render() {
     return (
       <ThemeProvider theme={theme}>
@@ -97,6 +107,7 @@ class App extends Component {
             tempo={this.state.tempo}
             playing={this.state.playing}
             volume={this.state.volume}
+            accent={this.state.accent}
           />
           <GlobalStyle />
           <Wrapper>
@@ -122,6 +133,10 @@ class App extends Component {
 
             <Button noBorder onClick={this.onPlayStopButtonClick}>
               <i className={`fa fa-${this.state.playing ? 'stop' : 'play'}`} />
+            </Button>
+
+            <Button onClick={this.onAccentButtonClick}>
+              Accent: {this.state.accent ? 'On' : 'Off'}
             </Button>
 
             <TempoSelectGrid setTempo={this.setTempo} />
