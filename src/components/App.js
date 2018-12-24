@@ -39,11 +39,17 @@ class App extends Component {
 
   TempoInputRef = React.createRef();
 
+  // ========== STATE MODIFICATION
+
+  // ===== PLAYING
+
   togglePlaying = () =>
     this.setState(prevState => ({
       ...prevState,
       playing: !prevState.playing
     }));
+
+  // ===== TEMPO
 
   setTempo = newTempo =>
     this.setState({ tempo: newTempo, tempoInputValue: newTempo });
@@ -59,6 +65,8 @@ class App extends Component {
         ? prevState.tempo + incr
         : prevState.tempo
     }));
+
+  // ===== ACCENT
 
   toggleAccent = () =>
     this.setState(prevState => ({
@@ -85,9 +93,9 @@ class App extends Component {
 
   onInputBlur = () => this.setState({ tempoInputValue: this.state.tempo });
 
-  onIncrementButtonMinusClick = () => this.incrementTempo(-1);
+  onIncrementTempoMinusButtonClick = () => this.incrementTempo(-1);
 
-  onIncrementButtonPlusClick = () => this.incrementTempo(1);
+  onIncrementTempoPlusButtonClick = () => this.incrementTempo(1);
 
   onPlayStopButtonClick = () => {
     this.togglePlaying();
@@ -99,24 +107,26 @@ class App extends Component {
 
   onAccentButtonClick = () => this.toggleAccent();
 
+  // ========== RENDER
+
   render() {
     return (
       <ThemeProvider theme={theme}>
         <Fragment>
+          <GlobalStyle />
           <Sound
             tempo={this.state.tempo}
             playing={this.state.playing}
             volume={this.state.volume}
             accent={this.state.accent}
           />
-          <GlobalStyle />
           <Wrapper>
             <H1>metronome</H1>
-
-            <Button noBorder onClick={this.onIncrementButtonMinusClick}>
+            <label>
+              Tempo
+              <Button noBorder onClick={this.onIncrementTempoMinusButtonClick}>
               <i className="fa fa-minus" />
             </Button>
-
             <form onSubmit={this.onInputFormSubmit}>
               <input
                 ref={this.TempoInputRef}
@@ -126,10 +136,10 @@ class App extends Component {
                 onBlur={this.onInputBlur}
               />
             </form>
-
-            <Button noBorder onClick={this.onIncrementButtonPlusClick}>
+              <Button noBorder onClick={this.onIncrementTempoPlusButtonClick}>
               <i className="fa fa-plus" />
             </Button>
+            </label>
 
             <Button noBorder onClick={this.onPlayStopButtonClick}>
               <i className={`fa fa-${this.state.playing ? 'stop' : 'play'}`} />
