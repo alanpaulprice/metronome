@@ -39,7 +39,7 @@ class App extends Component {
 
   TempoInputRef = React.createRef();
 
-  togglePlaybackState = () =>
+  togglePlaying = () =>
     this.setState(prevState => ({
       ...prevState,
       playing: !prevState.playing
@@ -60,7 +60,7 @@ class App extends Component {
         : prevState.tempo
     }));
 
-  toggleAccentState = () =>
+  toggleAccent = () =>
     this.setState(prevState => ({
       ...prevState,
       accent: !prevState.accent
@@ -90,14 +90,14 @@ class App extends Component {
   onIncrementButtonPlusClick = () => this.incrementTempo(1);
 
   onPlayStopButtonClick = () => {
-    this.togglePlaybackState();
+    this.togglePlaying();
   };
 
   onVolumeInputChange = e => {
     this.setState({ volume: e.currentTarget.value });
   };
 
-  onAccentButtonClick = () => this.toggleAccentState();
+  onAccentButtonClick = () => this.toggleAccent();
 
   render() {
     return (
