@@ -112,7 +112,7 @@ class App extends Component {
     this.setState({ volume: e.currentTarget.value });
   };
 
-  onAccentButtonClick = () => this.toggleAccent();
+  onAccentToggleButtonClick = () => this.toggleAccent();
 
   // ========== RENDER
 
