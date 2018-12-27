@@ -9,7 +9,7 @@ import Wrapper from '../elements/Wrapper';
 import H1 from '../elements/H1';
 import Button from '../elements/Button';
 
-const withinAllowedRange = num => num >= 40 && num <= 230;
+const withinAllowedTempoRange = num => num >= 40 && num <= 230;
 
 const theme = {
   bg: '#333', //'hsl(34, 78%, 91%)',
@@ -58,10 +58,10 @@ class App extends Component {
   incrementTempo = incr =>
     this.setState(prevState => ({
       ...prevState,
-      tempo: withinAllowedRange(prevState.tempo + incr)
+      tempo: withinAllowedTempoRange(prevState.tempo + incr)
         ? prevState.tempo + incr
         : prevState.tempo,
-      tempoInputValue: withinAllowedRange(prevState.tempo + incr)
+      tempoInputValue: withinAllowedTempoRange(prevState.tempo + incr)
         ? prevState.tempo + incr
         : prevState.tempo
     }));
@@ -78,7 +78,7 @@ class App extends Component {
   onInputFormSubmit = async e => {
     e.preventDefault();
     const newTempo = parseInt(this.state.tempoInputValue);
-    if (withinAllowedRange(newTempo))
+    if (withinAllowedTempoRange(newTempo))
       await this.setTempo(parseInt(this.state.tempoInputValue));
     this.TempoInputRef.current.blur();
   };
