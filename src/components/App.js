@@ -34,7 +34,9 @@ class App extends Component {
     tempoInputValue: '120',
     playing: false,
     volume: 1,
-    accent: false
+    accent: false,
+    accentBeat: 4,
+    accentBeatInput: '4'
   };
 
   TempoInputRef = React.createRef();
