@@ -114,6 +114,9 @@ class App extends Component {
 
   onAccentToggleButtonClick = () => this.toggleAccent();
 
+  onIncrementAccentBeatButtonClick = e =>
+    this.incrementAccentBeat(Number(e.currentTarget.value));
+
   // ========== RENDER
 
   render() {
