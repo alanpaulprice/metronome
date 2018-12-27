@@ -93,9 +93,8 @@ class App extends Component {
 
   onInputBlur = () => this.setState({ tempoInputValue: this.state.tempo });
 
-  onIncrementTempoMinusButtonClick = () => this.incrementTempo(-1);
-
-  onIncrementTempoPlusButtonClick = () => this.incrementTempo(1);
+  onIncrementTempoButtonClick = e =>
+    this.incrementTempo(Number(e.currentTarget.value));
 
   onPlayStopButtonClick = () => {
     this.togglePlaying();
@@ -124,7 +123,11 @@ class App extends Component {
             <H1>metronome</H1>
             <label>
               Tempo
-              <Button noBorder onClick={this.onIncrementTempoMinusButtonClick}>
+              <Button
+                noBorder
+                value={-1}
+                onClick={this.onIncrementTempoButtonClick}
+              >
               <i className="fa fa-minus" />
             </Button>
             <form onSubmit={this.onInputFormSubmit}>
@@ -136,7 +139,11 @@ class App extends Component {
                 onBlur={this.onInputBlur}
               />
             </form>
-              <Button noBorder onClick={this.onIncrementTempoPlusButtonClick}>
+              <Button
+                noBorder
+                value={1}
+                onClick={this.onIncrementTempoButtonClick}
+              >
               <i className="fa fa-plus" />
             </Button>
             </label>
