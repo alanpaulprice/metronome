@@ -76,6 +76,12 @@ class App extends Component {
       accent: !prevState.accent
     }));
 
+  setAccentBeat = beat => {
+    this.setState({ accentBeat: beat });
+  };
+
+  // ========== EVENT HANDLERS
+
   // blur (triggering input value update) after state has been updated
   onInputFormSubmit = async e => {
     e.preventDefault();
