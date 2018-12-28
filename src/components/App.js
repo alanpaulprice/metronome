@@ -112,6 +112,11 @@ class App extends Component {
     this.setState({ volume: e.currentTarget.value });
   };
 
+  onAccentBeatInputChange = e =>
+    this.setState({
+      accentBeatInput: e.currentTarget.value.replace(/\D/g, '').slice(0, 2)
+    });
+
   onAccentToggleButtonClick = () => this.toggleAccent();
 
   onIncrementAccentBeatButtonClick = e =>
@@ -175,7 +180,10 @@ class App extends Component {
               >
                 <i className="fa fa-minus" />
               </Button>
-              <input value={this.state.accentBeatInput} />
+              <input
+                value={this.state.accentBeatInput}
+                onChange={this.onAccentBeatInputChange}
+              />
               <Button
                 noBorder
                 value={1}
