@@ -175,6 +175,7 @@ class App extends Component {
               >
                 <i className="fa fa-minus" />
               </Button>
+              <input value={this.state.accentBeatInput} />
               <Button
                 noBorder
                 value={1}
