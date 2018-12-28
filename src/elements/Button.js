@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
-const Button = styled.button.attrs({
-  // default - type: 'button'
-  type: props => props.type || 'button'
-})`
+const Button = styled.button.attrs(props => ({
+  // default - type: 'button
+  type: props.type || 'button'
+}))`
   background: transparent;
   outline: none;
   font-size: 1rem;
