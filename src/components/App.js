@@ -112,7 +112,7 @@ class App extends Component {
     this.setState({ volume: e.currentTarget.value });
   };
 
-  onAccentButtonClick = () => this.toggleAccent();
+  onAccentToggleButtonClick = () => this.toggleAccent();
 
   // ========== RENDER
 
@@ -160,9 +160,12 @@ class App extends Component {
               <i className={`fa fa-${this.state.playing ? 'stop' : 'play'}`} />
             </Button>
 
-            <Button onClick={this.onAccentButtonClick}>
-              Accent: {this.state.accent ? 'On' : 'Off'}
+            <label>
+              Accent
+              <Button name="accent" onClick={this.onAccentToggleButtonClick}>
+                {this.state.accent ? 'On' : 'Off'}
             </Button>
+            </label>
 
             <TempoSelectGrid setTempo={this.setTempo} />
 
