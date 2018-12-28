@@ -31,7 +31,7 @@ const GlobalStyle = createGlobalStyle`
 class App extends Component {
   state = {
     tempo: 120,
-    tempoInputValue: '120',
+    tempoInput: '120',
     playing: false,
     volume: 1,
     accent: false,
@@ -54,7 +54,7 @@ class App extends Component {
   // ===== TEMPO
 
   setTempo = newTempo =>
-    this.setState({ tempo: newTempo, tempoInputValue: newTempo });
+    this.setState({ tempo: newTempo, tempoInput: newTempo });
 
   // only increment if the new tempo is within the allowed range
   incrementTempo = incr =>
@@ -63,7 +63,7 @@ class App extends Component {
       tempo: withinAllowedTempoRange(prevState.tempo + incr)
         ? prevState.tempo + incr
         : prevState.tempo,
-      tempoInputValue: withinAllowedTempoRange(prevState.tempo + incr)
+      tempoInput: withinAllowedTempoRange(prevState.tempo + incr)
         ? prevState.tempo + incr
         : prevState.tempo
     }));
@@ -85,21 +85,21 @@ class App extends Component {
   // blur (triggering input value update) after state has been updated
   onInputFormSubmit = async e => {
     e.preventDefault();
-    const newTempo = parseInt(this.state.tempoInputValue);
+    const newTempo = parseInt(this.state.tempoInput);
     if (withinAllowedTempoRange(newTempo))
-      await this.setTempo(parseInt(this.state.tempoInputValue));
+      await this.setTempo(parseInt(this.state.tempoInput));
     this.TempoInputRef.current.blur();
   };
 
   // only allows 3 digits to be entered
   onTempoInputChange = e =>
     this.setState({
-      tempoInputValue: e.currentTarget.value.replace(/\D/g, '').slice(0, 3)
+      tempoInput: e.currentTarget.value.replace(/\D/g, '').slice(0, 3)
     });
 
-  onInputFocus = () => this.setState({ tempoInputValue: '' });
+  onInputFocus = () => this.setState({ tempoInput: '' });
 
-  onInputBlur = () => this.setState({ tempoInputValue: this.state.tempo });
+  onInputBlur = () => this.setState({ tempoInput: this.state.tempo });
 
   onIncrementTempoButtonClick = e =>
     this.incrementTempo(Number(e.currentTarget.value));
@@ -144,7 +144,7 @@ class App extends Component {
             <form onSubmit={this.onInputFormSubmit}>
               <input
                 ref={this.TempoInputRef}
-                value={this.state.tempoInputValue}
+                  value={this.state.tempoInput}
                 onChange={this.onTempoInputChange}
                 onFocus={this.onInputFocus}
                 onBlur={this.onInputBlur}
