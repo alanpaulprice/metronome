@@ -114,6 +114,9 @@ class App extends Component {
 
   onAccentToggleButtonClick = () => this.toggleAccent();
 
+  onIncrementAccentBeatButtonClick = e =>
+    this.incrementAccentBeat(Number(e.currentTarget.value));
+
   // ========== RENDER
 
   render() {
@@ -165,6 +168,20 @@ class App extends Component {
               <Button name="accent" onClick={this.onAccentToggleButtonClick}>
                 {this.state.accent ? 'On' : 'Off'}
             </Button>
+              <Button
+                noBorder
+                value={-1}
+                onClick={this.onIncrementAccentBeatButtonClick}
+              >
+                <i className="fa fa-minus" />
+              </Button>
+              <Button
+                noBorder
+                value={1}
+                onClick={this.onIncrementAccentBeatButtonClick}
+              >
+                <i className="fa fa-plus" />
+              </Button>
             </label>
 
             <TempoSelectGrid setTempo={this.setTempo} />
