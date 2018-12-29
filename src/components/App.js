@@ -82,6 +82,18 @@ class App extends Component {
 
   // ========== EVENT HANDLERS
 
+  // ===== PLAYBACK / VOLUME
+
+  onPlayStopButtonClick = () => {
+    this.togglePlaying();
+  };
+
+  onVolumeInputChange = e => {
+    this.setState({ volume: e.currentTarget.value });
+  };
+
+  // ===== TEMPO
+
   // blur (triggering input value update) after state has been updated
   onTempoInputFormSubmit = async e => {
     e.preventDefault();
@@ -104,13 +116,7 @@ class App extends Component {
   onIncrementTempoButtonClick = e =>
     this.incrementTempo(Number(e.currentTarget.value));
 
-  onPlayStopButtonClick = () => {
-    this.togglePlaying();
-  };
-
-  onVolumeInputChange = e => {
-    this.setState({ volume: e.currentTarget.value });
-  };
+  // ===== ACCENT
 
   onAccentBeatInputChange = e =>
     this.setState({
