@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { ThemeProvider, createGlobalStyle } from 'styled-components';
 
+import TempoControls from './TempoControls';
 import TempoSelectGrid from './TempoSelectGrid';
 import KeyboardShortcuts from './KeyboardShortcuts';
 import Sound from './Sound';
@@ -9,9 +10,9 @@ import Wrapper from '../elements/Wrapper';
 import H1 from '../elements/H1';
 import Button from '../elements/Button';
 
-const withinAllowedTempoRange = num => num >= 40 && num <= 230;
+const legalTempoValue = num => num >= 40 && num <= 230;
 
-const withinAllowedAccentBeatRange = num => num >= 1 && num <= 99;
+const legalAccentBeatValue = num => num >= 1 && num <= 99;
 
 const theme = {
   bg: '#333', //'hsl(34, 78%, 91%)',
@@ -41,7 +42,6 @@ class App extends Component {
     accentBeatInput: '4'
   };
 
-  tempoInputRef = React.createRef();
   accentBeatInputRef = React.createRef();
 
   // ========== STATE MODIFICATION
@@ -62,18 +62,18 @@ class App extends Component {
   // only increment if the new tempo is within the allowed range
   incrementTempo = incr =>
     this.setState(prevState =>
-      withinAllowedTempoRange(prevState.tempo + incr)
+      legalTempoValue(prevState.tempo + incr)
         ? {
       ...prevState,
-      tempo: withinAllowedTempoRange(prevState.tempo + incr)
-        ? prevState.tempo + incr
-        : prevState.tempo,
-      tempoInput: withinAllowedTempoRange(prevState.tempo + incr)
-        ? prevState.tempo + incr
-        : prevState.tempo
+            tempo: prevState.tempo + incr,
+            tempoInput: prevState.tempo + incr
           }
         : null
     );
+
+  setTempoInput = value => this.setState({ tempoInput: value });
+
+  clearTempoInput = () => this.setState({ tempoInput: '' });
 
   // ===== ACCENT
 
@@ -88,7 +88,7 @@ class App extends Component {
 
   incrementAccentBeat = incr =>
     this.setState(prevState =>
-      withinAllowedAccentBeatRange(prevState.accentBeat + incr)
+      legalAccentBeatValue(prevState.accentBeat + incr)
         ? {
             ...prevState,
             accentBeat: prevState.accentBeat + incr,
@@ -109,31 +109,6 @@ class App extends Component {
     this.setState({ volume: e.currentTarget.value });
   };
 
-  // ===== TEMPO
-
-  // if the value isn't a valid bpm, do nothing
-  // blur (triggering input value update) after state has been updated
-  onTempoInputFormSubmit = async e => {
-    e.preventDefault();
-    const newTempo = parseInt(this.state.tempoInput);
-    if (!withinAllowedTempoRange(newTempo)) return;
-    await this.setTempo(newTempo);
-    this.tempoInputRef.current.blur();
-  };
-
-  // only allows 3 digits to be entered
-  onTempoInputChange = e =>
-    this.setState({
-      tempoInput: e.currentTarget.value.replace(/\D/g, '').slice(0, 3)
-    });
-
-  onTempoInputFocus = () => this.setState({ tempoInput: '' });
-
-  onTempoInputBlur = () => this.setState({ tempoInput: this.state.tempo });
-
-  onIncrementTempoButtonClick = e =>
-    this.incrementTempo(parseInt(e.currentTarget.value));
-
   // ===== ACCENT
 
   onAccentToggleButtonClick = () => this.toggleAccent();
@@ -143,7 +118,7 @@ class App extends Component {
   onAccentBeatInputFormSubmit = async e => {
     e.preventDefault();
     const newAccentBeat = parseInt(this.state.accentBeatInput);
-    if (!withinAllowedAccentBeatRange(newAccentBeat)) return;
+    if (!legalAccentBeatValue(newAccentBeat)) return;
     await this.setAccentBeat(newAccentBeat);
     this.accentBeatInputRef.current.blur();
   };
@@ -177,36 +152,20 @@ class App extends Component {
           />
           <Wrapper>
             <H1>metronome</H1>
-            <label>
-              Tempo
-              <Button
-                noBorder
-                value={-1}
-                onClick={this.onIncrementTempoButtonClick}
-              >
-              <i className="fa fa-minus" />
-            </Button>
-              <form onSubmit={this.onTempoInputFormSubmit}>
-              <input
-                  ref={this.tempoInputRef}
-                  value={this.state.tempoInput}
-                onChange={this.onTempoInputChange}
-                  onFocus={this.onTempoInputFocus}
-                  onBlur={this.onTempoInputBlur}
-              />
-            </form>
-              <Button
-                noBorder
-                value={1}
-                onClick={this.onIncrementTempoButtonClick}
-              >
-              <i className="fa fa-plus" />
-            </Button>
-            </label>
 
             <Button noBorder onClick={this.onPlayStopButtonClick}>
               <i className={`fa fa-${this.state.playing ? 'stop' : 'play'}`} />
             </Button>
+
+            <TempoControls
+              tempo={this.state.tempo}
+              setTempo={this.setTempo}
+              tempoInput={this.state.tempoInput}
+              setTempoInput={this.setTempoInput}
+              clearTempoInput={this.clearTempoInput}
+              incrementTempo={this.incrementTempo}
+              legalTempoValue={legalTempoValue}
+            />
 
             <label>
               Accent
