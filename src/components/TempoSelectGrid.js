@@ -2,7 +2,7 @@ import React from 'react';
 
 const TempoSelectGrid = ({ setTempo }) => {
   const onGridButtonClick = e => {
-    if (e.target.value) setTempo(e.target.value);
+    if (e.target.value) setTempo(parseInt(e.target.value));
   };
 
   // An array containing the values 40 to 230, in steps of 10
