@@ -32,9 +32,9 @@ const GlobalStyle = createGlobalStyle`
 
 class App extends Component {
   state = {
+    playing: false,
     tempo: 120,
     tempoInput: '120',
-    playing: false,
     volume: 1,
     accent: false,
     accentBeat: 4,
@@ -46,7 +46,7 @@ class App extends Component {
 
   // ========== STATE MODIFICATION
 
-  // ===== PLAYING
+  // ===== PLAYBACK
 
   togglePlaying = () =>
     this.setState(prevState => ({
