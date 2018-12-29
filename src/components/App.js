@@ -111,13 +111,14 @@ class App extends Component {
 
   // ===== TEMPO
 
+  // if the value isn't a valid bpm, do nothing
   // blur (triggering input value update) after state has been updated
   onTempoInputFormSubmit = async e => {
     e.preventDefault();
     const newTempo = parseInt(this.state.tempoInput);
-    if (withinAllowedTempoRange(newTempo))
-      await this.setTempo(parseInt(this.state.tempoInput));
-    this.TempoInputRef.current.blur();
+    if (!withinAllowedTempoRange(newTempo)) return;
+    await this.setTempo(newTempo);
+    this.tempoInputRef.current.blur();
   };
 
   // only allows 3 digits to be entered
