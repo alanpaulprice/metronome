@@ -83,7 +83,7 @@ class App extends Component {
   // ========== EVENT HANDLERS
 
   // blur (triggering input value update) after state has been updated
-  onInputFormSubmit = async e => {
+  onTempoInputFormSubmit = async e => {
     e.preventDefault();
     const newTempo = parseInt(this.state.tempoInput);
     if (withinAllowedTempoRange(newTempo))
@@ -97,9 +97,9 @@ class App extends Component {
       tempoInput: e.currentTarget.value.replace(/\D/g, '').slice(0, 3)
     });
 
-  onInputFocus = () => this.setState({ tempoInput: '' });
+  onTempoInputFocus = () => this.setState({ tempoInput: '' });
 
-  onInputBlur = () => this.setState({ tempoInput: this.state.tempo });
+  onTempoInputBlur = () => this.setState({ tempoInput: this.state.tempo });
 
   onIncrementTempoButtonClick = e =>
     this.incrementTempo(Number(e.currentTarget.value));
@@ -146,13 +146,13 @@ class App extends Component {
               >
               <i className="fa fa-minus" />
             </Button>
-            <form onSubmit={this.onInputFormSubmit}>
+              <form onSubmit={this.onTempoInputFormSubmit}>
               <input
                 ref={this.TempoInputRef}
                   value={this.state.tempoInput}
                 onChange={this.onTempoInputChange}
-                onFocus={this.onInputFocus}
-                onBlur={this.onInputBlur}
+                  onFocus={this.onTempoInputFocus}
+                  onBlur={this.onTempoInputBlur}
               />
             </form>
               <Button
