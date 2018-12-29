@@ -60,7 +60,9 @@ class App extends Component {
 
   // only increment if the new tempo is within the allowed range
   incrementTempo = incr =>
-    this.setState(prevState => ({
+    this.setState(prevState =>
+      withinAllowedTempoRange(prevState.tempo + incr)
+        ? {
       ...prevState,
       tempo: withinAllowedTempoRange(prevState.tempo + incr)
         ? prevState.tempo + incr
@@ -68,7 +70,9 @@ class App extends Component {
       tempoInput: withinAllowedTempoRange(prevState.tempo + incr)
         ? prevState.tempo + incr
         : prevState.tempo
-    }));
+          }
+        : null
+    );
 
   // ===== ACCENT
 
@@ -78,9 +82,19 @@ class App extends Component {
       accent: !prevState.accent
     }));
 
-  setAccentBeat = beat => {
-    this.setState({ accentBeat: beat });
-  };
+  setAccentBeat = newBeat =>
+    this.setState({ accentBeat: newBeat, accentBeatInput: newBeat });
+
+  incrementAccentBeat = incr =>
+    this.setState(prevState =>
+      withinAllowedAccentBeatRange(prevState.accentBeat + incr)
+        ? {
+            ...prevState,
+            accentBeat: prevState.accentBeat + incr,
+            accentBeatInput: prevState.accentBeat + incr
+          }
+        : null
+    );
 
   // ========== EVENT HANDLERS
 
