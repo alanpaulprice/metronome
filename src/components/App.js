@@ -11,6 +11,8 @@ import Button from '../elements/Button';
 
 const withinAllowedTempoRange = num => num >= 40 && num <= 230;
 
+const withinAllowedAccentBeatRange = num => num >= 1 && num <= 99;
+
 const theme = {
   bg: '#333', //'hsl(34, 78%, 91%)',
   fg: '#ccc' //'hsl(34, 76%, 15%)'
