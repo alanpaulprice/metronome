@@ -41,7 +41,8 @@ class App extends Component {
     accentBeatInput: '4'
   };
 
-  TempoInputRef = React.createRef();
+  tempoInputRef = React.createRef();
+  accentBeatInputRef = React.createRef();
 
   // ========== STATE MODIFICATION
 
@@ -134,12 +135,28 @@ class App extends Component {
 
   // ===== ACCENT
 
+  onAccentToggleButtonClick = () => this.toggleAccent();
+
+  // if the value isn't a valid accent beat, do nothing
+  // blur (triggering input value update) after state has been updated
+  onAccentBeatInputFormSubmit = async e => {
+    e.preventDefault();
+    const newAccentBeat = parseInt(this.state.accentBeatInput);
+    if (!withinAllowedAccentBeatRange(newAccentBeat)) return;
+    await this.setAccentBeat(newAccentBeat);
+    this.accentBeatInputRef.current.blur();
+  };
+
+  onAccentBeatInputFocus = () => this.setState({ accentBeatInput: '' });
+
+  onAccentBeatInputBlur = () =>
+    this.setState({ accentBeatInput: this.state.accentBeat });
+
+  // only allows 2 digits to be entered
   onAccentBeatInputChange = e =>
     this.setState({
       accentBeatInput: e.currentTarget.value.replace(/\D/g, '').slice(0, 2)
     });
-
-  onAccentToggleButtonClick = () => this.toggleAccent();
 
   onIncrementAccentBeatButtonClick = e =>
     this.incrementAccentBeat(parseInt(e.currentTarget.value));
@@ -170,7 +187,7 @@ class App extends Component {
             </Button>
               <form onSubmit={this.onTempoInputFormSubmit}>
               <input
-                ref={this.TempoInputRef}
+                  ref={this.tempoInputRef}
                   value={this.state.tempoInput}
                 onChange={this.onTempoInputChange}
                   onFocus={this.onTempoInputFocus}
@@ -202,10 +219,15 @@ class App extends Component {
               >
                 <i className="fa fa-minus" />
               </Button>
+              <form onSubmit={this.onAccentBeatInputFormSubmit}>
               <input
+                  ref={this.accentBeatInputRef}
                 value={this.state.accentBeatInput}
                 onChange={this.onAccentBeatInputChange}
+                  onFocus={this.onAccentBeatInputFocus}
+                  onBlur={this.onAccentBeatInputBlur}
               />
+              </form>
               <Button
                 noBorder
                 value={1}
