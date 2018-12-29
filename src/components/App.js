@@ -130,7 +130,7 @@ class App extends Component {
   onTempoInputBlur = () => this.setState({ tempoInput: this.state.tempo });
 
   onIncrementTempoButtonClick = e =>
-    this.incrementTempo(Number(e.currentTarget.value));
+    this.incrementTempo(parseInt(e.currentTarget.value));
 
   // ===== ACCENT
 
@@ -142,7 +142,7 @@ class App extends Component {
   onAccentToggleButtonClick = () => this.toggleAccent();
 
   onIncrementAccentBeatButtonClick = e =>
-    this.incrementAccentBeat(Number(e.currentTarget.value));
+    this.incrementAccentBeat(parseInt(e.currentTarget.value));
 
   // ========== RENDER
 
