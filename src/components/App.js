@@ -2,7 +2,6 @@ import React, { Component, Fragment } from 'react';
 import { ThemeProvider, createGlobalStyle } from 'styled-components';
 
 import TempoControls from './TempoControls';
-import TempoSelectGrid from './TempoSelectGrid';
 import AccentControls from './AccentControls';
 import KeyboardShortcuts from './KeyboardShortcuts';
 import Sound from './Sound';
@@ -147,8 +146,6 @@ class App extends Component {
               incrementAccentBeat={this.incrementAccentBeat}
               legalAccentBeatValue={legalAccentBeatValue}
               />
-
-            <TempoSelectGrid setTempo={this.setTempo} />
 
             <VolumeControl
               volume={this.state.volume}
