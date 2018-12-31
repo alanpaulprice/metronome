@@ -3,6 +3,7 @@ import { ThemeProvider, createGlobalStyle } from 'styled-components';
 
 import TempoControls from './TempoControls';
 import AccentControls from './AccentControls';
+import VolumeControl from './VolumeControl';
 import KeyboardShortcuts from './KeyboardShortcuts';
 import Sound from './Sound';
 
