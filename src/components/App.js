@@ -98,14 +98,14 @@ class App extends Component {
 
   setAccentBeatInput = value => this.setState({ accentBeatInput: value });
 
+  // ===== VOLUME
+
+  setVolume = value => this.setState({ volume: value });
+
   // ========== EVENT HANDLERS
 
   onPlayStopButtonClick = () => {
     this.togglePlaying();
-  };
-
-  onVolumeInputChange = e => {
-    this.setState({ volume: e.currentTarget.value });
   };
 
   // ========== RENDER
@@ -150,17 +150,10 @@ class App extends Component {
 
             <TempoSelectGrid setTempo={this.setTempo} />
 
-            <div>
-              <input
-                type="range"
-                min="0"
-                max="1"
-                step="0.1"
-                value={this.state.volume}
-                onChange={this.onVolumeInputChange}
+            <VolumeControl
+              volume={this.state.volume}
+              setVolume={this.setVolume}
               />
-              <div>volume: {this.state.volume * 100}%</div>
-            </div>
 
             <KeyboardShortcuts />
           </Wrapper>
