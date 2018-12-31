@@ -4,7 +4,6 @@ import Button from '../elements/Button';
 
 class TempoControls extends Component {
   tempoInputRef = React.createRef();
-  // ===== TEMPO
 
   // if the value isn't a valid bpm, do nothing
   // blur (triggering input value update) after state has been updated
@@ -15,13 +14,14 @@ class TempoControls extends Component {
     await this.props.setTempo(newTempo);
     this.tempoInputRef.current.blur();
   };
+
   // only allows 3 digits to be entered
   onTempoInputChange = e =>
     this.props.setTempoInput(
       e.currentTarget.value.replace(/\D/g, '').slice(0, 3)
     );
 
-  onTempoInputFocus = () => this.props.clearTempoInput();
+  onTempoInputFocus = () => this.props.setTempoInput('');
 
   onTempoInputBlur = () => this.props.setTempoInput(this.props.tempo);
 
@@ -31,7 +31,6 @@ class TempoControls extends Component {
   render() {
     return (
       <Wrapper>
-        Tempo
         <Button noBorder value={-1} onClick={this.onIncrementTempoButtonClick}>
           <i className="fa fa-minus" />
         </Button>

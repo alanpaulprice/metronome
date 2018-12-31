@@ -3,6 +3,7 @@ import { ThemeProvider, createGlobalStyle } from 'styled-components';
 
 import TempoControls from './TempoControls';
 import TempoSelectGrid from './TempoSelectGrid';
+import AccentControls from './AccentControls';
 import KeyboardShortcuts from './KeyboardShortcuts';
 import Sound from './Sound';
 
@@ -73,8 +74,6 @@ class App extends Component {
 
   setTempoInput = value => this.setState({ tempoInput: value });
 
-  clearTempoInput = () => this.setState({ tempoInput: '' });
-
   // ===== ACCENT
 
   toggleAccent = () =>
@@ -97,9 +96,9 @@ class App extends Component {
         : null
     );
 
-  // ========== EVENT HANDLERS
+  setAccentBeatInput = value => this.setState({ accentBeatInput: value });
 
-  // ===== PLAYBACK / VOLUME
+  // ========== EVENT HANDLERS
 
   onPlayStopButtonClick = () => {
     this.togglePlaying();
@@ -108,34 +107,6 @@ class App extends Component {
   onVolumeInputChange = e => {
     this.setState({ volume: e.currentTarget.value });
   };
-
-  // ===== ACCENT
-
-  onAccentToggleButtonClick = () => this.toggleAccent();
-
-  // if the value isn't a valid accent beat, do nothing
-  // blur (triggering input value update) after state has been updated
-  onAccentBeatInputFormSubmit = async e => {
-    e.preventDefault();
-    const newAccentBeat = parseInt(this.state.accentBeatInput);
-    if (!legalAccentBeatValue(newAccentBeat)) return;
-    await this.setAccentBeat(newAccentBeat);
-    this.accentBeatInputRef.current.blur();
-  };
-
-  onAccentBeatInputFocus = () => this.setState({ accentBeatInput: '' });
-
-  onAccentBeatInputBlur = () =>
-    this.setState({ accentBeatInput: this.state.accentBeat });
-
-  // only allows 2 digits to be entered
-  onAccentBeatInputChange = e =>
-    this.setState({
-      accentBeatInput: e.currentTarget.value.replace(/\D/g, '').slice(0, 2)
-    });
-
-  onIncrementAccentBeatButtonClick = e =>
-    this.incrementAccentBeat(parseInt(e.currentTarget.value));
 
   // ========== RENDER
 
@@ -162,40 +133,20 @@ class App extends Component {
               setTempo={this.setTempo}
               tempoInput={this.state.tempoInput}
               setTempoInput={this.setTempoInput}
-              clearTempoInput={this.clearTempoInput}
               incrementTempo={this.incrementTempo}
               legalTempoValue={legalTempoValue}
             />
 
-            <label>
-              Accent
-              <Button name="accent" onClick={this.onAccentToggleButtonClick}>
-                {this.state.accent ? 'On' : 'Off'}
-            </Button>
-              <Button
-                noBorder
-                value={-1}
-                onClick={this.onIncrementAccentBeatButtonClick}
-              >
-                <i className="fa fa-minus" />
-              </Button>
-              <form onSubmit={this.onAccentBeatInputFormSubmit}>
-              <input
-                  ref={this.accentBeatInputRef}
-                value={this.state.accentBeatInput}
-                onChange={this.onAccentBeatInputChange}
-                  onFocus={this.onAccentBeatInputFocus}
-                  onBlur={this.onAccentBeatInputBlur}
+            <AccentControls
+              accent={this.state.accent}
+              accentBeat={this.state.accentBeat}
+              accentBeatInput={this.state.accentBeatInput}
+              toggleAccent={this.toggleAccent}
+              setAccentBeat={this.setAccentBeat}
+              setAccentBeatInput={this.setAccentBeatInput}
+              incrementAccentBeat={this.incrementAccentBeat}
+              legalAccentBeatValue={legalAccentBeatValue}
               />
-              </form>
-              <Button
-                noBorder
-                value={1}
-                onClick={this.onIncrementAccentBeatButtonClick}
-              >
-                <i className="fa fa-plus" />
-              </Button>
-            </label>
 
             <TempoSelectGrid setTempo={this.setTempo} />
 
