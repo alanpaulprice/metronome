@@ -11,7 +11,10 @@ import Wrapper from '../elements/Wrapper';
 import H1 from '../elements/H1';
 import Button from '../elements/Button';
 
-const legalTempoValue = num => num >= 40 && num <= 230;
+const minTempo = 40;
+const maxTempo = 230;
+
+const legalTempoValue = num => num >= minTempo && num <= maxTempo;
 
 const legalAccentBeatValue = num => num >= 1 && num <= 99;
 
