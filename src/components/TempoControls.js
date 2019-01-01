@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Wrapper from '../elements/Wrapper';
 import Button from '../elements/Button';
+import Slider from '../elements/Slider';
 
 class TempoControls extends Component {
   tempoInputRef = React.createRef();
@@ -28,6 +29,9 @@ class TempoControls extends Component {
   onIncrementTempoButtonClick = e =>
     this.props.incrementTempo(parseInt(e.currentTarget.value));
 
+  onTempoSliderChange = e =>
+    this.props.setTempo(parseInt(e.currentTarget.value));
+
   render() {
     return (
       <Wrapper>
@@ -46,6 +50,13 @@ class TempoControls extends Component {
         <Button noBorder value={1} onClick={this.onIncrementTempoButtonClick}>
           <i className="fa fa-plus" />
         </Button>
+        <Slider
+          value={this.props.tempo}
+          min={this.props.minTempo}
+          max={this.props.maxTempo}
+          step={1}
+          onChange={this.onTempoSliderChange}
+        />
       </Wrapper>
     );
   }

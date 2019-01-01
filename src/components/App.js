@@ -138,6 +138,8 @@ class App extends Component {
               setTempoInput={this.setTempoInput}
               incrementTempo={this.incrementTempo}
               legalTempoValue={legalTempoValue}
+              minTempo={minTempo}
+              maxTempo={maxTempo}
             />
 
             <AccentControls
