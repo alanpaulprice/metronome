@@ -41,6 +41,7 @@ class App extends Component {
     tempo: 120,
     tempoInput: '120',
     volume: 1,
+    currentBeat: 0,
     accent: false,
     accentBeat: 4,
     accentBeatInput: '4'
@@ -76,6 +77,19 @@ class App extends Component {
     );
 
   setTempoInput = value => this.setState({ tempoInput: value });
+
+  // ===== BEAT
+
+  incrementCurrentBeat = () =>
+    this.setState(prevState => ({
+      ...prevState,
+      currentBeat:
+        prevState.currentBeat < this.state.accentBeat - 1
+          ? prevState.currentBeat + 1
+          : 0
+    }));
+
+  resetCurrentBeat = () => this.setState({ currentBeat: 0 });
 
   // ===== ACCENT
 
