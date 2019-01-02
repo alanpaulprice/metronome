@@ -136,7 +136,10 @@ class App extends Component {
             tempo={this.state.tempo}
             playing={this.state.playing}
             volume={this.state.volume}
+            currentBeat={this.state.currentBeat}
             accent={this.state.accent}
+            accentBeat={this.state.accentBeat}
+            incrementCurrentBeat={this.incrementCurrentBeat}
           />
           <Wrapper>
             <H1>metronome</H1>
