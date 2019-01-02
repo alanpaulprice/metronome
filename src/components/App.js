@@ -15,8 +15,8 @@ const minTempo = 40;
 const maxTempo = 230;
 
 const legalTempoValue = num => num >= minTempo && num <= maxTempo;
-
 const legalAccentBeatValue = num => num >= 1 && num <= 99;
+const legalVolumeValue = num => num >= 0 && num <= 1;
 
 const theme = {
   bg: '#333', //'hsl(34, 78%, 91%)',
@@ -119,11 +119,20 @@ class App extends Component {
 
   setVolume = value => this.setState({ volume: value });
 
+  // only increment if the new volume is within the allowed range
+  incrementVolume = incr =>
+    this.setState(prevState =>
+      legalVolumeValue(prevState.volume + incr)
+        ? {
+            ...prevState,
+            volume: Math.round((prevState.volume + incr) * 10) / 10
+          }
+        : null
+    );
+
   // ========== EVENT HANDLERS
 
-  onPlayStopButtonClick = () => {
-    this.togglePlaying();
-  };
+  onPlayStopButtonClick = () => this.togglePlaying();
 
   // ========== RENDER
 
