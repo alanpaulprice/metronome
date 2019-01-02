@@ -21,7 +21,7 @@ const legalAccentBeatValue = num => num >= 1 && num <= 99;
 const legalVolumeValue = num => num >= 0 && num <= 1;
 
 const theme = {
-  bg: '#333', //'hsl(34, 78%, 91%)',
+  bg: '#555', //'hsl(34, 78%, 91%)',
   fg: '#ccc' //'hsl(34, 76%, 15%)'
 };
 
