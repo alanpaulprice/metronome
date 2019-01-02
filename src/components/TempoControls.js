@@ -50,8 +50,8 @@ class TempoControls extends Component {
         </Button>
         <Slider
           value={this.props.tempo}
-          min={this.props.minTempo}
-          max={this.props.maxTempo}
+          min={this.props.MIN_TEMPO}
+          max={this.props.MAX_TEMPO}
           step={1}
           onChange={this.onTempoSliderChange}
         />

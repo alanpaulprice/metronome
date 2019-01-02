@@ -13,10 +13,10 @@ import Wrapper from '../elements/Wrapper';
 import H1 from '../elements/H1';
 import Button from '../elements/Button';
 
-const minTempo = 40;
-const maxTempo = 230;
+const MIN_TEMPO = 40;
+const MAX_TEMPO = 280;
 
-const legalTempoValue = num => num >= minTempo && num <= maxTempo;
+const legalTempoValue = num => num >= MIN_TEMPO && num <= MAX_TEMPO;
 const legalAccentBeatValue = num => num >= 1 && num <= 99;
 const legalVolumeValue = num => num >= 0 && num <= 1;
 
@@ -176,8 +176,8 @@ class App extends Component {
               setTempoInput={this.setTempoInput}
               incrementTempo={this.incrementTempo}
               legalTempoValue={legalTempoValue}
-              minTempo={minTempo}
-              maxTempo={maxTempo}
+              MIN_TEMPO={MIN_TEMPO}
+              MAX_TEMPO={MAX_TEMPO}
               tempoInputRef={this.tempoInputRef}
             />
 
