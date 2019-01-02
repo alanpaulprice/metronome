@@ -1,11 +1,13 @@
 import React, { Component, Fragment } from 'react';
 import { ThemeProvider, createGlobalStyle } from 'styled-components';
 
+import Sound from './Sound';
+import KeyboardShortcuts from './KeyboardShortcuts';
+
 import TempoControls from './TempoControls';
 import AccentControls from './AccentControls';
 import VolumeControl from './VolumeControl';
-import KeyboardShortcuts from './KeyboardShortcuts';
-import Sound from './Sound';
+import KeyboardShortcutsLegend from './KeyboardShortcutsLegend';
 
 import Wrapper from '../elements/Wrapper';
 import H1 from '../elements/H1';
@@ -130,43 +132,9 @@ class App extends Component {
         : null
     );
 
-  // ========== KEYBINDS
-
-  onKeydown = code =>
-    code === 32 // space
-      ? this.togglePlaying()
-      : code === 40 // arrow down
-      ? this.incrementVolume(-0.1)
-      : code === 38 // arrow up
-      ? this.incrementVolume(0.1)
-      : code === 37 // arrow left
-      ? this.incrementTempo(-1)
-      : code === 39 // arrow right
-      ? this.incrementTempo(1)
-      : code === 65 // a
-      ? this.toggleAccent()
-      : code === 90 // z
-      ? this.incrementAccentBeat(-1)
-      : code === 88 // x
-      ? this.incrementAccentBeat(1)
-      : null;
   // ========== EVENT HANDLERS
 
   onPlayStopButtonClick = () => this.togglePlaying();
-
-  // ========== LIFECYCLE
-
-  componentDidMount() {
-    window.addEventListener('keydown', e => {
-      this.onKeydown(e.keyCode);
-    });
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener('keydown', e => {
-      this.onKeydown(e.keyCode);
-    });
-  }
 
   // ========== RENDER
 
@@ -183,6 +151,13 @@ class App extends Component {
             accent={this.state.accent}
             accentBeat={this.state.accentBeat}
             incrementCurrentBeat={this.incrementCurrentBeat}
+          />
+          <KeyboardShortcuts
+          togglePlaying={this.togglePlaying}
+          incrementTempo={this.incrementTempo}
+          incrementVolume={this.incrementVolume}
+          toggleAccent={this.toggleAccent}
+          incrementAccentBeat={this.incrementAccentBeat}
           />
           <Wrapper>
             <H1>metronome</H1>
@@ -218,7 +193,7 @@ class App extends Component {
               setVolume={this.setVolume}
               />
 
-            <KeyboardShortcuts />
+            <KeyboardShortcutsLegend />
           </Wrapper>
         </Fragment>
       </ThemeProvider>
