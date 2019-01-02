@@ -3,8 +3,6 @@ import Wrapper from '../elements/Wrapper';
 import Button from '../elements/Button';
 
 class AccentControls extends Component {
-  accentBeatInputRef = React.createRef();
-
   onAccentToggleButtonClick = () => this.props.toggleAccent();
 
   // if the value isn't a valid accent beat, do nothing
@@ -46,7 +44,7 @@ class AccentControls extends Component {
         </Button>
         <form onSubmit={this.onAccentBeatInputFormSubmit}>
           <input
-            ref={this.accentBeatInputRef}
+            ref={this.props.accentBeatInputRef}
             value={this.props.accentBeatInput}
             onChange={this.onAccentBeatInputChange}
             onFocus={this.onAccentBeatInputFocus}

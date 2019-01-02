@@ -4,8 +4,6 @@ import Button from '../elements/Button';
 import Slider from '../elements/Slider';
 
 class TempoControls extends Component {
-  tempoInputRef = React.createRef();
-
   // if the value isn't a valid bpm, do nothing
   // blur (triggering input value update) after state has been updated
   onTempoInputFormSubmit = async e => {
@@ -40,7 +38,7 @@ class TempoControls extends Component {
         </Button>
         <form onSubmit={this.onTempoInputFormSubmit}>
           <input
-            ref={this.tempoInputRef}
+            ref={this.props.tempoInputRef}
             value={this.props.tempoInput}
             onChange={this.onTempoInputChange}
             onFocus={this.onTempoInputFocus}

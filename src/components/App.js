@@ -49,6 +49,7 @@ class App extends Component {
     accentBeatInput: '4'
   };
 
+  tempoInputRef = React.createRef();
   accentBeatInputRef = React.createRef();
 
   // ========== STATE MODIFICATION
@@ -154,10 +155,12 @@ class App extends Component {
           />
           <KeyboardShortcuts
           togglePlaying={this.togglePlaying}
+            tempoInputRef={this.tempoInputRef}
           incrementTempo={this.incrementTempo}
           incrementVolume={this.incrementVolume}
           toggleAccent={this.toggleAccent}
           incrementAccentBeat={this.incrementAccentBeat}
+            accentBeatInputRef={this.accentBeatInputRef}
           />
           <Wrapper>
             <H1>metronome</H1>
@@ -175,6 +178,7 @@ class App extends Component {
               legalTempoValue={legalTempoValue}
               minTempo={minTempo}
               maxTempo={maxTempo}
+              tempoInputRef={this.tempoInputRef}
             />
 
             <AccentControls
@@ -186,6 +190,7 @@ class App extends Component {
               setAccentBeatInput={this.setAccentBeatInput}
               incrementAccentBeat={this.incrementAccentBeat}
               legalAccentBeatValue={legalAccentBeatValue}
+              accentBeatInputRef={this.accentBeatInputRef}
               />
 
             <VolumeControl
