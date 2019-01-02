@@ -11,12 +11,17 @@ class Sound extends Component {
     this.chh = new Tone.Player(closedHat).connect(this.gain);
     this.ohh = new Tone.Player(openHat).connect(this.gain);
 
+    // loops one note and increments the currentBeat
+    // if the currentBeat is 0 and the accent is turned on, the accented
+    // sound will be played. else, a regular sound will be played
     this.loop = new Tone.Loop(() => {
-      this[this.props.accent ? 'ohh' : 'chh'].start(Tone.now(), 0, '4n');
-      this.chh.start('+4n');
-      this.chh.start('+2n');
-      this.chh.start('+2n.');
-    }, '1n').start(0);
+      this[this.props.accent && !this.props.currentBeat ? 'ohh' : 'chh'].start(
+        Tone.now(),
+        0,
+        '4n'
+      );
+      this.props.incrementCurrentBeat();
+    }, '4n').start(0);
   }
 
   componentDidUpdate(prevProps) {
