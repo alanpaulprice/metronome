@@ -1,15 +1,25 @@
 import { Component } from 'react';
 
 class KeyboardShortcuts extends Component {
+  incrementTempoAndBlur = value => {
+    this.props.incrementTempo(value);
+    document.activeElement.blur();
+  };
+
+  incrementAccentBeatAndBlur = value => {
+    this.props.incrementAccentBeat(value);
+    document.activeElement.blur();
+  };
+
   onKeydown = code =>
     code === 32 // space
       ? this.props.togglePlaying()
       : code === 84 // t
       ? this.props.tempoInputRef.current.focus()
       : code === 37 // arrow left
-      ? this.props.incrementTempo(-1)
+      ? this.incrementTempoAndBlur(-1)
       : code === 39 // arrow right
-      ? this.props.incrementTempo(1)
+      ? this.incrementTempoAndBlur(1)
       : code === 40 // arrow down
       ? this.props.incrementVolume(-0.1)
       : code === 38 // arrow up
@@ -19,9 +29,9 @@ class KeyboardShortcuts extends Component {
       : code === 65 // a
       ? this.props.toggleAccent()
       : code === 90 // z
-      ? this.props.incrementAccentBeat(-1)
+      ? this.incrementAccentBeatAndBlur(-1)
       : code === 88 // x
-      ? this.props.incrementAccentBeat(1)
+      ? this.incrementAccentBeatAndBlur(1)
       : null;
 
   componentDidMount() {
