@@ -14,7 +14,7 @@ class AccentControls extends Component {
     const newAccentBeat = parseInt(this.props.accentBeatInput);
     if (!this.props.legalAccentBeatValue(newAccentBeat)) return;
     await this.props.setAccentBeat(newAccentBeat);
-    this.accentBeatInputRef.current.blur();
+    document.activeElement.blur();
   };
 
   // only allows 2 digits to be entered

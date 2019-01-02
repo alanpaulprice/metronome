@@ -13,7 +13,7 @@ class TempoControls extends Component {
     const newTempo = parseInt(this.props.tempoInput);
     if (!this.props.legalTempoValue(newTempo)) return;
     await this.props.setTempo(newTempo);
-    this.tempoInputRef.current.blur();
+    document.activeElement.blur();
   };
 
   // only allows 3 digits to be entered
