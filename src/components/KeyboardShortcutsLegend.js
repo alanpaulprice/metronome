@@ -24,6 +24,14 @@ const KeyboardShortcutsLegend = () => {
         <div>accent beat up/down</div>
         <div>z/x</div>
       </div>
+      <div>
+        <div>focus tempo input</div>
+        <div>t</div>
+      </div>
+      <div>
+        <div>focus accent beat input</div>
+        <div>b</div>
+      </div>
     </div>
   );
 };
