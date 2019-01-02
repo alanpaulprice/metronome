@@ -53,10 +53,12 @@ class App extends Component {
 
   // ===== PLAYBACK
 
+  // if playing is being toggled to false, reset currentBeat
   togglePlaying = () =>
     this.setState(prevState => ({
       ...prevState,
-      playing: !prevState.playing
+      playing: !prevState.playing,
+      currentBeat: prevState.playing ? 0 : prevState.currentBeat
     }));
 
   // ===== TEMPO
@@ -88,8 +90,6 @@ class App extends Component {
           ? prevState.currentBeat + 1
           : 0
     }));
-
-  resetCurrentBeat = () => this.setState({ currentBeat: 0 });
 
   // ===== ACCENT
 
