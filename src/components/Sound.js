@@ -14,14 +14,14 @@ class Sound extends Component {
     // loops one note and increments the currentBeat
     // if the currentBeat is 0 and the accent is turned on, the accented
     // sound will be played. else, a regular sound will be played
-    this.loop = new Tone.Loop(() => {
+    Tone.Transport.scheduleRepeat(time => {
       this[this.props.accent && !this.props.currentBeat ? 'ohh' : 'chh'].start(
-        Tone.now(),
+        time,
         0,
         '4n'
       );
       this.props.incrementCurrentBeat();
-    }, '4n').start(0);
+    }, '4n');
   }
 
   componentDidUpdate(prevProps) {
