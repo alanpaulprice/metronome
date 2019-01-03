@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Wrapper from '../elements/Wrapper';
 import Button from '../elements/Button';
 import Slider from '../elements/Slider';
+import TapTempo from './TapTempo';
 
 class TempoControls extends Component {
   // if the value isn't a valid bpm, do nothing
@@ -36,6 +37,7 @@ class TempoControls extends Component {
         <Button noBorder value={-1} onClick={this.onIncrementTempoButtonClick}>
           <i className="fa fa-minus" />
         </Button>
+
         <form onSubmit={this.onTempoInputFormSubmit}>
           <input
             ref={this.props.tempoInputRef}
@@ -45,9 +47,11 @@ class TempoControls extends Component {
             onBlur={this.onTempoInputBlur}
           />
         </form>
+
         <Button noBorder value={1} onClick={this.onIncrementTempoButtonClick}>
           <i className="fa fa-plus" />
         </Button>
+
         <Slider
           value={this.props.tempo}
           min={this.props.MIN_TEMPO}
@@ -55,6 +59,8 @@ class TempoControls extends Component {
           step={1}
           onChange={this.onTempoSliderChange}
         />
+
+        <TapTempo setTempo={this.props.setTempo} />
       </Wrapper>
     );
   }

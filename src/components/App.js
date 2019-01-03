@@ -153,6 +153,7 @@ class App extends Component {
             accentBeat={this.state.accentBeat}
             incrementCurrentBeat={this.incrementCurrentBeat}
           />
+
           <KeyboardShortcuts
           togglePlaying={this.togglePlaying}
             tempoInputRef={this.tempoInputRef}
@@ -162,6 +163,7 @@ class App extends Component {
           incrementAccentBeat={this.incrementAccentBeat}
             accentBeatInputRef={this.accentBeatInputRef}
           />
+
           <Wrapper>
             <H1>metronome</H1>
 
