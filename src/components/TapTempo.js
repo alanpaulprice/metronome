@@ -9,77 +9,75 @@ const TOTAL_TAP_VALUES = 5,
   SKIPPED_TAP_THRESHOLD_LOW = 1.75,
   SKIPPED_TAP_THRESHOLD_HIGH = 2.75;
 
-class TapTempo extends Component {
-  buttonDown = false;
+let buttonDown = false,
+  tapChain = [],
+  tapIndex = 0,
+  lastTapMS = null,
+  lastTapSkipped = false,
+  currentBeatMS = null;
+
+const getCurrentMS = () => new Date().getTime();
+
+const newTapChainShouldBegin = ms => ms > lastTapMS + MS_UNTIL_CHAIN_RESET;
+
+const tapHasBeenSkipped = int =>
+  tapChain.length > 1 &&
+  !lastTapSkipped &&
+  int > currentBeatMS * SKIPPED_TAP_THRESHOLD_LOW &&
+  int < currentBeatMS * SKIPPED_TAP_THRESHOLD_HIGH;
+
+const resetTapChain = () => {
   tapChain = [];
   tapIndex = 0;
   lastTapMS = null;
-  lastTapSkipped = false;
+  lastTapSkipped = null;
   currentBeatMS = null;
+};
 
-  getCurrentMS = () => new Date().getTime();
+const getAverageTapInterval = () =>
+  tapChain.reduce((total, current) => (total += current / tapChain.length), 0);
 
-  newTapChainShouldBegin = ms => ms > this.lastTapMS + MS_UNTIL_CHAIN_RESET;
+const processTap = ms => {
+  if (newTapChainShouldBegin(ms)) resetTapChain();
 
-  tapHasBeenSkipped = int =>
-    this.tapChain.length > 1 &&
-    !this.lastTapSkipped &&
-    int > this.currentBeatMS * SKIPPED_TAP_THRESHOLD_LOW &&
-    int < this.currentBeatMS * SKIPPED_TAP_THRESHOLD_HIGH;
+  // if it's the first tap of a chain, only set lastTapMS
+  if (!lastTapMS) {
+    lastTapMS = ms;
+    return null;
+  }
 
-  resetTapChain = () => {
-    this.tapChain = [];
-    this.tapIndex = 0;
-    this.lastTapMS = null;
-    this.lastTapSkipped = null;
-    this.currentBeatMS = null;
-  };
+  // calculate the tap interval (milliseconds since last tap)
+  let interval = ms - lastTapMS;
 
-  getAverageTapInterval = () =>
-    this.tapChain.reduce(
-      (total, current) => (total += current / this.tapChain.length),
-      0
-    );
+  // if a tap was skipped, half the interval
+  if (tapHasBeenSkipped(interval)) {
+    interval /= 2;
+    lastTapSkipped = true;
+  } else {
+    lastTapSkipped = false;
+  }
 
-  processTap = ms => {
-    // if it's the first tap of a chain, only set lastTapMS
-    if (!this.lastTapMS) {
-      this.lastTapMS = ms;
-      return null;
-    }
+  // save the interval in the chain, increment the index, set lastTapMS
+  tapChain[tapIndex % TOTAL_TAP_VALUES] = interval;
+  tapIndex++;
+  lastTapMS = ms;
 
-    // calculate the tap interval (milliseconds since last tap)
-    let interval = ms - this.lastTapMS;
+  // based on the updated chain, calculate and return the new average
+  return getAverageTapInterval();
+};
 
-    // if a tap was skipped, half the interval
-    if (this.tapHasBeenSkipped(interval)) {
-      interval /= 2;
-      this.lastTapSkipped = true;
-    } else {
-      this.lastTapSkipped = false;
-    }
-
-    // save the interval in the chain, increment the index, set lastTapMS
-    this.tapChain[this.tapIndex % TOTAL_TAP_VALUES] = interval;
-    this.tapIndex++;
-    this.lastTapMS = ms;
-
-    // based on the updated chain, calculate and return the new average
-    return this.getAverageTapInterval();
-  };
+class TapTempo extends Component {
+  // ========== LOOP
 
   loop = () => {
-    const ms = this.getCurrentMS();
+    const ms = getCurrentMS();
 
-    if (this.buttonDown) {
-      this.buttonDown = false;
+    if (buttonDown) {
+      buttonDown = false;
 
-      if (this.newTapChainShouldBegin(ms)) this.resetTapChain();
+      currentBeatMS = processTap(ms);
 
-      this.currentBeatMS = this.processTap(ms);
-
-      if (this.currentBeatMS)
-        this.props.setTempo(parseInt(60000 / this.currentBeatMS));
+      if (currentBeatMS) this.props.setTempo(parseInt(60000 / currentBeatMS));
     }
   };
 
@@ -95,9 +93,9 @@ class TapTempo extends Component {
 
   // ========== EVENT HANDLERS
 
-  onTapTempoButtonMouseDown = () => (this.buttonDown = true);
+  onTapTempoButtonMouseDown = () => (buttonDown = true);
 
-  onTapTempoButtonMouseUp = () => (this.buttonDown = false);
+  onTapTempoButtonMouseUp = () => (buttonDown = false);
 
   // ========== RENDER
 
