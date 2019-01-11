@@ -60,7 +60,10 @@ class TempoControls extends Component {
           onChange={this.onTempoSliderChange}
         />
 
-        <TapTempo setTempo={this.props.setTempo} />
+        <TapTempo
+          setTempo={this.props.setTempo}
+          ref={this.props.tapTempoButtonRef}
+        />
       </Wrapper>
     );
   }

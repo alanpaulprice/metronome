@@ -11,7 +11,7 @@ class Sound extends Component {
     this.chh = new Tone.Player(closedHat).connect(this.gain);
     this.ohh = new Tone.Player(openHat).connect(this.gain);
 
-    // loop one note and increment the currentBeat
+    // loop one quarter note and increment the currentBeat
     // if currentBeat is 0 and accent is enabled, the note will be accented
     Tone.Transport.scheduleRepeat(time => {
       this[this.props.accent && !this.props.currentBeat ? 'ohh' : 'chh'].start(

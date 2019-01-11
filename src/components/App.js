@@ -54,6 +54,7 @@ class App extends Component {
 
   tempoInputRef = React.createRef();
   accentBeatInputRef = React.createRef();
+  tapTempoButtonRef = React.createRef();
 
   // ========== STATE MODIFICATION
 
@@ -165,6 +166,7 @@ class App extends Component {
           toggleAccent={this.toggleAccent}
           incrementAccentBeat={this.incrementAccentBeat}
             accentBeatInputRef={this.accentBeatInputRef}
+            tapTempoButtonRef={this.tapTempoButtonRef}
           />
 
           <Wrapper>
@@ -184,6 +186,7 @@ class App extends Component {
               MIN_TEMPO={MIN_TEMPO}
               MAX_TEMPO={MAX_TEMPO}
               tempoInputRef={this.tempoInputRef}
+              tapTempoButtonRef={this.tapTempoButtonRef}
             />
 
             <AccentControls

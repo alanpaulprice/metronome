@@ -19,7 +19,8 @@ class KeyboardShortcuts extends Component {
       : code === 37 // arrow left
       ? this.incrementTempoAndBlur(-1)
       : code === 39 // arrow right
-      ? this.incrementTempoAndBlur(1)
+      : code === 77 // m
+      ? this.props.tapTempoButtonRef.current.onTapTempoButtonMouseDown()
       : code === 40 // arrow down
       ? this.props.incrementVolume(-0.1)
       : code === 38 // arrow up
