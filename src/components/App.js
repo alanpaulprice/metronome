@@ -32,6 +32,7 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     font-family: monospace;
   }
+
   html {
     background: ${theme.bg};
   }
@@ -48,6 +49,8 @@ class App extends Component {
     accentBeat: 4,
     accentBeatInput: '4'
   };
+
+  // ========== REFS
 
   tempoInputRef = React.createRef();
   accentBeatInputRef = React.createRef();
