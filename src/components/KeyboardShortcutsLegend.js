@@ -14,7 +14,7 @@ const KeyboardShortcutsLegend = () => {
       </div>
       <div>
         <div>focus tempo input</div>
-        <div>t or enter</div>
+        <div>t</div>
       </div>
       <div>
         <div>tap tempo</div>
