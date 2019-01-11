@@ -6,15 +6,19 @@ const KeyboardShortcutsLegend = () => {
       <h3>keyboard shortcuts</h3>
       <div>
         <div>play/stop</div>
-        <div>spacebar</div>
+        <div>space</div>
       </div>
       <div>
         <div>tempo up/down</div>
         <div>arrow left/right</div>
       </div>
       <div>
-        <div>volume up/down</div>
-        <div>arrow up/down</div>
+        <div>focus tempo input</div>
+        <div>t or enter</div>
+      </div>
+      <div>
+        <div>tap tempo</div>
+        <div>m</div>
       </div>
       <div>
         <div>toggle accent</div>
@@ -25,12 +29,12 @@ const KeyboardShortcutsLegend = () => {
         <div>z/x</div>
       </div>
       <div>
-        <div>focus tempo input</div>
-        <div>t</div>
-      </div>
-      <div>
         <div>focus accent beat input</div>
         <div>b</div>
+      </div>
+      <div>
+        <div>volume up/down</div>
+        <div>arrow up/down</div>
       </div>
     </div>
   );
