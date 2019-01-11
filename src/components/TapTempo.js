@@ -9,14 +9,11 @@ const TOTAL_TAP_VALUES = 5,
   SKIPPED_TAP_THRESHOLD_LOW = 1.75,
   SKIPPED_TAP_THRESHOLD_HIGH = 2.75;
 
-let buttonDown = false,
-  tapChain = [],
+let tapChain = [],
   tapIndex = 0,
   lastTapMS = null,
   lastTapSkipped = false,
   currentBeatMS = null;
-
-const getCurrentMS = () => new Date().getTime();
 
 const newTapChainShouldBegin = ms => ms > lastTapMS + MS_UNTIL_CHAIN_RESET;
 
@@ -37,7 +34,9 @@ const resetTapChain = () => {
 const getAverageTapInterval = () =>
   tapChain.reduce((total, current) => (total += current / tapChain.length), 0);
 
-const processTap = ms => {
+const processTap = () => {
+  const ms = new Date().getTime();
+
   if (newTapChainShouldBegin(ms)) resetTapChain();
 
   // if it's the first tap of a chain, only set lastTapMS
@@ -70,32 +69,13 @@ class TapTempo extends Component {
   // ========== LOOP
 
   loop = () => {
-    const ms = getCurrentMS();
-
-    if (buttonDown) {
-      buttonDown = false;
-
-      currentBeatMS = processTap(ms);
-
-      if (currentBeatMS) this.props.setTempo(parseInt(60000 / currentBeatMS));
-    }
+    currentBeatMS = processTap();
+    if (currentBeatMS) this.props.setTempo(parseInt(60000 / currentBeatMS));
   };
-
-  // ========== LIFECYCLE
-
-  componentDidMount() {
-    this.interval = setInterval(this.loop, 10);
-  }
-
-  componentWillUnmount() {
-    clearInterval(this.interval);
-  }
 
   // ========== EVENT HANDLERS
 
-  onTapTempoButtonMouseDown = () => (buttonDown = true);
-
-  onTapTempoButtonMouseUp = () => (buttonDown = false);
+  onTapTempoButtonMouseDown = () => this.loop();
 
   // ========== RENDER
 
