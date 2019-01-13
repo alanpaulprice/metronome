@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Wrapper from '../elements/Wrapper';
 import Button from '../elements/Button';
+import Form from '../elements/Form';
 import Input from '../elements/Input';
 
 class AccentControls extends Component {
@@ -46,7 +47,7 @@ class AccentControls extends Component {
           <i className="fa fa-minus" />
         </Button>
 
-        <form onSubmit={this.onAccentBeatInputFormSubmit}>
+        <Form onSubmit={this.onAccentBeatInputFormSubmit}>
           <Input
             ref={this.props.accentBeatInputRef}
             value={this.props.accentBeatInput}
@@ -58,7 +59,7 @@ class AccentControls extends Component {
             background={props => props.theme.bg}
             noBorder
           />
-        </form>
+        </Form>
 
         <Button
           noBorder

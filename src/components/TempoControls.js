@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Wrapper from '../elements/Wrapper';
 import Button from '../elements/Button';
+import Form from '../elements/Form';
 import Input from '../elements/Input';
 import TapTempo from './TapTempo';
 
@@ -38,16 +39,7 @@ class TempoControls extends Component {
   render() {
     return (
       <Wrapper>
-        <Button
-          noBorder
-          value={-1}
-          onClick={this.onIncrementTempoButtonClick}
-          fontSize={'1.5em'}
-        >
-          <i className="fa fa-minus" />
-        </Button>
-
-        <form onSubmit={this.onTempoInputFormSubmit}>
+        <Form onSubmit={this.onTempoInputFormSubmit}>
           <Input
             ref={this.props.tempoInputRef}
             value={this.props.tempoInput}
@@ -59,15 +51,15 @@ class TempoControls extends Component {
             background={props => props.theme.bg}
             noBorder
           />
-        </form>
+        </Form>
 
         <Button
           noBorder
-          value={1}
+          value={-1}
           onClick={this.onIncrementTempoButtonClick}
           fontSize={'1.5em'}
         >
-          <i className="fa fa-plus" />
+          <i className="fa fa-minus" />
         </Button>
 
         <Input
@@ -78,6 +70,15 @@ class TempoControls extends Component {
           value={this.props.tempo}
           onChange={this.onTempoSliderChange}
         />
+
+        <Button
+          noBorder
+          value={1}
+          onClick={this.onIncrementTempoButtonClick}
+          fontSize={'1.5em'}
+        >
+          <i className="fa fa-plus" />
+        </Button>
 
         <TapTempo
           setTempo={this.props.setTempo}
