@@ -5,18 +5,22 @@ import openHat from '../audio/LinnHat_O.wav';
 
 class Sound extends Component {
   componentDidMount() {
-    // set initial tempo, initialise and connect audio components
+    // set the tempo and prepare audio components
     Tone.Transport.bpm.value = this.props.tempo;
     this.gain = new Tone.Gain(this.props.volume).toMaster();
     this.chh = new Tone.Player(closedHat).connect(this.gain);
     this.ohh = new Tone.Player(openHat).connect(this.gain);
 
-    this.loop = new Tone.Loop(() => {
-      this[this.props.accent ? 'ohh' : 'chh'].start(Tone.now(), 0, '4n');
-      this.chh.start('+4n');
-      this.chh.start('+2n');
-      this.chh.start('+2n.');
-    }, '1n').start(0);
+    // loop one quarter note and increment the currentBeat
+    // if currentBeat is 0 and accent is enabled, the note will be accented
+    Tone.Transport.scheduleRepeat(time => {
+      this[this.props.accent && !this.props.currentBeat ? 'ohh' : 'chh'].start(
+        time,
+        0,
+        '4n'
+      );
+      this.props.incrementCurrentBeat();
+    }, '4n');
   }
 
   componentDidUpdate(prevProps) {
