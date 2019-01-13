@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Wrapper from '../elements/Wrapper';
 import Button from '../elements/Button';
+import Input from '../elements/Input';
 
 class AccentControls extends Component {
   onAccentToggleButtonClick = () => this.props.toggleAccent();
@@ -32,29 +33,38 @@ class AccentControls extends Component {
   render() {
     return (
       <Wrapper>
-        <Button onClick={this.onAccentToggleButtonClick}>
-          {this.props.accent ? 'On' : 'Off'}
+        <Button onClick={this.onAccentToggleButtonClick} fontSize={'1.5em'}>
+          Accent: {this.props.accent ? 'On' : 'Off'}
         </Button>
+
         <Button
           noBorder
           value={-1}
           onClick={this.onIncrementAccentBeatButtonClick}
+          fontSize={'1.5em'}
         >
           <i className="fa fa-minus" />
         </Button>
+
         <form onSubmit={this.onAccentBeatInputFormSubmit}>
-          <input
+          <Input
             ref={this.props.accentBeatInputRef}
             value={this.props.accentBeatInput}
             onChange={this.onAccentBeatInputChange}
             onFocus={this.onAccentBeatInputFocus}
             onBlur={this.onAccentBeatInputBlur}
+            fontSize={'3em'}
+            color={props => props.theme.fg}
+            background={props => props.theme.bg}
+            noBorder
           />
         </form>
+
         <Button
           noBorder
           value={1}
           onClick={this.onIncrementAccentBeatButtonClick}
+          fontSize={'1.5em'}
         >
           <i className="fa fa-plus" />
         </Button>

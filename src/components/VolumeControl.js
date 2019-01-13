@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Wrapper from '../elements/Wrapper';
-import Slider from '../elements/Slider';
+import Input from '../elements/Input';
 
 class VolumeControl extends Component {
   onVolumeInputChange = e => this.props.setVolume(e.currentTarget.value);
@@ -8,7 +8,8 @@ class VolumeControl extends Component {
   render() {
     return (
       <Wrapper>
-        <Slider
+        <Input
+          type={'range'}
           min="0"
           max="1"
           step="0.1"

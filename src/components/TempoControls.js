@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Wrapper from '../elements/Wrapper';
 import Button from '../elements/Button';
-import Slider from '../elements/Slider';
+import Input from '../elements/Input';
 import TapTempo from './TapTempo';
 
 class TempoControls extends Component {
@@ -31,32 +31,51 @@ class TempoControls extends Component {
   onTempoSliderChange = e =>
     this.props.setTempo(parseInt(e.currentTarget.value));
 
+  componentDidMount() {
+    console.log(this.props);
+  }
+
   render() {
     return (
       <Wrapper>
-        <Button noBorder value={-1} onClick={this.onIncrementTempoButtonClick}>
+        <Button
+          noBorder
+          value={-1}
+          onClick={this.onIncrementTempoButtonClick}
+          fontSize={'1.5em'}
+        >
           <i className="fa fa-minus" />
         </Button>
 
         <form onSubmit={this.onTempoInputFormSubmit}>
-          <input
+          <Input
             ref={this.props.tempoInputRef}
             value={this.props.tempoInput}
             onChange={this.onTempoInputChange}
             onFocus={this.onTempoInputFocus}
             onBlur={this.onTempoInputBlur}
+            fontSize={'3em'}
+            color={props => props.theme.fg}
+            background={props => props.theme.bg}
+            noBorder
           />
         </form>
 
-        <Button noBorder value={1} onClick={this.onIncrementTempoButtonClick}>
+        <Button
+          noBorder
+          value={1}
+          onClick={this.onIncrementTempoButtonClick}
+          fontSize={'1.5em'}
+        >
           <i className="fa fa-plus" />
         </Button>
 
-        <Slider
-          value={this.props.tempo}
+        <Input
+          type={'range'}
           min={this.props.MIN_TEMPO}
           max={this.props.MAX_TEMPO}
           step={1}
+          value={this.props.tempo}
           onChange={this.onTempoSliderChange}
         />
 

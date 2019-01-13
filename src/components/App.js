@@ -21,8 +21,9 @@ const legalAccentBeatValue = num => num >= 1 && num <= 99;
 const legalVolumeValue = num => num >= 0 && num <= 1;
 
 const theme = {
-  bg: '#555', //'hsl(34, 78%, 91%)',
-  fg: '#ccc' //'hsl(34, 76%, 15%)'
+  // h 325?
+  bg: 'hsl(250, 25%, 50%)',
+  fg: 'hsl(250, 25%, 97.5%)'
 };
 
 const GlobalStyle = createGlobalStyle`
@@ -35,6 +36,7 @@ const GlobalStyle = createGlobalStyle`
 
   html {
     background: ${theme.bg};
+    font-size: 10px;
   }
 `;
 
@@ -170,9 +172,13 @@ class App extends Component {
           />
 
           <Wrapper>
-            <H1>metronome</H1>
+            <H1 fontSize={'5em'}>metronome</H1>
 
-            <Button noBorder onClick={this.onPlayStopButtonClick}>
+            <Button
+              noBorder
+              fontSize={'4em'}
+              onClick={this.onPlayStopButtonClick}
+            >
               <i className={`fa fa-${this.state.playing ? 'stop' : 'play'}`} />
             </Button>
 
