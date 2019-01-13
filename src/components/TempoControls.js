@@ -53,32 +53,32 @@ class TempoControls extends Component {
           />
         </Form>
         <FlexDiv>
-        <Button
-          noBorder
-          value={-1}
-          onClick={this.onIncrementTempoButtonClick}
-          fontSize={'1.5em'}
-        >
-          <i className="fa fa-minus" />
-        </Button>
+          <Button
+            noBorder
+            value={-1}
+            onClick={this.onIncrementTempoButtonClick}
+            fontSize={'1.5em'}
+          >
+            <i className="fa fa-minus" />
+          </Button>
 
-        <Input
-          type={'range'}
-          min={this.props.MIN_TEMPO}
-          max={this.props.MAX_TEMPO}
-          step={1}
-          value={this.props.tempo}
-          onChange={this.onTempoSliderChange}
-        />
+          <Input
+            type={'range'}
+            min={this.props.MIN_TEMPO}
+            max={this.props.MAX_TEMPO}
+            step={1}
+            value={this.props.tempo}
+            onChange={this.onTempoSliderChange}
+          />
 
-        <Button
-          noBorder
-          value={1}
-          onClick={this.onIncrementTempoButtonClick}
-          fontSize={'1.5em'}
-        >
-          <i className="fa fa-plus" />
-        </Button>
+          <Button
+            noBorder
+            value={1}
+            onClick={this.onIncrementTempoButtonClick}
+            fontSize={'1.5em'}
+          >
+            <i className="fa fa-plus" />
+          </Button>
         </FlexDiv>
 
         <TapTempo

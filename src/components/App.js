@@ -80,7 +80,7 @@ class App extends Component {
     this.setState(prevState =>
       legalTempoValue(prevState.tempo + incr)
         ? {
-      ...prevState,
+            ...prevState,
             tempo: prevState.tempo + incr,
             tempoInput: prevState.tempo + incr
           }
@@ -161,12 +161,12 @@ class App extends Component {
           />
 
           <KeyboardShortcuts
-          togglePlaying={this.togglePlaying}
+            togglePlaying={this.togglePlaying}
             tempoInputRef={this.tempoInputRef}
-          incrementTempo={this.incrementTempo}
-          incrementVolume={this.incrementVolume}
-          toggleAccent={this.toggleAccent}
-          incrementAccentBeat={this.incrementAccentBeat}
+            incrementTempo={this.incrementTempo}
+            incrementVolume={this.incrementVolume}
+            toggleAccent={this.toggleAccent}
+            incrementAccentBeat={this.incrementAccentBeat}
             accentBeatInputRef={this.accentBeatInputRef}
             tapTempoButtonRef={this.tapTempoButtonRef}
           />
@@ -205,12 +205,12 @@ class App extends Component {
               incrementAccentBeat={this.incrementAccentBeat}
               legalAccentBeatValue={legalAccentBeatValue}
               accentBeatInputRef={this.accentBeatInputRef}
-              />
+            />
 
             <VolumeControl
               volume={this.state.volume}
               setVolume={this.setVolume}
-              />
+            />
 
             <KeyboardShortcutsLegend />
           </FlexDiv>
