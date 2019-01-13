@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Wrapper from '../elements/Wrapper';
+import FlexDiv from '../elements/FlexDiv';
 import Button from '../elements/Button';
 import Form from '../elements/Form';
 import Input from '../elements/Input';
@@ -33,7 +33,7 @@ class AccentControls extends Component {
 
   render() {
     return (
-      <Wrapper>
+      <FlexDiv>
         <Button onClick={this.onAccentToggleButtonClick} fontSize={'1.5em'}>
           Accent: {this.props.accent ? 'On' : 'Off'}
         </Button>
@@ -69,7 +69,7 @@ class AccentControls extends Component {
         >
           <i className="fa fa-plus" />
         </Button>
-      </Wrapper>
+      </FlexDiv>
     );
   }
 }

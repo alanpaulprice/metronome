@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Wrapper from '../elements/Wrapper';
+import FlexDiv from '../elements/FlexDiv';
 import Button from '../elements/Button';
 import Form from '../elements/Form';
 import Input from '../elements/Input';
@@ -38,7 +38,7 @@ class TempoControls extends Component {
 
   render() {
     return (
-      <Wrapper>
+      <FlexDiv>
         <Form onSubmit={this.onTempoInputFormSubmit}>
           <Input
             ref={this.props.tempoInputRef}
@@ -52,7 +52,7 @@ class TempoControls extends Component {
             noBorder
           />
         </Form>
-
+        <FlexDiv>
         <Button
           noBorder
           value={-1}
@@ -79,12 +79,13 @@ class TempoControls extends Component {
         >
           <i className="fa fa-plus" />
         </Button>
+        </FlexDiv>
 
         <TapTempo
           setTempo={this.props.setTempo}
           ref={this.props.tapTempoButtonRef}
         />
-      </Wrapper>
+      </FlexDiv>
     );
   }
 }

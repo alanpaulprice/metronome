@@ -9,7 +9,7 @@ import AccentControls from './AccentControls';
 import VolumeControl from './VolumeControl';
 import KeyboardShortcutsLegend from './KeyboardShortcutsLegend';
 
-import Wrapper from '../elements/Wrapper';
+import FlexDiv from '../elements/FlexDiv';
 import H1 from '../elements/H1';
 import Button from '../elements/Button';
 
@@ -171,12 +171,12 @@ class App extends Component {
             tapTempoButtonRef={this.tapTempoButtonRef}
           />
 
-          <Wrapper>
+          <FlexDiv flexDirection={'column'}>
             <H1 fontSize={'5em'}>metronome</H1>
 
             <Button
               noBorder
-              fontSize={'4em'}
+              fontSize={'5em'}
               onClick={this.onPlayStopButtonClick}
             >
               <i className={`fa fa-${this.state.playing ? 'stop' : 'play'}`} />
@@ -213,7 +213,7 @@ class App extends Component {
               />
 
             <KeyboardShortcutsLegend />
-          </Wrapper>
+          </FlexDiv>
         </Fragment>
       </ThemeProvider>
     );
