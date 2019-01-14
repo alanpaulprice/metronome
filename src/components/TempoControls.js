@@ -43,8 +43,6 @@ class TempoControls extends Component {
             onFocus={this.onTempoInputFocus}
             onBlur={this.onTempoInputBlur}
             fontSize={'3rem'}
-            color={props => props.theme.fg}
-            background={props => props.theme.bg}
             noBorder
           />
         </Form>
