@@ -155,14 +155,15 @@ class App extends Component {
           />
 
           <FlexDiv flexDirection={'column'}>
-            <H1 fontSize={'5rem'} margin={'1rem 0'}>
+            <H1 fontSize={'5rem'} marginTop={'5rem'}>
               metronome
             </H1>
 
             <Button
-              noBorder
-              fontSize={'5rem'}
               onClick={this.onPlayStopButtonClick}
+              noBorder
+              fontSize={'7.5rem'}
+              marginTop={'5rem'}
             >
               <i className={`fa fa-${this.state.playing ? 'stop' : 'play'}`} />
             </Button>
