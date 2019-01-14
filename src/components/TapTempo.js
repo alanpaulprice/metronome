@@ -12,8 +12,8 @@ class TapTempo extends Component {
     return (
       <Button
         onMouseDown={this.onTapTempoButtonMouseDown}
-        fontSize={'1.5em'}
-        padding={'1em'}
+        fontSize={'1.5rem'}
+        padding={'1rem'}
       >
         Tap Tempo
       </Button>
