@@ -32,10 +32,6 @@ class TempoControls extends Component {
   onTempoSliderChange = e =>
     this.props.setTempo(parseInt(e.currentTarget.value));
 
-  componentDidMount() {
-    console.log(this.props);
-  }
-
   render() {
     return (
       <FlexDiv>
