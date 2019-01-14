@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import { ThemeProvider, createGlobalStyle } from 'styled-components';
+import { ThemeProvider } from 'styled-components';
 
 import Sound from './Sound';
 import KeyboardShortcuts from './KeyboardShortcuts';
@@ -13,32 +13,15 @@ import FlexDiv from '../elements/FlexDiv';
 import H1 from '../elements/H1';
 import Button from '../elements/Button';
 
+import GlobalStyle from '../GlobalStyle';
+import StyleTheme from '../StyleTheme';
+
 const MIN_TEMPO = 40;
 const MAX_TEMPO = 280;
 
 const legalTempoValue = num => num >= MIN_TEMPO && num <= MAX_TEMPO;
 const legalAccentBeatValue = num => num >= 1 && num <= 99;
 const legalVolumeValue = num => num >= 0 && num <= 1;
-
-const theme = {
-  // h 325?
-  bg: 'hsl(250, 25%, 50%)',
-  fg: 'hsl(250, 25%, 97.5%)'
-};
-
-const GlobalStyle = createGlobalStyle`
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: monospace;
-  }
-
-  html {
-    background: ${theme.bg};
-    font-size: 10px;
-  }
-`;
 
 class App extends Component {
   state = {
@@ -147,7 +130,7 @@ class App extends Component {
 
   render() {
     return (
-      <ThemeProvider theme={theme}>
+      <ThemeProvider theme={StyleTheme}>
         <Fragment>
           <GlobalStyle />
           <Sound
