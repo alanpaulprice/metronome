@@ -3,8 +3,9 @@ import styled from 'styled-components';
 const Input = styled.input.attrs(props => ({
   type: props.type || 'text'
 }))`
-  color: ${props => props.color || props.theme.bg || 'black'};
-  background: ${props => props.background || props.bg || 'white'};
+  ${props => props.display && `display: ${props.display};`}
+  color: ${props => props.color || props.theme.fg || 'black'};
+  background: ${props => props.background || props.theme.bg || 'white'};
   font-size: ${props => props.fontSize || '1rem'};
   text-align: ${props => props.textAlign || 'center'};
   border-width: ${props =>
