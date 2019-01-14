@@ -55,8 +55,6 @@ class AccentControls extends Component {
             onFocus={this.onAccentBeatInputFocus}
             onBlur={this.onAccentBeatInputBlur}
             fontSize={'3rem'}
-            color={props => props.theme.fg}
-            background={props => props.theme.bg}
             noBorder
           />
         </Form>
