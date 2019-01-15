@@ -154,7 +154,7 @@ class App extends Component {
             tapTempoButtonRef={this.tapTempoButtonRef}
           />
 
-          <Div flexDirection={'column'}>
+          <Div flex flexDirection={'column'}>
             <H1 fontSize={'5rem'} marginTop={'5rem'}>
               metronome
             </H1>
