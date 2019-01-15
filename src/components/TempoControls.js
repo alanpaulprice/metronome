@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import FlexDiv from '../elements/FlexDiv';
 import Button from '../elements/Button';
 import Form from '../elements/Form';
@@ -34,7 +34,7 @@ class TempoControls extends Component {
 
   render() {
     return (
-      <FlexDiv>
+      <Fragment>
         <Form onSubmit={this.onTempoInputFormSubmit}>
           <Input
             ref={this.props.tempoInputRef}
@@ -46,6 +46,7 @@ class TempoControls extends Component {
             noBorder
           />
         </Form>
+
         <FlexDiv>
           <Button
             noBorder
@@ -79,7 +80,7 @@ class TempoControls extends Component {
           setTempo={this.props.setTempo}
           ref={this.props.tapTempoButtonRef}
         />
-      </FlexDiv>
+      </Fragment>
     );
   }
 }
