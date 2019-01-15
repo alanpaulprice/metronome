@@ -2,43 +2,28 @@ import React from 'react';
 import Div from '../elements/Div';
 
 const KeyboardShortcutsLegend = () => {
-  return (
+  const legend = [
+    { action: 'Toggle playback', key: 'Space' },
+    { action: 'Tempo Up', key: 'Arrow Right' },
+    { action: 'Tempo Down', key: 'Arrow Left' },
+    { action: 'Focus Tempo Input', key: 'T' },
+    { action: 'Tap Tempo', key: 'M' },
+    { action: 'Toggle Accent', key: 'A' },
+    { action: 'Accent Beat Up', key: 'X' },
+    { action: 'Accent Beat Down', key: 'Z' },
+    { action: 'Focus Accent Beat Input', key: 'B' },
+    { action: 'Volume Up', key: 'Arrow Up' },
+    { action: 'Volume Down', key: 'Arrow Down' }
+  ];
+
+  const legendJSX = legend.map(obj => (
     <Div>
-      <h3>keyboard shortcuts</h3>
-      <Div>
-        <Div>play/stop</Div>
-        <Div>space</Div>
-      </Div>
-      <Div>
-        <Div>tempo up/down</Div>
-        <Div>arrow left/right</Div>
-      </Div>
-      <Div>
-        <Div>focus tempo input</Div>
-        <Div>t</Div>
-      </Div>
-      <Div>
-        <Div>tap tempo</Div>
-        <Div>m</Div>
-      </Div>
-      <Div>
-        <Div>toggle accent</Div>
-        <Div>a</Div>
-      </Div>
-      <Div>
-        <Div>accent beat up/down</Div>
-        <Div>z/x</Div>
-      </Div>
-      <Div>
-        <Div>focus accent beat input</Div>
-        <Div>b</Div>
-      </Div>
-      <Div>
-        <Div>volume up/down</Div>
-        <Div>arrow up/down</Div>
-      </Div>
+      <Div>{obj.action}</Div>
+      <Div>{obj.key}</Div>
     </Div>
-  );
+  ));
+
+  return legendJSX;
 };
 
 export default KeyboardShortcutsLegend;
