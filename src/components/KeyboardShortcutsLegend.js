@@ -1,42 +1,43 @@
 import React from 'react';
+import Div from '../elements/Div';
 
 const KeyboardShortcutsLegend = () => {
   return (
-    <div>
+    <Div>
       <h3>keyboard shortcuts</h3>
-      <div>
-        <div>play/stop</div>
-        <div>space</div>
-      </div>
-      <div>
-        <div>tempo up/down</div>
-        <div>arrow left/right</div>
-      </div>
-      <div>
-        <div>focus tempo input</div>
-        <div>t</div>
-      </div>
-      <div>
-        <div>tap tempo</div>
-        <div>m</div>
-      </div>
-      <div>
-        <div>toggle accent</div>
-        <div>a</div>
-      </div>
-      <div>
-        <div>accent beat up/down</div>
-        <div>z/x</div>
-      </div>
-      <div>
-        <div>focus accent beat input</div>
-        <div>b</div>
-      </div>
-      <div>
-        <div>volume up/down</div>
-        <div>arrow up/down</div>
-      </div>
-    </div>
+      <Div>
+        <Div>play/stop</Div>
+        <Div>space</Div>
+      </Div>
+      <Div>
+        <Div>tempo up/down</Div>
+        <Div>arrow left/right</Div>
+      </Div>
+      <Div>
+        <Div>focus tempo input</Div>
+        <Div>t</Div>
+      </Div>
+      <Div>
+        <Div>tap tempo</Div>
+        <Div>m</Div>
+      </Div>
+      <Div>
+        <Div>toggle accent</Div>
+        <Div>a</Div>
+      </Div>
+      <Div>
+        <Div>accent beat up/down</Div>
+        <Div>z/x</Div>
+      </Div>
+      <Div>
+        <Div>focus accent beat input</Div>
+        <Div>b</Div>
+      </Div>
+      <Div>
+        <Div>volume up/down</Div>
+        <Div>arrow up/down</Div>
+      </Div>
+    </Div>
   );
 };
 

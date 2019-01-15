@@ -9,7 +9,7 @@ import AccentControls from './AccentControls';
 import VolumeControl from './VolumeControl';
 import KeyboardShortcutsLegend from './KeyboardShortcutsLegend';
 
-import FlexDiv from '../elements/FlexDiv';
+import Div from '../elements/Div';
 import H1 from '../elements/H1';
 import Button from '../elements/Button';
 
@@ -154,7 +154,7 @@ class App extends Component {
             tapTempoButtonRef={this.tapTempoButtonRef}
           />
 
-          <FlexDiv flexDirection={'column'}>
+          <Div flexDirection={'column'}>
             <H1 fontSize={'5rem'} marginTop={'5rem'}>
               metronome
             </H1>
@@ -199,7 +199,7 @@ class App extends Component {
             />
 
             <KeyboardShortcutsLegend />
-          </FlexDiv>
+          </Div>
         </Fragment>
       </ThemeProvider>
     );

@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import FlexDiv from '../elements/FlexDiv';
+import Div from '../elements/Div';
 import Button from '../elements/Button';
 import Form from '../elements/Form';
 import Input from '../elements/Input';
@@ -47,7 +47,7 @@ class TempoControls extends Component {
           />
         </Form>
 
-        <FlexDiv>
+        <Div>
           <Button
             noBorder
             value={-1}
@@ -74,7 +74,7 @@ class TempoControls extends Component {
           >
             <i className="fa fa-plus" />
           </Button>
-        </FlexDiv>
+        </Div>
 
         <TapTempo
           setTempo={this.props.setTempo}

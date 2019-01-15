@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import FlexDiv from '../elements/FlexDiv';
+import Div from '../elements/Div';
 import Input from '../elements/Input';
 
 class VolumeControl extends Component {
@@ -7,7 +7,7 @@ class VolumeControl extends Component {
 
   render() {
     return (
-      <FlexDiv>
+      <Div>
         <Input
           type={'range'}
           min="0"
@@ -16,8 +16,8 @@ class VolumeControl extends Component {
           value={this.props.volume}
           onChange={this.onVolumeInputChange}
         />
-        <div>volume: {this.props.volume * 100}%</div>
-      </FlexDiv>
+        <Div>volume: {this.props.volume * 100}%</Div>
+      </Div>
     );
   }
 }
