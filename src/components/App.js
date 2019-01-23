@@ -170,7 +170,9 @@ class App extends Component {
               fontSize={'7.5rem'}
               marginTop={'5rem'}
             >
-              <i className={`fa fa-${this.state.playing ? 'stop' : 'play'}`} />
+              <i className={'material-icons'}>
+                {this.state.playing ? 'play_arrow' : 'stop'}
+              </i>
             </Button>
 
             <TempoControls
