@@ -12,6 +12,7 @@ import KeyboardShortcutsLegend from './KeyboardShortcutsLegend';
 import Div from '../elements/Div';
 import H1 from '../elements/H1';
 import Button from '../elements/Button';
+import Icon from '../elements/Icon';
 
 import GlobalStyle from '../GlobalStyle';
 import StyleTheme from '../StyleTheme';
@@ -170,9 +171,9 @@ class App extends Component {
               fontSize={'7.5rem'}
               marginTop={'5rem'}
             >
-              <i className={'material-icons'}>
-                {this.state.playing ? 'play_arrow' : 'stop'}
-              </i>
+              <Icon className={'material-icons'} fontSize={'12.5rem'}>
+                {this.state.playing ? 'stop' : 'play_arrow'}
+              </Icon>
             </Button>
 
             <TempoControls
