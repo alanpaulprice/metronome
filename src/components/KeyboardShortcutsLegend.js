@@ -16,8 +16,8 @@ const KeyboardShortcutsLegend = () => {
     { action: 'Volume Down', key: 'Arrow Down' }
   ];
 
-  const legendJSX = legend.map(obj => (
-    <Div>
+  const legendJSX = legend.map((obj, index) => (
+    <Div key={index}>
       <Div>{obj.action}</Div>
       <Div>{obj.key}</Div>
     </Div>
