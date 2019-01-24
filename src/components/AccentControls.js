@@ -36,8 +36,15 @@ class AccentControls extends Component {
   render() {
     return (
       <Div>
-        <Button onClick={this.onAccentToggleButtonClick} fontSize="1.5em">
-          Accent: {this.props.accent ? 'On' : 'Off'}
+        <Button
+          onClick={this.onAccentToggleButtonClick}
+          fontSize="1.5em"
+          textAlign="left"
+        >
+          accent
+          <Icon className="material-icons" float="right">
+            {this.props.accent ? 'toggle_on' : 'toggle_off'}
+          </Icon>
         </Button>
 
         <Button
