@@ -155,12 +155,12 @@ class App extends Component {
             tapTempoButtonRef={this.tapTempoButtonRef}
           />
 
-          <Div flex flexDirection={'column'} alignItems={'center'}>
+          <Div flex flexDirection="column" alignItems="center">
             <H1
-              fontSize={'5rem'}
-              fontWeight={'900'}
-              letterSpacing={'-0.425rem'}
-              marginTop={'5rem'}
+              fontSize="5rem"
+              fontWeight="900"
+              letterSpacing="-0.425rem"
+              marginTop="5rem"
             >
               metronome
             </H1>
@@ -168,10 +168,10 @@ class App extends Component {
             <Button
               onClick={this.onPlayStopButtonClick}
               noBorder
-              fontSize={'7.5rem'}
-              marginTop={'5rem'}
+              fontSize="7.5rem"
+              marginTop="5rem"
             >
-              <Icon className={'material-icons'} fontSize={'12.5rem'}>
+              <Icon className="material-icons" fontSize="12.5rem">
                 {this.state.playing ? 'stop' : 'play_arrow'}
               </Icon>
             </Button>
