@@ -8,7 +8,7 @@ const Button = styled.button.attrs(props => ({
   background: ${props => props.background || props.theme.bg || 'white'};
   padding: ${props => props.padding || '0.5rem'};
   ${props => props.marginTop && `margin-top: ${props.marginTop};`}
-  text-align: center;
+  text-align: ${props => props.textAlign || 'center'};
   border-color: ${props => props.borderColor || props.theme.fg || 'black'};
   border-width: ${props =>
     props.noBorder
