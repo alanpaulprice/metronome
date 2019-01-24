@@ -41,7 +41,7 @@ class AccentControls extends Component {
       <Div>
         <Button
           onClick={this.onAccentToggleButtonClick}
-          fontSize="1.5em"
+          fontSize="1.5rem"
           textAlign="left"
         >
           accent

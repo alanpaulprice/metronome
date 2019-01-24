@@ -157,7 +157,20 @@ class App extends Component {
             accentBeatInputRef={this.accentBeatInputRef}
             tapTempoButtonRef={this.tapTempoButtonRef}
           />
-
+          <Button
+          onClick={this.onKeyboardShortcutsButtonClick}
+            position="fixed"
+            top="0"
+            right="0"
+            height="3.75rem"
+            width="3.75rem"
+            padding="0"
+            fontSize="2.5rem"
+            fontWeight="900"
+            borderWidth="0"
+          >
+            ?
+          </Button>
           <Div flex flexDirection="column" alignItems="center">
             <H1
               fontSize="5rem"
