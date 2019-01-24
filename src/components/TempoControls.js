@@ -1,9 +1,12 @@
 import React, { Component, Fragment } from 'react';
+
+import TapTempo from './TapTempo';
+
 import Div from '../elements/Div';
 import Button from '../elements/Button';
 import Form from '../elements/Form';
 import Input from '../elements/Input';
-import TapTempo from './TapTempo';
+import Icon from '../elements/Icon';
 
 class TempoControls extends Component {
   // if the value isn't a valid bpm, do nothing
@@ -54,7 +57,7 @@ class TempoControls extends Component {
             onClick={this.onIncrementTempoButtonClick}
             fontSize="1.5rem"
           >
-            <i className="fa fa-minus" />
+            <Icon className="material-icons">remove</Icon>
           </Button>
 
           <Input
@@ -72,7 +75,7 @@ class TempoControls extends Component {
             onClick={this.onIncrementTempoButtonClick}
             fontSize="1.5rem"
           >
-            <i className="fa fa-plus" />
+            <Icon className="material-icons">add</Icon>
           </Button>
         </Div>
 

@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
+
 import Div from '../elements/Div';
 import Button from '../elements/Button';
 import Form from '../elements/Form';
 import Input from '../elements/Input';
+import Icon from '../elements/Icon';
 
 class AccentControls extends Component {
   onAccentToggleButtonClick = () => this.props.toggleAccent();
@@ -44,7 +46,7 @@ class AccentControls extends Component {
           onClick={this.onIncrementAccentBeatButtonClick}
           fontSize="1.5rem"
         >
-          <i className="fa fa-minus" />
+          <Icon className="material-icons">remove</Icon>
         </Button>
 
         <Form onSubmit={this.onAccentBeatInputFormSubmit}>
@@ -65,7 +67,7 @@ class AccentControls extends Component {
           onClick={this.onIncrementAccentBeatButtonClick}
           fontSize="1.5rem"
         >
-          <i className="fa fa-plus" />
+          <Icon className="material-icons">add</Icon>
         </Button>
       </Div>
     );
