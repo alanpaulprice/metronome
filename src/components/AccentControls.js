@@ -34,7 +34,7 @@ class AccentControls extends Component {
   render() {
     return (
       <Div>
-        <Button onClick={this.onAccentToggleButtonClick} fontSize={'1.5em'}>
+        <Button onClick={this.onAccentToggleButtonClick} fontSize="1.5em">
           Accent: {this.props.accent ? 'On' : 'Off'}
         </Button>
 
@@ -42,7 +42,7 @@ class AccentControls extends Component {
           noBorder
           value={-1}
           onClick={this.onIncrementAccentBeatButtonClick}
-          fontSize={'1.5rem'}
+          fontSize="1.5rem"
         >
           <i className="fa fa-minus" />
         </Button>
@@ -54,7 +54,7 @@ class AccentControls extends Component {
             onChange={this.onAccentBeatInputChange}
             onFocus={this.onAccentBeatInputFocus}
             onBlur={this.onAccentBeatInputBlur}
-            fontSize={'3rem'}
+            fontSize="3rem"
             noBorder
           />
         </Form>
@@ -63,7 +63,7 @@ class AccentControls extends Component {
           noBorder
           value={1}
           onClick={this.onIncrementAccentBeatButtonClick}
-          fontSize={'1.5rem'}
+          fontSize="1.5rem"
         >
           <i className="fa fa-plus" />
         </Button>

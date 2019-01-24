@@ -9,7 +9,7 @@ class VolumeControl extends Component {
     return (
       <Div>
         <Input
-          type={'range'}
+          type="range"
           min="0"
           max="1"
           step="0.1"
