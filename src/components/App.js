@@ -36,7 +36,8 @@ class App extends Component {
     currentBeat: 0,
     accent: false,
     accentBeat: 4,
-    accentBeatInput: '4'
+    accentBeatInput: '4',
+    displayShortcuts: false
   };
 
   // ========== REFS
@@ -158,7 +159,7 @@ class App extends Component {
             tapTempoButtonRef={this.tapTempoButtonRef}
           />
           <Button
-          onClick={this.onKeyboardShortcutsButtonClick}
+            onClick={this.onKeyboardShortcutsButtonClick}
             position="fixed"
             top="0"
             right="0"
