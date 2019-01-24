@@ -19,9 +19,12 @@ import StyleTheme from '../StyleTheme';
 
 const MIN_TEMPO = 40;
 const MAX_TEMPO = 280;
+const MIN_ACCENT_BEAT = 1;
+const MAX_ACCENT_BEAT = 99;
 
 const legalTempoValue = num => num >= MIN_TEMPO && num <= MAX_TEMPO;
-const legalAccentBeatValue = num => num >= 1 && num <= 99;
+const legalAccentBeatValue = num =>
+  num >= MIN_ACCENT_BEAT && num <= MAX_ACCENT_BEAT;
 const legalVolumeValue = num => num >= 0 && num <= 1;
 
 class App extends Component {
@@ -198,6 +201,8 @@ class App extends Component {
               setAccentBeatInput={this.setAccentBeatInput}
               incrementAccentBeat={this.incrementAccentBeat}
               legalAccentBeatValue={legalAccentBeatValue}
+              MIN_ACCENT_BEAT={MIN_ACCENT_BEAT}
+              MAX_ACCENT_BEAT={MAX_ACCENT_BEAT}
               accentBeatInputRef={this.accentBeatInputRef}
             />
 
