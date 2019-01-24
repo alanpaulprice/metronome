@@ -9,12 +9,13 @@ import Input from '../elements/Input';
 import Icon from '../elements/Icon';
 
 class TempoControls extends Component {
-  // if the value isn't a valid bpm, do nothing
+  // if the value isn't a valid bpm, use closest valid value
   // blur (triggering input value update) after state has been updated
   onTempoInputFormSubmit = async e => {
     e.preventDefault();
-    const newTempo = parseInt(this.props.tempoInput);
-    if (!this.props.legalTempoValue(newTempo)) return;
+    let newTempo = parseInt(this.props.tempoInput);
+    if (newTempo < this.props.MIN_TEMPO) newTempo = this.props.MIN_TEMPO;
+    if (newTempo > this.props.MAX_TEMPO) newTempo = this.props.MAX_TEMPO;
     await this.props.setTempo(newTempo);
     document.activeElement.blur();
   };
