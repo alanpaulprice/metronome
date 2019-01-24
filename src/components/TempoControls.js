@@ -42,7 +42,7 @@ class TempoControls extends Component {
             onChange={this.onTempoInputChange}
             onFocus={this.onTempoInputFocus}
             onBlur={this.onTempoInputBlur}
-            fontSize={'3rem'}
+            fontSize="3rem"
             noBorder
           />
         </Form>
@@ -52,13 +52,13 @@ class TempoControls extends Component {
             noBorder
             value={-1}
             onClick={this.onIncrementTempoButtonClick}
-            fontSize={'1.5rem'}
+            fontSize="1.5rem"
           >
             <i className="fa fa-minus" />
           </Button>
 
           <Input
-            type={'range'}
+            type="range"
             min={this.props.MIN_TEMPO}
             max={this.props.MAX_TEMPO}
             step={1}
@@ -70,7 +70,7 @@ class TempoControls extends Component {
             noBorder
             value={1}
             onClick={this.onIncrementTempoButtonClick}
-            fontSize={'1.5rem'}
+            fontSize="1.5rem"
           >
             <i className="fa fa-plus" />
           </Button>
