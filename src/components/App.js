@@ -170,7 +170,7 @@ class App extends Component {
 
             <Button
               onClick={this.onPlayStopButtonClick}
-              noBorder
+              borderWidth="0"
               fontSize="7.5rem"
               marginTop="5rem"
             >

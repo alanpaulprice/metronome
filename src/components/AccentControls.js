@@ -51,7 +51,7 @@ class AccentControls extends Component {
         </Button>
 
         <Button
-          noBorder
+          borderWidth="0"
           value={-1}
           onClick={this.onIncrementAccentBeatButtonClick}
           fontSize="1.5rem"
@@ -72,7 +72,7 @@ class AccentControls extends Component {
         </Form>
 
         <Button
-          noBorder
+          borderWidth="0"
           value={1}
           onClick={this.onIncrementAccentBeatButtonClick}
           fontSize="1.5rem"

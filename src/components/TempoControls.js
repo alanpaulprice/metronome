@@ -53,7 +53,7 @@ class TempoControls extends Component {
 
         <Div>
           <Button
-            noBorder
+            borderWidth="0"
             value={-1}
             onClick={this.onIncrementTempoButtonClick}
             fontSize="1.5rem"
@@ -71,7 +71,7 @@ class TempoControls extends Component {
           />
 
           <Button
-            noBorder
+            borderWidth="0"
             value={1}
             onClick={this.onIncrementTempoButtonClick}
             fontSize="1.5rem"

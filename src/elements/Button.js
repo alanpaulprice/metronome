@@ -11,9 +11,7 @@ const Button = styled.button.attrs(props => ({
   text-align: ${props => props.textAlign || 'center'};
   border-color: ${props => props.borderColor || props.theme.fg || 'black'};
   border-width: ${props =>
-    props.noBorder
-      ? '0'
-      : props.borderWidth || props.theme.borderWidth || '2px'};
+    props.borderWidth || props.theme.borderWidth || '2px'};
   outline: none;
 `;
 
