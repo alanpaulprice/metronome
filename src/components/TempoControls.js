@@ -9,7 +9,7 @@ import Input from '../elements/Input';
 import Icon from '../elements/Icon';
 
 class TempoControls extends Component {
-  // if the value isn't a valid bpm, use closest valid value
+  // if the value isn't valid, use closest valid value
   // blur (triggering input value update) after state has been updated
   onTempoInputFormSubmit = async e => {
     e.preventDefault();

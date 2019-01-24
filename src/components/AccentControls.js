@@ -9,12 +9,15 @@ import Icon from '../elements/Icon';
 class AccentControls extends Component {
   onAccentToggleButtonClick = () => this.props.toggleAccent();
 
-  // if the value isn't a valid accent beat, do nothing
+  // if the value isn't valid, use closest valid value
   // blur (triggering input value update) after state has been updated
   onAccentBeatInputFormSubmit = async e => {
     e.preventDefault();
-    const newAccentBeat = parseInt(this.props.accentBeatInput);
-    if (!this.props.legalAccentBeatValue(newAccentBeat)) return;
+    let newAccentBeat = parseInt(this.props.accentBeatInput);
+    if (newAccentBeat < this.props.MIN_ACCENT_BEAT)
+      newAccentBeat = this.props.MIN_ACCENT_BEAT;
+    if (newAccentBeat > this.props.MAX_ACCENT_BEAT)
+      newAccentBeat = this.props.MAX_ACCENT_BEAT;
     await this.props.setAccentBeat(newAccentBeat);
     document.activeElement.blur();
   };
