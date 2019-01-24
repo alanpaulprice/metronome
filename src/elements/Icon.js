@@ -8,6 +8,7 @@ const IconComponent = props => (
 const Icon = styled(IconComponent)`
   ${props => props.fontSize && `font-size: ${props.fontSize};`}
   vertical-align: ${props => props.verticalAlign || 'middle'};
+  ${props => props.float && `float: ${props.float};`}
 `;
 
 export default Icon;
