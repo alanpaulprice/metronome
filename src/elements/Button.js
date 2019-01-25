@@ -15,10 +15,12 @@ const Button = styled.button.attrs(props => ({
   ${props => props.position && `position: ${props.position};`}
   ${props => props.top && `top: ${props.top};`}
   ${props => props.right && `right: ${props.right};`}
+  ${props => props.zIndex && `z-index: ${props.zIndex};`}
   ${props => props.marginTop && `margin-top: ${props.marginTop};`}
   ${props => props.width && `width: ${props.width};`}
   ${props => props.height && `height: ${props.height};`}
   ${props => props.fontWeight && `font-weight: ${props.fontWeight};`}
+  ${props => props.transition && `transition: ${props.transition};`}
 `;
 
 export default Button;
