@@ -39,18 +39,6 @@ class TempoControls extends Component {
   render() {
     return (
       <Fragment>
-        <Form onSubmit={this.onTempoInputFormSubmit}>
-          <Input
-            ref={this.props.tempoInputRef}
-            value={this.props.tempoInput}
-            onChange={this.onTempoInputChange}
-            onFocus={this.onTempoInputFocus}
-            onBlur={this.onTempoInputBlur}
-            fontSize="3rem"
-            noBorder
-          />
-        </Form>
-
         <Div>
           <Button
             borderWidth="0"
@@ -61,14 +49,17 @@ class TempoControls extends Component {
             <Icon className="material-icons">remove</Icon>
           </Button>
 
-          <Input
-            type="range"
-            min={this.props.MIN_TEMPO}
-            max={this.props.MAX_TEMPO}
-            step={1}
-            value={this.props.tempo}
-            onChange={this.onTempoSliderChange}
-          />
+          <Form onSubmit={this.onTempoInputFormSubmit}>
+            <Input
+              ref={this.props.tempoInputRef}
+              value={this.props.tempoInput}
+              onChange={this.onTempoInputChange}
+              onFocus={this.onTempoInputFocus}
+              onBlur={this.onTempoInputBlur}
+              fontSize="3rem"
+              noBorder
+            />
+          </Form>
 
           <Button
             borderWidth="0"
@@ -78,6 +69,15 @@ class TempoControls extends Component {
           >
             <Icon className="material-icons">add</Icon>
           </Button>
+
+          <Input
+            type="range"
+            min={this.props.MIN_TEMPO}
+            max={this.props.MAX_TEMPO}
+            step={1}
+            value={this.props.tempo}
+            onChange={this.onTempoSliderChange}
+          />
         </Div>
 
         <TapTempo
