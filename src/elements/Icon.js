@@ -7,6 +7,7 @@ const IconComponent = props => (
 
 const Icon = styled(IconComponent)`
   ${props => props.fontSize && `font-size: ${props.fontSize};`}
+  color: ${props => props.color || props.theme.fg || 'black'};
   vertical-align: ${props => props.verticalAlign || 'middle'};
   ${props => props.float && `float: ${props.float};`}
 `;
