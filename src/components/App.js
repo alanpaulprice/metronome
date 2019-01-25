@@ -127,9 +127,19 @@ class App extends Component {
         : null
     );
 
+  // ===== SHORTCUTS
+
+  toggleDisplayShortcuts = () =>
+    this.setState(prevState => ({
+      ...prevState,
+      displayShortcuts: !prevState.displayShortcuts
+    }));
+
   // ========== EVENT HANDLERS
 
   onPlayStopButtonClick = () => this.togglePlaying();
+
+  onKeyboardShortcutsButtonClick = () => this.toggleDisplayShortcuts();
 
   // ========== RENDER
 
