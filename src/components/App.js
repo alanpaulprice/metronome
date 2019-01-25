@@ -168,6 +168,12 @@ class App extends Component {
             accentBeatInputRef={this.accentBeatInputRef}
             tapTempoButtonRef={this.tapTempoButtonRef}
           />
+
+          <KeyboardShortcutsLegend
+            displayShortcuts={this.state.displayShortcuts}
+            toggleDisplayShortcuts={this.toggleDisplayShortcuts}
+          />
+
           <Button
             onClick={this.onKeyboardShortcutsButtonClick}
             position="fixed"
@@ -235,8 +241,6 @@ class App extends Component {
               volume={this.state.volume}
               setVolume={this.setVolume}
             />
-
-            <KeyboardShortcutsLegend />
           </Div>
         </Fragment>
       </ThemeProvider>
