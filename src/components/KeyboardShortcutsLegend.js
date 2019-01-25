@@ -16,6 +16,9 @@ class KeyboardShortcutsLegend extends Component {
     { action: 'Volume Down', key: 'Arrow Down' }
   ];
 
+  onContainerDivClick = () =>
+    this.props.displayShortcuts && this.props.toggleDisplayShortcuts();
+
   render() {
     const legendJSX = this.legend.map((obj, index) => (
       <Div key={index}>
@@ -23,8 +26,10 @@ class KeyboardShortcutsLegend extends Component {
         <Div>{obj.key}</Div>
       </Div>
     ));
+
     return this.props.displayShortcuts ? (
       <Div
+        onClick={this.onContainerDivClick}
         position="fixed"
         top="0"
         left="0"
