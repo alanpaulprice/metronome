@@ -1,9 +1,8 @@
-// the or operator (||) is used below to call two functions on one line
-
 import { Component } from 'react';
 
 const blur = () => document.activeElement.blur();
 
+// the or operator (||) is used to call two functions on one line
 class KeyboardShortcuts extends Component {
   onKeydown = code =>
     code === 32 // space
