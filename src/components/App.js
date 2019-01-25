@@ -184,9 +184,13 @@ class App extends Component {
             padding="0"
             fontSize="2.5rem"
             fontWeight="900"
+            vertical-align="center"
             borderWidth="0"
+            color={this.state.displayShortcuts ? '#ffffff' : StyleTheme.fg}
+            background="transparent"
+            transition="color 0.2s"
           >
-            ?
+            {this.state.displayShortcuts ? 'X' : '?'}
           </Button>
 
           <Div display="flex" flexDirection="column" alignItems="center">
