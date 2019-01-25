@@ -172,7 +172,8 @@ class App extends Component {
           >
             ?
           </Button>
-          <Div flex flexDirection="column" alignItems="center">
+
+          <Div display="flex" flexDirection="column" alignItems="center">
             <H1
               fontSize="5rem"
               fontWeight="900"
