@@ -3,17 +3,17 @@ import Div from '../elements/Div';
 
 class KeyboardShortcutsLegend extends Component {
   legend = [
-    { action: 'Toggle playback', key: 'Space' },
+    { action: 'Toggle Playback', key: 'Space' },
     { action: 'Tempo Up', key: 'Arrow Right' },
     { action: 'Tempo Down', key: 'Arrow Left' },
+    { action: 'Volume Up', key: 'Arrow Up' },
+    { action: 'Volume Down', key: 'Arrow Down' },
     { action: 'Focus Tempo Input', key: 'T' },
     { action: 'Tap Tempo', key: 'M' },
     { action: 'Toggle Accent', key: 'A' },
     { action: 'Accent Beat Up', key: 'X' },
     { action: 'Accent Beat Down', key: 'Z' },
-    { action: 'Focus Accent Beat Input', key: 'B' },
-    { action: 'Volume Up', key: 'Arrow Up' },
-    { action: 'Volume Down', key: 'Arrow Down' }
+    { action: 'Focus Accent Beat Input', key: 'B' }
   ];
 
   onContainerDivClick = () =>
@@ -21,9 +21,11 @@ class KeyboardShortcutsLegend extends Component {
 
   render() {
     const legendJSX = this.legend.map((obj, index) => (
-      <Div key={index}>
-        <Div>{obj.action}</Div>
-        <Div>{obj.key}</Div>
+      <Div key={index} margin="1rem 0">
+        <Div fontSize="1rem" fontWeight="900">
+          {obj.action}
+        </Div>
+        <Div fontSize="1.5rem">{obj.key}</Div>
       </Div>
     ));
 
@@ -33,9 +35,15 @@ class KeyboardShortcutsLegend extends Component {
         position="fixed"
         top="0"
         left="0"
+        display="flex"
+        flexDirection="column"
+        justifyContent="center"
         width="100vw"
-        height="100vh"
-        background="rgba(0, 255, 255, 50%)"
+        minHeight="100vh"
+        background="linear-gradient(90deg, rgba(0, 0, 0, 80%), rgba(0, 0, 0, 100%), rgba(0, 0, 0, 100%), rgba(0, 0, 0, 80%))"
+        color={this.props.displayShortcuts ? '#ffffff' : 'transparent'} //"#ffffff"
+        textAlign="center"
+        transition="color 5s"
       >
         {legendJSX}
       </Div>
