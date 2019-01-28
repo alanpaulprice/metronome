@@ -21,4 +21,10 @@ export const GlobalStyles = createGlobalStyle`
     background: ${Theme.bg};
     font-size: 10px;
   }
+
+  #root {
+    min-width: 320px;
+    max-width: 960px;
+    margin: 0 auto;
+  }
 `;
