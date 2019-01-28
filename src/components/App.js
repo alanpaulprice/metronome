@@ -14,8 +14,7 @@ import KeyboardShortcutsLegend from './KeyboardShortcutsLegend';
 import Div from '../elements/Div';
 import H1 from '../elements/H1';
 
-import GlobalStyle from '../GlobalStyle';
-import StyleTheme from '../StyleTheme';
+import { Theme, GlobalStyles } from '../styles';
 
 const MIN_TEMPO = 40;
 const MAX_TEMPO = 280;
@@ -139,9 +138,9 @@ class App extends Component {
 
   render() {
     return (
-      <ThemeProvider theme={StyleTheme}>
+      <ThemeProvider theme={Theme}>
         <Fragment>
-          <GlobalStyle />
+          <GlobalStyles />
           <Sound
             tempo={this.state.tempo}
             playing={this.state.playing}
