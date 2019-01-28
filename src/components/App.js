@@ -4,15 +4,15 @@ import { ThemeProvider } from 'styled-components';
 import Sound from './Sound';
 import KeyboardShortcuts from './KeyboardShortcuts';
 
+import PlayStopButton from './PlayStopButton';
 import TempoControls from './TempoControls';
 import AccentControls from './AccentControls';
 import VolumeControl from './VolumeControl';
+import KeyboardShortcutsButton from './KeyboardShortcutsButton';
 import KeyboardShortcutsLegend from './KeyboardShortcutsLegend';
 
 import Div from '../elements/Div';
 import H1 from '../elements/H1';
-import Button from '../elements/Button';
-import Icon from '../elements/Icon';
 
 import GlobalStyle from '../GlobalStyle';
 import StyleTheme from '../StyleTheme';
@@ -135,12 +135,6 @@ class App extends Component {
       displayShortcuts: !prevState.displayShortcuts
     }));
 
-  // ========== EVENT HANDLERS
-
-  onPlayStopButtonClick = () => this.togglePlaying();
-
-  onKeyboardShortcutsButtonClick = () => this.toggleDisplayShortcuts();
-
   // ========== RENDER
 
   render() {
@@ -174,24 +168,10 @@ class App extends Component {
             toggleDisplayShortcuts={this.toggleDisplayShortcuts}
           />
 
-          <Button
-            onClick={this.onKeyboardShortcutsButtonClick}
-            position="fixed"
-            top="0"
-            right="0"
-            height="3.75rem"
-            width="3.75rem"
-            padding="0"
-            fontSize="2.5rem"
-            fontWeight="900"
-            vertical-align="center"
-            borderWidth="0"
-            color={this.state.displayShortcuts ? '#ffffff' : StyleTheme.fg}
-            background="transparent"
-            transition="color 0.2s"
-          >
-            {this.state.displayShortcuts ? 'X' : '?'}
-          </Button>
+          <KeyboardShortcutsButton
+            displayShortcuts={this.state.displayShortcuts}
+            toggleDisplayShortcuts={this.toggleDisplayShortcuts}
+          />
 
           <Div display="flex" flexDirection="column" alignItems="center">
             <H1
@@ -203,16 +183,10 @@ class App extends Component {
               metronome
             </H1>
 
-            <Button
-              onClick={this.onPlayStopButtonClick}
-              borderWidth="0"
-              fontSize="7.5rem"
-              marginTop="5rem"
-            >
-              <Icon className="material-icons" fontSize="12.5rem">
-                {this.state.playing ? 'stop' : 'play_arrow'}
-              </Icon>
-            </Button>
+            <PlayStopButton
+              playing={this.state.playing}
+              togglePlaying={this.togglePlaying}
+            />
 
             <TempoControls
               tempo={this.state.tempo}
