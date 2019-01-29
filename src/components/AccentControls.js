@@ -42,6 +42,7 @@ class AccentControls extends Component {
           onClick={this.onAccentToggleButtonClick}
           fontSize="1.5rem"
           textAlign="left"
+          border="none"
         >
           accent
           <Icon className="material-icons" float="right">
@@ -50,10 +51,10 @@ class AccentControls extends Component {
         </Button>
 
         <Button
-          borderWidth="0"
           value={-1}
           onClick={this.onIncrementAccentBeatButtonClick}
           fontSize="1.5rem"
+          border="none"
         >
           <Icon className="material-icons">remove</Icon>
         </Button>
@@ -66,15 +67,15 @@ class AccentControls extends Component {
             onFocus={this.onAccentBeatInputFocus}
             onBlur={this.onAccentBeatInputBlur}
             fontSize="3rem"
-            noBorder
+            border="none"
           />
         </Form>
 
         <Button
-          borderWidth="0"
           value={1}
           onClick={this.onIncrementAccentBeatButtonClick}
           fontSize="1.5rem"
+          border="none"
         >
           <Icon className="material-icons">add</Icon>
         </Button>
