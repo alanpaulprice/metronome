@@ -6,10 +6,11 @@ const IconComponent = props => (
 );
 
 const Icon = styled(IconComponent)`
-  ${props => props.fontSize && `font-size: ${props.fontSize};`}
-  color: ${props => props.color || props.theme.fg || 'black'};
-  vertical-align: ${props => props.verticalAlign || 'middle'};
-  ${props => props.float && `float: ${props.float};`}
+${props => props.float && `float: ${props.float};`}
+vertical-align: ${props => props.verticalAlign || 'middle'};
+${props => props.fontSize && `font-size: ${props.fontSize};`}
+${props => props.fontWeight && `font-weight: ${props.fontWeight};`}
+color: ${props => props.color || props.theme.fg || 'black'};
 `;
 
 export default Icon;
