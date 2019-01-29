@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 import Button from '../elements/Button';
 import Icon from '../elements/Icon';
 

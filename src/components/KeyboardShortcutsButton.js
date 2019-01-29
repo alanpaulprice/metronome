@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 import Button from '../elements/Button';
 
 class KeyboardShortcutsButton extends Component {

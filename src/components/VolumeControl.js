@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 import Div from '../elements/Div';
 import Input from '../elements/Input';
 import Icon from '../elements/Icon';

@@ -1,19 +1,15 @@
 import React, { Component, Fragment } from 'react';
 import { ThemeProvider } from 'styled-components';
-
 import Sound from './Sound';
 import KeyboardShortcuts from './KeyboardShortcuts';
-
 import PlayStopButton from './PlayStopButton';
 import TempoControls from './TempoControls';
 import AccentControls from './AccentControls';
 import VolumeControl from './VolumeControl';
 import KeyboardShortcutsButton from './KeyboardShortcutsButton';
 import KeyboardShortcutsLegend from './KeyboardShortcutsLegend';
-
 import Div from '../elements/Div';
 import H1 from '../elements/H1';
-
 import { Theme, GlobalStyles } from '../styles';
 
 const MIN_TEMPO = 40;
