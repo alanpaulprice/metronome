@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Button from '../elements/Button';
 import { processTap, currentBeatMS } from '../tap-tempo-logic';
 
-class TapTempo extends Component {
+class TapTempoButton extends Component {
   onTapTempoButtonMouseDown = () => {
     processTap();
     if (currentBeatMS) this.props.setTempo(parseInt(60000 / currentBeatMS));
@@ -12,13 +12,15 @@ class TapTempo extends Component {
     return (
       <Button
         onMouseDown={this.onTapTempoButtonMouseDown}
-        fontSize="1.5rem"
         padding="1rem"
+        fontSize="1.5rem"
+        border="1px solid #ffffff"
+        borderRadius="50%"
       >
-        Tap Tempo
+        tap
       </Button>
     );
   }
 }
 
-export default TapTempo;
+export default TapTempoButton;

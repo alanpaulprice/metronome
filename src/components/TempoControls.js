@@ -1,7 +1,5 @@
 import React, { Component, Fragment } from 'react';
-
-import TapTempo from './TapTempo';
-
+import TapTempoButton from './TapTempoButton';
 import Div from '../elements/Div';
 import Button from '../elements/Button';
 import Form from '../elements/Form';
@@ -80,7 +78,7 @@ class TempoControls extends Component {
           />
         </Div>
 
-        <TapTempo
+        <TapTempoButton
           setTempo={this.props.setTempo}
           ref={this.props.tapTempoButtonRef}
         />
