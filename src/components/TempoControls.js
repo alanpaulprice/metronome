@@ -75,6 +75,7 @@ class TempoControls extends Component {
             step={1}
             value={this.props.tempo}
             onChange={this.onTempoSliderChange}
+            width="100%"
           />
         </Div>
 
