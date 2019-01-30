@@ -38,35 +38,43 @@ class TempoControls extends Component {
     return (
       <Fragment>
         <Div>
-          <Button
-            borderWidth="0"
-            value={-1}
-            onClick={this.onIncrementTempoButtonClick}
-            fontSize="1.5rem"
-          >
-            <Icon className="material-icons">remove</Icon>
-          </Button>
+          <Div display="flex" justifyContent="center">
+            <Button
+              border="none"
+              value={-1}
+              onClick={this.onIncrementTempoButtonClick}
+              fontSize="1.5rem"
+            >
+              <Icon className="material-icons" fontSize="4rem" fontWeight="900">
+                remove
+              </Icon>
+            </Button>
 
-          <Form onSubmit={this.onTempoInputFormSubmit}>
-            <Input
-              ref={this.props.tempoInputRef}
-              value={this.props.tempoInput}
-              onChange={this.onTempoInputChange}
-              onFocus={this.onTempoInputFocus}
-              onBlur={this.onTempoInputBlur}
-              fontSize="3rem"
-              noBorder
-            />
-          </Form>
+            <Form onSubmit={this.onTempoInputFormSubmit}>
+              <Input
+                ref={this.props.tempoInputRef}
+                value={this.props.tempoInput}
+                onChange={this.onTempoInputChange}
+                onFocus={this.onTempoInputFocus}
+                onBlur={this.onTempoInputBlur}
+                width="10rem"
+                margin="5rem"
+                fontSize="5rem"
+                border="none"
+              />
+            </Form>
 
-          <Button
-            borderWidth="0"
-            value={1}
-            onClick={this.onIncrementTempoButtonClick}
-            fontSize="1.5rem"
-          >
-            <Icon className="material-icons">add</Icon>
-          </Button>
+            <Button
+              border="none"
+              value={1}
+              onClick={this.onIncrementTempoButtonClick}
+              fontSize="1.5rem"
+            >
+              <Icon className="material-icons" fontSize="4rem" fontWeight="900">
+                add
+              </Icon>
+            </Button>
+          </Div>
 
           <Input
             type="range"
