@@ -24,7 +24,7 @@ export const GlobalStyles = createGlobalStyle`
 
   #root {
     min-width: 320px;
-    max-width: 960px;
+    max-width: 400px;
     margin: 0 auto;
   }
 `;
