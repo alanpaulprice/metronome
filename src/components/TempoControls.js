@@ -37,7 +37,7 @@ class TempoControls extends Component {
   render() {
     return (
       <Fragment>
-        <Div>
+        <Div width="100%">
           <Div display="flex" justifyContent="center">
             <Button
               border="none"
