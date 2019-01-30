@@ -46,7 +46,7 @@ class AccentControls extends Component {
         >
           accent
           <Icon className="material-icons" float="right">
-            {this.props.accent ? 'toggle_on' : 'toggle_off'}
+            power_settings_new
           </Icon>
         </Button>
 
