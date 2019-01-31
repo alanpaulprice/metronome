@@ -13,10 +13,12 @@ class AccentControls extends Component {
   onAccentBeatInputFormSubmit = async e => {
     e.preventDefault();
     let newAccentBeat = parseInt(this.props.accentBeatInput);
+
     if (newAccentBeat < this.props.MIN_ACCENT_BEAT)
       newAccentBeat = this.props.MIN_ACCENT_BEAT;
     if (newAccentBeat > this.props.MAX_ACCENT_BEAT)
       newAccentBeat = this.props.MAX_ACCENT_BEAT;
+
     await this.props.setAccentBeat(newAccentBeat);
     document.activeElement.blur();
   };
@@ -48,7 +50,9 @@ class AccentControls extends Component {
         >
           accent
           <Icon className="material-icons" float="right">
-            power_settings_new
+            {this.props.accent
+              ? 'radio_button_checked'
+              : 'radio_button_unchecked'}
           </Icon>
         </Button>
 
