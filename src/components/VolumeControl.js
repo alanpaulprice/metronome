@@ -5,7 +5,8 @@ import Input from '../elements/Input';
 import Icon from '../elements/Icon';
 
 class VolumeControl extends Component {
-  onVolumeInputChange = e => this.props.setVolume(e.currentTarget.value);
+  onVolumeInputChange = e =>
+    this.props.setVolume(Number(e.currentTarget.value));
 
   render() {
     return (
