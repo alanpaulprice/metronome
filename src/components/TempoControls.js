@@ -35,9 +35,6 @@ class TempoControls extends Component {
   onIncrementTempoButtonClick = e =>
     this.props.incrementTempo(parseInt(e.currentTarget.value));
 
-  onTempoSliderChange = e =>
-    this.props.setTempo(parseInt(e.currentTarget.value));
-
   // if tempo doesn't match the tempoInput, and tempoInput doesn't have focus,
   // set the tempoInput to tempo
   componentDidUpdate() {
@@ -89,16 +86,6 @@ class TempoControls extends Component {
               </Icon>
             </Button>
           </Div>
-
-          <Input
-            type="range"
-            min={this.props.MIN_TEMPO}
-            max={this.props.MAX_TEMPO}
-            step={1}
-            value={this.props.tempo}
-            onChange={this.onTempoSliderChange}
-            width="100%"
-          />
         </Div>
 
         <TapTempoButton
