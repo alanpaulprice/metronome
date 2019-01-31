@@ -29,8 +29,10 @@ class AccentControls extends Component {
 
   onAccentBeatInputFocus = () => this.props.setAccentBeatInput('');
 
+  // if the input isn't already displaying the current accentBeat, update input
   onAccentBeatInputBlur = () =>
-    this.props.setAccentBeatInput(this.props.accentBeat);
+    String(this.props.accentBeat) !== this.props.accentBeatInput &&
+    this.props.setAccentBeatInput(String(this.props.accentBeat));
 
   onIncrementAccentBeatButtonClick = e =>
     this.props.incrementAccentBeat(parseInt(e.currentTarget.value));

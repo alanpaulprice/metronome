@@ -90,8 +90,7 @@ class App extends Component {
       accent: !prevState.accent
     }));
 
-  setAccentBeat = newBeat =>
-    this.setState({ accentBeat: newBeat, accentBeatInput: newBeat });
+  setAccentBeat = newBeat => this.setState({ accentBeat: newBeat });
 
   incrementAccentBeat = incr =>
     this.setState(prevState =>
