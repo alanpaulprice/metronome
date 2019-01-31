@@ -64,7 +64,7 @@ class App extends Component {
         ? {
             ...prevState,
             tempo: prevState.tempo + incr,
-            tempoInput: prevState.tempo + incr
+            tempoInput: String(prevState.tempo + incr)
           }
         : null
     );
@@ -98,7 +98,7 @@ class App extends Component {
         ? {
             ...prevState,
             accentBeat: prevState.accentBeat + incr,
-            accentBeatInput: prevState.accentBeat + incr
+            accentBeatInput: String(prevState.accentBeat + incr)
           }
         : null
     );
@@ -147,11 +147,11 @@ class App extends Component {
 
           <KeyboardShortcuts
             togglePlaying={this.togglePlaying}
-            tempoInputRef={this.tempoInputRef}
             incrementTempo={this.incrementTempo}
             incrementVolume={this.incrementVolume}
             toggleAccent={this.toggleAccent}
             incrementAccentBeat={this.incrementAccentBeat}
+            tempoInputRef={this.tempoInputRef}
             accentBeatInputRef={this.accentBeatInputRef}
             tapTempoButtonRef={this.tapTempoButtonRef}
           />
@@ -183,8 +183,8 @@ class App extends Component {
 
             <TempoControls
               tempo={this.state.tempo}
-              setTempo={this.setTempo}
               tempoInput={this.state.tempoInput}
+              setTempo={this.setTempo}
               setTempoInput={this.setTempoInput}
               incrementTempo={this.incrementTempo}
               legalTempoValue={legalTempoValue}
