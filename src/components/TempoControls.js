@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react';
+import PropTypes from 'prop-types';
 import TapTempoButton from './TapTempoButton';
 import Div from '../elements/Div';
 import Button from '../elements/Button';
@@ -98,5 +99,22 @@ class TempoControls extends Component {
     );
   }
 }
+
+TempoControls.propTypes = {
+  tempo: PropTypes.number.isRequired,
+  tempoInput: PropTypes.string.isRequired,
+  setTempo: PropTypes.func.isRequired,
+  setTempoInput: PropTypes.func.isRequired,
+  incrementTempo: PropTypes.func.isRequired,
+  legalTempoValue: PropTypes.func.isRequired,
+  MIN_TEMPO: PropTypes.number.isRequired,
+  MAX_TEMPO: PropTypes.number.isRequired,
+  tempoInputRef: PropTypes.shape({
+    current: PropTypes.object
+  }).isRequired,
+  tapTempoButtonRef: PropTypes.shape({
+    current: PropTypes.object
+  }).isRequired
+};
 
 export default TempoControls;

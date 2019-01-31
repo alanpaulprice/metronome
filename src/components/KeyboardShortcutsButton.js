@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Button from '../elements/Button';
 
 class KeyboardShortcutsButton extends Component {
@@ -27,5 +28,10 @@ class KeyboardShortcutsButton extends Component {
     );
   }
 }
+
+KeyboardShortcutsButton.propTypes = {
+  displayShortcuts: PropTypes.bool.isRequired,
+  toggleDisplayShortcuts: PropTypes.func.isRequired
+};
 
 export default KeyboardShortcutsButton;

@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import PropTypes from 'prop-types';
 import Tone from 'tone';
 import closedHat from '../audio/LinnHat_C.wav';
 import openHat from '../audio/LinnHat_O.wav';
@@ -38,5 +39,15 @@ class Sound extends Component {
     return null;
   }
 }
+
+Sound.propTypes = {
+  tempo: PropTypes.number.isRequired,
+  playing: PropTypes.bool.isRequired,
+  volume: PropTypes.number.isRequired,
+  currentBeat: PropTypes.number.isRequired,
+  accent: PropTypes.bool.isRequired,
+  accentBeat: PropTypes.number.isRequired,
+  incrementCurrentBeat: PropTypes.func.isRequired
+};
 
 export default Sound;

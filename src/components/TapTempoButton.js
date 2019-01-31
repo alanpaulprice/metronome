@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Button from '../elements/Button';
 import { processTap, currentBeatMS } from '../tap-tempo-logic';
 
@@ -22,5 +23,9 @@ class TapTempoButton extends Component {
     );
   }
 }
+
+TapTempoButton.propTypes = {
+  setTempo: PropTypes.func.isRequired
+};
 
 export default TapTempoButton;

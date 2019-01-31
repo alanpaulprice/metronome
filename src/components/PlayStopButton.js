@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Button from '../elements/Button';
 import Icon from '../elements/Icon';
 
@@ -20,5 +21,10 @@ class PlayStopButton extends Component {
     );
   }
 }
+
+PlayStopButton.propTypes = {
+  playing: PropTypes.bool.isRequired,
+  togglePlaying: PropTypes.func.isRequired
+};
 
 export default PlayStopButton;

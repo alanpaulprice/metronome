@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import PropTypes from 'prop-types';
 
 const blur = () => document.activeElement.blur();
 
@@ -42,5 +43,22 @@ class KeyboardShortcuts extends Component {
     return null;
   }
 }
+
+KeyboardShortcuts.propTypes = {
+  togglePlaying: PropTypes.func.isRequired,
+  incrementTempo: PropTypes.func.isRequired,
+  incrementVolume: PropTypes.func.isRequired,
+  toggleAccent: PropTypes.func.isRequired,
+  incrementAccentBeat: PropTypes.func.isRequired,
+  tempoInputRef: PropTypes.shape({
+    current: PropTypes.object
+  }).isRequired,
+  accentBeatInputRef: PropTypes.shape({
+    current: PropTypes.object
+  }).isRequired,
+  tapTempoButtonRef: PropTypes.shape({
+    current: PropTypes.object
+  }).isRequired
+};
 
 export default KeyboardShortcuts;

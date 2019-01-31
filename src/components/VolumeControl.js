@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react';
+import PropTypes from 'prop-types';
 import Div from '../elements/Div';
 import Input from '../elements/Input';
 import Icon from '../elements/Icon';
@@ -35,5 +36,10 @@ class VolumeControl extends Component {
     );
   }
 }
+
+VolumeControl.propTypes = {
+  volume: PropTypes.number.isRequired,
+  setVolume: PropTypes.func.isRequired
+};
 
 export default VolumeControl;

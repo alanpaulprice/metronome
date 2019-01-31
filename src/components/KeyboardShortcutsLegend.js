@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Div from '../elements/Div';
 
 class KeyboardShortcutsLegend extends Component {
@@ -51,5 +52,10 @@ class KeyboardShortcutsLegend extends Component {
     ) : null;
   }
 }
+
+KeyboardShortcutsLegend.propTypes = {
+  displayShortcuts: PropTypes.bool.isRequired,
+  toggleDisplayShortcuts: PropTypes.func.isRequired
+};
 
 export default KeyboardShortcutsLegend;

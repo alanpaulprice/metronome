@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Div from '../elements/Div';
 import Button from '../elements/Button';
 import Form from '../elements/Form';
@@ -89,5 +90,21 @@ class AccentControls extends Component {
     );
   }
 }
+
+AccentControls.propTypes = {
+  accent: PropTypes.bool.isRequired,
+  accentBeat: PropTypes.number.isRequired,
+  accentBeatInput: PropTypes.string.isRequired,
+  toggleAccent: PropTypes.func.isRequired,
+  setAccentBeat: PropTypes.func.isRequired,
+  setAccentBeatInput: PropTypes.func.isRequired,
+  incrementAccentBeat: PropTypes.func.isRequired,
+  legalAccentBeatValue: PropTypes.func.isRequired,
+  MIN_ACCENT_BEAT: PropTypes.number.isRequired,
+  MAX_ACCENT_BEAT: PropTypes.number.isRequired,
+  accentBeatInputRef: PropTypes.shape({
+    current: PropTypes.object
+  }).isRequired
+};
 
 export default AccentControls;
