@@ -3,7 +3,7 @@ import { ThemeProvider } from 'styled-components';
 import Sound from './Sound';
 import KeyboardShortcuts from './KeyboardShortcuts';
 import PlayStopButton from './PlayStopButton';
-import TempoControls from './TempoControls';
+import TempoInputAndButtons from './TempoInputAndButtons';
 import TempoSlider from './TempoSlider';
 import AccentControls from './AccentControls';
 import VolumeControl from './VolumeControl';
@@ -182,7 +182,7 @@ class App extends Component {
               togglePlaying={this.togglePlaying}
             />
 
-            <TempoControls
+            <TempoInputAndButtons
               tempo={this.state.tempo}
               tempoInput={this.state.tempoInput}
               setTempo={this.setTempo}

@@ -7,7 +7,7 @@ import Form from '../elements/Form';
 import Input from '../elements/Input';
 import Icon from '../elements/Icon';
 
-class TempoControls extends Component {
+class TempoInputAndButtons extends Component {
   // if the value isn't valid, use closest valid value
   // blur (triggering input value update) after state has been updated
   onTempoInputFormSubmit = async e => {
@@ -97,7 +97,7 @@ class TempoControls extends Component {
   }
 }
 
-TempoControls.propTypes = {
+TempoInputAndButtons.propTypes = {
   tempo: PropTypes.number.isRequired,
   tempoInput: PropTypes.string.isRequired,
   setTempo: PropTypes.func.isRequired,
@@ -114,4 +114,4 @@ TempoControls.propTypes = {
   }).isRequired
 };
 
-export default TempoControls;
+export default TempoInputAndButtons;
