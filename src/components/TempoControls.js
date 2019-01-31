@@ -38,6 +38,16 @@ class TempoControls extends Component {
   onTempoSliderChange = e =>
     this.props.setTempo(parseInt(e.currentTarget.value));
 
+  // if tempo doesn't match the tempoInput, and tempoInput doesn't have focus,
+  // set the tempoInput to tempo
+  componentDidUpdate() {
+    if (
+      String(this.props.tempo) !== this.props.tempoInput &&
+      document.activeElement !== this.props.tempoInputRef.current
+    )
+      this.props.setTempoInput(String(this.props.tempo));
+  }
+
   render() {
     return (
       <Fragment>
