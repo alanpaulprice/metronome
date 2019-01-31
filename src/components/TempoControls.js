@@ -26,7 +26,10 @@ class TempoControls extends Component {
 
   onTempoInputFocus = () => this.props.setTempoInput('');
 
-  onTempoInputBlur = () => this.props.setTempoInput(this.props.tempo);
+  // if the input isn't already displaying the current tempo, update input
+  onTempoInputBlur = () =>
+    String(this.props.tempo) !== this.props.tempoInput &&
+    this.props.setTempoInput(String(this.props.tempo));
 
   onIncrementTempoButtonClick = e =>
     this.props.incrementTempo(parseInt(e.currentTarget.value));

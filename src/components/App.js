@@ -55,8 +55,7 @@ class App extends Component {
 
   // ===== TEMPO
 
-  setTempo = newTempo =>
-    this.setState({ tempo: newTempo, tempoInput: newTempo });
+  setTempo = newTempo => this.setState({ tempo: newTempo });
 
   // only increment if the new tempo is within the allowed range
   incrementTempo = incr =>
