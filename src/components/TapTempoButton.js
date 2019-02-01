@@ -12,6 +12,7 @@ class TapTempoButton extends Component {
   render() {
     return (
       <Button
+        ref={this.props.tapTempoButtonRef}
         onMouseDown={this.onTapTempoButtonMouseDown}
         padding="1rem"
         fontSize="1.5rem"
@@ -25,7 +26,10 @@ class TapTempoButton extends Component {
 }
 
 TapTempoButton.propTypes = {
-  setTempo: PropTypes.func.isRequired
+  setTempo: PropTypes.func.isRequired,
+  tapTempoButtonRef: PropTypes.shape({
+    current: PropTypes.object
+  }).isRequired
 };
 
 export default TapTempoButton;

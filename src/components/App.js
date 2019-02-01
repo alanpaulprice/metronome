@@ -5,6 +5,7 @@ import KeyboardShortcuts from './KeyboardShortcuts';
 import PlayStopButton from './PlayStopButton';
 import TempoInputAndButtons from './TempoInputAndButtons';
 import TempoSlider from './TempoSlider';
+import TapTempoButton from './TapTempoButton';
 import AccentControls from './AccentControls';
 import VolumeControl from './VolumeControl';
 import KeyboardShortcutsButton from './KeyboardShortcutsButton';
@@ -192,7 +193,6 @@ class App extends Component {
               MIN_TEMPO={MIN_TEMPO}
               MAX_TEMPO={MAX_TEMPO}
               tempoInputRef={this.tempoInputRef}
-              tapTempoButtonRef={this.tapTempoButtonRef}
             />
 
             <TempoSlider
@@ -200,6 +200,11 @@ class App extends Component {
               setTempo={this.setTempo}
               MIN_TEMPO={MIN_TEMPO}
               MAX_TEMPO={MAX_TEMPO}
+            />
+
+            <TapTempoButton
+              setTempo={this.setTempo}
+              tapTempoButtonRef={this.tapTempoButtonRef}
             />
 
             <AccentControls

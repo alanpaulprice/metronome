@@ -1,6 +1,5 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
-import TapTempoButton from './TapTempoButton';
 import Div from '../elements/Div';
 import Button from '../elements/Button';
 import Form from '../elements/Form';
@@ -87,11 +86,6 @@ class TempoInputAndButtons extends Component {
             </Button>
           </Div>
         </Div>
-
-        <TapTempoButton
-          setTempo={this.props.setTempo}
-          ref={this.props.tapTempoButtonRef}
-        />
       </Fragment>
     );
   }
@@ -107,9 +101,6 @@ TempoInputAndButtons.propTypes = {
   MIN_TEMPO: PropTypes.number.isRequired,
   MAX_TEMPO: PropTypes.number.isRequired,
   tempoInputRef: PropTypes.shape({
-    current: PropTypes.object
-  }).isRequired,
-  tapTempoButtonRef: PropTypes.shape({
     current: PropTypes.object
   }).isRequired
 };
