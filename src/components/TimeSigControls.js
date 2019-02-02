@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import TimeSigBeatsControls from './TimeSigBeatsControls';
+import TimeSigBeatNoteLengthControls from './TimeSigBeatNoteLengthControls';
 import Div from '../elements/Div';
 
 class TimeSigControls extends Component {
@@ -16,6 +17,10 @@ class TimeSigControls extends Component {
           MIN_TIME_SIG_BEATS={this.props.MIN_TIME_SIG_BEATS}
           MAX_TIME_SIG_BEATS={this.props.MAX_TIME_SIG_BEATS}
           timeSigBeatsInputRef={this.props.timeSigBeatsInputRef}
+        />
+        <TimeSigBeatNoteLengthControls
+          timeSigBeatNoteLength={this.props.timeSigBeatNoteLength}
+          setTimeSigBeatNoteLength={this.props.setTimeSigBeatNoteLength}
         />
       </Div>
     );
