@@ -5,6 +5,12 @@ import closedHat from '../audio/LinnHat_C.wav';
 import openHat from '../audio/LinnHat_O.wav';
 
 class Sound extends Component {
+  prepareAudioComponents = () => {
+    this.gain = new Tone.Gain(this.props.volume).toMaster();
+    this.chh = new Tone.Player(closedHat).connect(this.gain);
+    this.ohh = new Tone.Player(openHat).connect(this.gain);
+  };
+
   updateLoop = () => {
     this.loop.callback = time => {
       this[this.props.accent && !this.props.currentBeat ? 'ohh' : 'chh'].start(
@@ -18,11 +24,8 @@ class Sound extends Component {
   };
 
   componentDidMount() {
+    this.prepareAudioComponents();
     Tone.Transport.bpm.value = this.props.tempo;
-    this.gain = new Tone.Gain(this.props.volume).toMaster();
-    this.chh = new Tone.Player(closedHat).connect(this.gain);
-    this.ohh = new Tone.Player(openHat).connect(this.gain);
-
     this.loop = new Tone.Loop().start(0);
     this.updateLoop();
   }
