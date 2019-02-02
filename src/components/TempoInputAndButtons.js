@@ -97,7 +97,6 @@ TempoInputAndButtons.propTypes = {
   setTempo: PropTypes.func.isRequired,
   setTempoInput: PropTypes.func.isRequired,
   incrementTempo: PropTypes.func.isRequired,
-  legalTempoValue: PropTypes.func.isRequired,
   MIN_TEMPO: PropTypes.number.isRequired,
   MAX_TEMPO: PropTypes.number.isRequired,
   tempoInputRef: PropTypes.shape({

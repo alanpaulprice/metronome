@@ -189,7 +189,6 @@ class App extends Component {
               setTempo={this.setTempo}
               setTempoInput={this.setTempoInput}
               incrementTempo={this.incrementTempo}
-              legalTempoValue={legalTempoValue}
               MIN_TEMPO={MIN_TEMPO}
               MAX_TEMPO={MAX_TEMPO}
               tempoInputRef={this.tempoInputRef}
