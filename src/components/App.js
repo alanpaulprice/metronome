@@ -43,7 +43,7 @@ class App extends Component {
 
   tempoInputRef = React.createRef();
   timeSigBeatsInputRef = React.createRef();
-  tapTempoButtonRef = React.createRef();
+  tapTempoButtonRef = React.createRef(); // for the component, not the dom node
 
   // ========== STATE MODIFICATION
 
@@ -206,7 +206,7 @@ class App extends Component {
 
             <TapTempoButton
               setTempo={this.setTempo}
-              tapTempoButtonRef={this.tapTempoButtonRef}
+              ref={this.tapTempoButtonRef}
             />
 
             <TimeSigControls
