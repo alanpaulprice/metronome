@@ -35,7 +35,7 @@ class App extends Component {
     accent: false,
     timeSigBeats: 4,
     timeSigBeatsInput: '4',
-    timeSigBeatNoteLength: '4',
+    timeSigBeatNoteLength: 4,
     displayShortcuts: false
   };
 
@@ -153,6 +153,7 @@ class App extends Component {
             currentBeat={this.state.currentBeat}
             accent={this.state.accent}
             timeSigBeats={this.state.timeSigBeats}
+            timeSigBeatNoteLength={this.state.timeSigBeatNoteLength}
             incrementCurrentBeat={this.incrementCurrentBeat}
           />
 
