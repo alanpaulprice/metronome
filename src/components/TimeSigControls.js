@@ -6,7 +6,7 @@ import Form from '../elements/Form';
 import Input from '../elements/Input';
 import Icon from '../elements/Icon';
 
-class AccentControls extends Component {
+class TimeSigControls extends Component {
   // if the value isn't valid, use closest valid value
   // blur (triggering input value update) after state has been updated
   onTimeSigBeatsInputFormSubmit = async e => {
@@ -75,7 +75,7 @@ class AccentControls extends Component {
   }
 }
 
-AccentControls.propTypes = {
+TimeSigControls.propTypes = {
   timeSigBeats: PropTypes.number.isRequired,
   timeSigBeatsInput: PropTypes.string.isRequired,
   setTimeSigBeats: PropTypes.func.isRequired,
@@ -88,4 +88,4 @@ AccentControls.propTypes = {
   }).isRequired
 };
 
-export default AccentControls;
+export default TimeSigControls;

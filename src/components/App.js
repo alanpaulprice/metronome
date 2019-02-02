@@ -6,7 +6,7 @@ import PlayStopButton from './PlayStopButton';
 import TempoInputAndButtons from './TempoInputAndButtons';
 import TempoSlider from './TempoSlider';
 import TapTempoButton from './TapTempoButton';
-import AccentControls from './AccentControls';
+import TimeSigControls from './TimeSigControls';
 import VolumeControl from './VolumeControl';
 import AccentToggleButton from './AccentToggleButton';
 import KeyboardShortcutsButton from './KeyboardShortcutsButton';
@@ -215,7 +215,7 @@ class App extends Component {
               tapTempoButtonRef={this.tapTempoButtonRef}
             />
 
-            <AccentControls
+            <TimeSigControls
               timeSigBeats={this.state.timeSigBeats}
               timeSigBeatsInput={this.state.timeSigBeatsInput}
               setTimeSigBeats={this.setTimeSigBeats}
