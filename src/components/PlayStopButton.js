@@ -11,7 +11,6 @@ class PlayStopButton extends Component {
       <Button
         onClick={this.onPlayStopButtonClick}
         borderWidth="0"
-        fontSize="7.5rem"
         marginTop="5rem"
       >
         <Icon className="material-icons" fontSize="12.5rem">
