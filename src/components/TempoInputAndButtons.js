@@ -46,47 +46,43 @@ class TempoInputAndButtons extends Component {
 
   render() {
     return (
-      <Fragment>
-        <Div width="100%">
-          <Div display="flex" justifyContent="center">
-            <Button
-              border="none"
-              value={-1}
-              onClick={this.onIncrementTempoButtonClick}
-              fontSize="1.5rem"
-            >
-              <Icon className="material-icons" fontSize="4rem" fontWeight="900">
-                remove
-              </Icon>
-            </Button>
+      <Div width="100%" display="flex" justifyContent="center">
+        <Button
+          border="none"
+          value={-1}
+          onClick={this.onIncrementTempoButtonClick}
+          fontSize="1.5rem"
+        >
+          <Icon className="material-icons" fontSize="4rem" fontWeight="900">
+            remove
+          </Icon>
+        </Button>
 
-            <Form onSubmit={this.onTempoInputFormSubmit}>
-              <Input
-                ref={this.props.tempoInputRef}
-                value={this.props.tempoInput}
-                onChange={this.onTempoInputChange}
-                onFocus={this.onTempoInputFocus}
-                onBlur={this.onTempoInputBlur}
-                width="10rem"
-                margin="5rem"
-                fontSize="5rem"
-                border="none"
-              />
-            </Form>
+        <Form onSubmit={this.onTempoInputFormSubmit}>
+          <Input
+            ref={this.props.tempoInputRef}
+            value={this.props.tempoInput}
+            onChange={this.onTempoInputChange}
+            onFocus={this.onTempoInputFocus}
+            onBlur={this.onTempoInputBlur}
+            width="10rem"
+            margin="5rem"
+            fontSize="5rem"
+            border="none"
+          />
+        </Form>
 
-            <Button
-              border="none"
-              value={1}
-              onClick={this.onIncrementTempoButtonClick}
-              fontSize="1.5rem"
-            >
-              <Icon className="material-icons" fontSize="4rem" fontWeight="900">
-                add
-              </Icon>
-            </Button>
-          </Div>
-        </Div>
-      </Fragment>
+        <Button
+          border="none"
+          value={1}
+          onClick={this.onIncrementTempoButtonClick}
+          fontSize="1.5rem"
+        >
+          <Icon className="material-icons" fontSize="4rem" fontWeight="900">
+            add
+          </Icon>
+        </Button>
+      </Div>
     );
   }
 }
