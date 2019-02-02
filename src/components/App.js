@@ -35,7 +35,7 @@ class App extends Component {
     accent: false,
     timeSigBeats: 4,
     timeSigBeatsInput: '4',
-    timeSigBeatNoteLength: '',
+    timeSigBeatNoteLength: '4',
     displayShortcuts: false
   };
 
@@ -217,6 +217,7 @@ class App extends Component {
 
             <TimeSigControls
               timeSigBeats={this.state.timeSigBeats}
+              timeSigBeatNoteLength={this.state.timeSigBeatNoteLength}
               timeSigBeatsInput={this.state.timeSigBeatsInput}
               setTimeSigBeats={this.setTimeSigBeats}
               setTimeSigBeatsInput={this.setTimeSigBeatsInput}
