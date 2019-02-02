@@ -4,6 +4,7 @@ const Input = styled.input.attrs(props => ({
   type: props.type || 'text'
 }))`
 ${props => props.width && `width: ${props.width};`}
+${props => props.maxWidth && `max-width: ${props.maxWidth};`}
 ${props => props.margin && `margin: ${props.margin};`}
 ${props => props.display && `display: ${props.display};`}
 ${props => props.flex && `flex: ${props.flex};`}

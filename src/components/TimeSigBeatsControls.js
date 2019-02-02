@@ -41,15 +41,18 @@ class TimeSigBeatsControls extends Component {
   render() {
     return (
       <Div display="flex">
-        <Button
-          value={-1}
-          onClick={this.onIncrementTimeSigBeatsButtonClick}
-          flex="1 1 0"
-          fontSize="1.5rem"
-          border="none"
-        >
-          <Icon className="material-icons">remove</Icon>
-        </Button>
+        <Div flex="1 1 0">
+          <Button
+            value={-1}
+            onClick={this.onIncrementTimeSigBeatsButtonClick}
+            flex="1 1 0"
+            border="none"
+          >
+            <Icon className="material-icons" fontSize="2.5rem">
+              remove
+            </Icon>
+          </Button>
+        </Div>
 
         <Form onSubmit={this.onTimeSigBeatsInputFormSubmit} flex="1 1 0">
           <Input
@@ -59,20 +62,24 @@ class TimeSigBeatsControls extends Component {
             onFocus={this.onTimeSigBeatsInputFocus}
             onBlur={this.onTimeSigBeatsInputBlur}
             width="100%"
-            fontSize="3rem"
+            maxWidth="5rem"
+            fontSize="3.75rem"
             border="none"
           />
         </Form>
 
-        <Button
-          value={1}
-          onClick={this.onIncrementTimeSigBeatsButtonClick}
-          flex="1 1 0"
-          fontSize="1.5rem"
-          border="none"
-        >
-          <Icon className="material-icons">add</Icon>
-        </Button>
+        <Div flex="1 1 0">
+          <Button
+            value={1}
+            onClick={this.onIncrementTimeSigBeatsButtonClick}
+            flex="1 1 0"
+            border="none"
+          >
+            <Icon className="material-icons" fontSize="2.5rem">
+              add
+            </Icon>
+          </Button>
+        </Div>
       </Div>
     );
   }
