@@ -17,12 +17,12 @@ import { Theme, GlobalStyles } from '../styles';
 
 const MIN_TEMPO = 40;
 const MAX_TEMPO = 280;
-const MIN_ACCENT_BEAT = 1;
-const MAX_ACCENT_BEAT = 99;
+const MIN_TIME_SIG_BEATS = 1;
+const MAX_TIME_SIG_BEATS = 99;
 
 const legalTempoValue = num => num >= MIN_TEMPO && num <= MAX_TEMPO;
 const legalTimeSigBeatsValue = num =>
-  num >= MIN_ACCENT_BEAT && num <= MAX_ACCENT_BEAT;
+  num >= MIN_TIME_SIG_BEATS && num <= MAX_TIME_SIG_BEATS;
 const legalVolumeValue = num => num >= 0 && num <= 1;
 
 class App extends Component {
@@ -221,8 +221,8 @@ class App extends Component {
               setTimeSigBeats={this.setTimeSigBeats}
               setTimeSigBeatsInput={this.setTimeSigBeatsInput}
               incrementTimeSigBeats={this.incrementTimeSigBeats}
-              MIN_ACCENT_BEAT={MIN_ACCENT_BEAT}
-              MAX_ACCENT_BEAT={MAX_ACCENT_BEAT}
+              MIN_TIME_SIG_BEATS={MIN_TIME_SIG_BEATS}
+              MAX_TIME_SIG_BEATS={MAX_TIME_SIG_BEATS}
               timeSigBeatsInputRef={this.timeSigBeatsInputRef}
             />
 

@@ -13,10 +13,10 @@ class AccentControls extends Component {
     e.preventDefault();
     let newTimeSigBeats = parseInt(this.props.timeSigBeatsInput);
 
-    if (newTimeSigBeats < this.props.MIN_ACCENT_BEAT)
-      newTimeSigBeats = this.props.MIN_ACCENT_BEAT;
-    if (newTimeSigBeats > this.props.MAX_ACCENT_BEAT)
-      newTimeSigBeats = this.props.MAX_ACCENT_BEAT;
+    if (newTimeSigBeats < this.props.MIN_TIME_SIG_BEATS)
+      newTimeSigBeats = this.props.MIN_TIME_SIG_BEATS;
+    if (newTimeSigBeats > this.props.MAX_TIME_SIG_BEATS)
+      newTimeSigBeats = this.props.MAX_TIME_SIG_BEATS;
 
     await this.props.setTimeSigBeats(newTimeSigBeats);
     document.activeElement.blur();
@@ -81,8 +81,8 @@ AccentControls.propTypes = {
   setTimeSigBeats: PropTypes.func.isRequired,
   setTimeSigBeatsInput: PropTypes.func.isRequired,
   incrementTimeSigBeats: PropTypes.func.isRequired,
-  MIN_ACCENT_BEAT: PropTypes.number.isRequired,
-  MAX_ACCENT_BEAT: PropTypes.number.isRequired,
+  MIN_TIME_SIG_BEATS: PropTypes.number.isRequired,
+  MAX_TIME_SIG_BEATS: PropTypes.number.isRequired,
   timeSigBeatsInputRef: PropTypes.shape({
     current: PropTypes.object
   }).isRequired
