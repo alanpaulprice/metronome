@@ -40,23 +40,25 @@ class TimeSigBeatsControls extends Component {
 
   render() {
     return (
-      <Div>
+      <Div display="flex">
         <Button
           value={-1}
           onClick={this.onIncrementTimeSigBeatsButtonClick}
+          flex="1 1 0"
           fontSize="1.5rem"
           border="none"
         >
           <Icon className="material-icons">remove</Icon>
         </Button>
 
-        <Form onSubmit={this.onTimeSigBeatsInputFormSubmit}>
+        <Form onSubmit={this.onTimeSigBeatsInputFormSubmit} flex="1 1 0">
           <Input
             ref={this.props.timeSigBeatsInputRef}
             value={this.props.timeSigBeatsInput}
             onChange={this.onTimeSigBeatsInputChange}
             onFocus={this.onTimeSigBeatsInputFocus}
             onBlur={this.onTimeSigBeatsInputBlur}
+            width="100%"
             fontSize="3rem"
             border="none"
           />
@@ -65,6 +67,7 @@ class TimeSigBeatsControls extends Component {
         <Button
           value={1}
           onClick={this.onIncrementTimeSigBeatsButtonClick}
+          flex="1 1 0"
           fontSize="1.5rem"
           border="none"
         >

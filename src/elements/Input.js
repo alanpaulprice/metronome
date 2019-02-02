@@ -6,6 +6,7 @@ const Input = styled.input.attrs(props => ({
 ${props => props.width && `width: ${props.width};`}
 ${props => props.margin && `margin: ${props.margin};`}
 ${props => props.display && `display: ${props.display};`}
+${props => props.flex && `flex: ${props.flex};`}
 color: ${props => props.color || props.theme.fg || 'black'};
 background: ${props => props.background || props.theme.bg || 'white'};
 font-size: ${props => props.fontSize || '1rem'};

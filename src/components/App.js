@@ -204,23 +204,25 @@ class App extends Component {
               MAX_TEMPO={MAX_TEMPO}
             />
 
-            <TapTempoButton
-              setTempo={this.setTempo}
-              ref={this.tapTempoButtonRef}
-            />
+            <Div width="100%" display="flex">
+              <TapTempoButton
+                setTempo={this.setTempo}
+                ref={this.tapTempoButtonRef}
+              />
 
-            <TimeSigControls
-              timeSigBeats={this.state.timeSigBeats}
-              timeSigBeatNoteLength={this.state.timeSigBeatNoteLength}
-              timeSigBeatsInput={this.state.timeSigBeatsInput}
-              setTimeSigBeats={this.setTimeSigBeats}
-              setTimeSigBeatsInput={this.setTimeSigBeatsInput}
-              incrementTimeSigBeats={this.incrementTimeSigBeats}
-              setTimeSigBeatNoteLength={this.setTimeSigBeatNoteLength}
-              MIN_TIME_SIG_BEATS={MIN_TIME_SIG_BEATS}
-              MAX_TIME_SIG_BEATS={MAX_TIME_SIG_BEATS}
-              timeSigBeatsInputRef={this.timeSigBeatsInputRef}
-            />
+              <TimeSigControls
+                timeSigBeats={this.state.timeSigBeats}
+                timeSigBeatNoteLength={this.state.timeSigBeatNoteLength}
+                timeSigBeatsInput={this.state.timeSigBeatsInput}
+                setTimeSigBeats={this.setTimeSigBeats}
+                setTimeSigBeatsInput={this.setTimeSigBeatsInput}
+                incrementTimeSigBeats={this.incrementTimeSigBeats}
+                setTimeSigBeatNoteLength={this.setTimeSigBeatNoteLength}
+                MIN_TIME_SIG_BEATS={MIN_TIME_SIG_BEATS}
+                MAX_TIME_SIG_BEATS={MAX_TIME_SIG_BEATS}
+                timeSigBeatsInputRef={this.timeSigBeatsInputRef}
+              />
+            </Div>
 
             <VolumeControl
               volume={this.state.volume}

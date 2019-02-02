@@ -13,6 +13,7 @@ class TimeSigBeatNoteLengthControls extends Component {
         key={item}
         value={item}
         onClick={this.onTimeSigBeatNoteLengthButtonClick}
+        width="25%"
         fontSize="2.5rem"
         border="none"
         opacity={this.props.timeSigBeatNoteLength === item ? '1' : '0.5'}

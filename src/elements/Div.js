@@ -23,6 +23,7 @@ const Div = styled.div`
   ${props => props.fontWeight && `font-weight: ${props.fontWeight};`}
   color: ${props => props.color || props.theme.fg || 'black'};
   ${props => props.background && `background: ${props.background};`}
+  ${props => props.border && `border: ${props.border};`}
   ${props => props.opacity && `opacity: ${props.opacity};`}
   ${props => props.transition && `transition: ${props.transition};`}
 `;
