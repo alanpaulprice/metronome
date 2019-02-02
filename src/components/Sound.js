@@ -46,7 +46,7 @@ Sound.propTypes = {
   volume: PropTypes.number.isRequired,
   currentBeat: PropTypes.number.isRequired,
   accent: PropTypes.bool.isRequired,
-  accentBeat: PropTypes.number.isRequired,
+  timeSigBeats: PropTypes.number.isRequired,
   incrementCurrentBeat: PropTypes.func.isRequired
 };
 

@@ -22,13 +22,13 @@ class KeyboardShortcuts extends Component {
       : code === 38 // arrow up
       ? this.props.incrementVolume(0.1) || blur()
       : code === 66 // b
-      ? this.props.accentBeatInputRef.current.focus()
+      ? this.props.timeSigBeatsInputRef.current.focus()
       : code === 65 // a
       ? this.props.toggleAccent() || blur()
       : code === 90 // z
-      ? this.props.incrementAccentBeat(-1) || blur()
+      ? this.props.incrementTimeSigBeats(-1) || blur()
       : code === 88 // x
-      ? this.props.incrementAccentBeat(1) || blur()
+      ? this.props.incrementTimeSigBeats(1) || blur()
       : null;
 
   componentDidMount() {
@@ -49,11 +49,11 @@ KeyboardShortcuts.propTypes = {
   incrementTempo: PropTypes.func.isRequired,
   incrementVolume: PropTypes.func.isRequired,
   toggleAccent: PropTypes.func.isRequired,
-  incrementAccentBeat: PropTypes.func.isRequired,
+  incrementTimeSigBeats: PropTypes.func.isRequired,
   tempoInputRef: PropTypes.shape({
     current: PropTypes.object
   }).isRequired,
-  accentBeatInputRef: PropTypes.shape({
+  timeSigBeatsInputRef: PropTypes.shape({
     current: PropTypes.object
   }).isRequired,
   tapTempoButtonRef: PropTypes.shape({

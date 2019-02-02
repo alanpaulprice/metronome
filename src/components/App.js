@@ -21,7 +21,7 @@ const MIN_ACCENT_BEAT = 1;
 const MAX_ACCENT_BEAT = 99;
 
 const legalTempoValue = num => num >= MIN_TEMPO && num <= MAX_TEMPO;
-const legalAccentBeatValue = num =>
+const legalTimeSigBeatsValue = num =>
   num >= MIN_ACCENT_BEAT && num <= MAX_ACCENT_BEAT;
 const legalVolumeValue = num => num >= 0 && num <= 1;
 
@@ -33,15 +33,15 @@ class App extends Component {
     volume: 1,
     currentBeat: 0,
     accent: false,
-    accentBeat: 4,
-    accentBeatInput: '4',
+    timeSigBeats: 4,
+    timeSigBeatsInput: '4',
     displayShortcuts: false
   };
 
   // ========== REFS
 
   tempoInputRef = React.createRef();
-  accentBeatInputRef = React.createRef();
+  timeSigBeatsInputRef = React.createRef();
   tapTempoButtonRef = React.createRef();
 
   // ========== STATE MODIFICATION
@@ -80,7 +80,7 @@ class App extends Component {
     this.setState(prevState => ({
       ...prevState,
       currentBeat:
-        prevState.currentBeat < this.state.accentBeat - 1
+        prevState.currentBeat < this.state.timeSigBeats - 1
           ? prevState.currentBeat + 1
           : 0
     }));
@@ -93,20 +93,20 @@ class App extends Component {
       accent: !prevState.accent
     }));
 
-  setAccentBeat = newBeat => this.setState({ accentBeat: newBeat });
+  setTimeSigBeats = newBeat => this.setState({ timeSigBeats: newBeat });
 
-  incrementAccentBeat = incr =>
+  incrementTimeSigBeats = incr =>
     this.setState(prevState =>
-      legalAccentBeatValue(prevState.accentBeat + incr)
+      legalTimeSigBeatsValue(prevState.timeSigBeats + incr)
         ? {
             ...prevState,
-            accentBeat: prevState.accentBeat + incr,
-            accentBeatInput: String(prevState.accentBeat + incr)
+            timeSigBeats: prevState.timeSigBeats + incr,
+            timeSigBeatsInput: String(prevState.timeSigBeats + incr)
           }
         : null
     );
 
-  setAccentBeatInput = value => this.setState({ accentBeatInput: value });
+  setTimeSigBeatsInput = value => this.setState({ timeSigBeatsInput: value });
 
   // ===== VOLUME
 
@@ -144,7 +144,7 @@ class App extends Component {
             volume={this.state.volume}
             currentBeat={this.state.currentBeat}
             accent={this.state.accent}
-            accentBeat={this.state.accentBeat}
+            timeSigBeats={this.state.timeSigBeats}
             incrementCurrentBeat={this.incrementCurrentBeat}
           />
 
@@ -153,9 +153,9 @@ class App extends Component {
             incrementTempo={this.incrementTempo}
             incrementVolume={this.incrementVolume}
             toggleAccent={this.toggleAccent}
-            incrementAccentBeat={this.incrementAccentBeat}
+            incrementTimeSigBeats={this.incrementTimeSigBeats}
             tempoInputRef={this.tempoInputRef}
-            accentBeatInputRef={this.accentBeatInputRef}
+            timeSigBeatsInputRef={this.timeSigBeatsInputRef}
             tapTempoButtonRef={this.tapTempoButtonRef}
           />
 
@@ -208,14 +208,14 @@ class App extends Component {
             />
 
             <AccentControls
-              accentBeat={this.state.accentBeat}
-              accentBeatInput={this.state.accentBeatInput}
-              setAccentBeat={this.setAccentBeat}
-              setAccentBeatInput={this.setAccentBeatInput}
-              incrementAccentBeat={this.incrementAccentBeat}
+              timeSigBeats={this.state.timeSigBeats}
+              timeSigBeatsInput={this.state.timeSigBeatsInput}
+              setTimeSigBeats={this.setTimeSigBeats}
+              setTimeSigBeatsInput={this.setTimeSigBeatsInput}
+              incrementTimeSigBeats={this.incrementTimeSigBeats}
               MIN_ACCENT_BEAT={MIN_ACCENT_BEAT}
               MAX_ACCENT_BEAT={MAX_ACCENT_BEAT}
-              accentBeatInputRef={this.accentBeatInputRef}
+              timeSigBeatsInputRef={this.timeSigBeatsInputRef}
             />
 
             <VolumeControl
