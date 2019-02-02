@@ -94,7 +94,9 @@ class App extends Component {
       accent: !prevState.accent
     }));
 
-  setTimeSigBeats = newBeat => this.setState({ timeSigBeats: newBeat });
+  // ===== TIME SIG BEATS
+
+  setTimeSigBeats = newValue => this.setState({ timeSigBeats: newValue });
 
   incrementTimeSigBeats = incr =>
     this.setState(prevState =>
