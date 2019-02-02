@@ -15,6 +15,7 @@ ${props => props.borderWidth && `border-width: ${props.borderWidth};`};
 outline: ${props => props.outline || 'none'};
 justify-self: center;
 align-self: center;
+cursor: ${props => props.cursor || 'pointer'};
 `;
 
 export default Input;

@@ -23,6 +23,7 @@ const Button = styled.button.attrs(props => ({
   outline: ${props => (props.outline ? props.outline : 'none')};
   ${props => props.opacity && `opacity: ${props.opacity};`}
   ${props => props.transition && `transition: ${props.transition};`}
+  cursor: ${props => props.cursor || 'pointer'};
 `;
 
 export default Button;
