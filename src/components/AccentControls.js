@@ -99,7 +99,6 @@ AccentControls.propTypes = {
   setAccentBeat: PropTypes.func.isRequired,
   setAccentBeatInput: PropTypes.func.isRequired,
   incrementAccentBeat: PropTypes.func.isRequired,
-  legalAccentBeatValue: PropTypes.func.isRequired,
   MIN_ACCENT_BEAT: PropTypes.number.isRequired,
   MAX_ACCENT_BEAT: PropTypes.number.isRequired,
   accentBeatInputRef: PropTypes.shape({

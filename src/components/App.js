@@ -214,7 +214,6 @@ class App extends Component {
               setAccentBeat={this.setAccentBeat}
               setAccentBeatInput={this.setAccentBeatInput}
               incrementAccentBeat={this.incrementAccentBeat}
-              legalAccentBeatValue={legalAccentBeatValue}
               MIN_ACCENT_BEAT={MIN_ACCENT_BEAT}
               MAX_ACCENT_BEAT={MAX_ACCENT_BEAT}
               accentBeatInputRef={this.accentBeatInputRef}
