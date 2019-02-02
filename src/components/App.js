@@ -221,6 +221,7 @@ class App extends Component {
               setTimeSigBeats={this.setTimeSigBeats}
               setTimeSigBeatsInput={this.setTimeSigBeatsInput}
               incrementTimeSigBeats={this.incrementTimeSigBeats}
+              setTimeSigBeatNoteLength={this.setTimeSigBeatNoteLength}
               MIN_TIME_SIG_BEATS={MIN_TIME_SIG_BEATS}
               MAX_TIME_SIG_BEATS={MAX_TIME_SIG_BEATS}
               timeSigBeatsInputRef={this.timeSigBeatsInputRef}

@@ -41,35 +41,37 @@ class TimeSigControls extends Component {
   render() {
     return (
       <Div>
-        <Button
-          value={-1}
-          onClick={this.onIncrementTimeSigBeatsButtonClick}
-          fontSize="1.5rem"
-          border="none"
-        >
-          <Icon className="material-icons">remove</Icon>
-        </Button>
-
-        <Form onSubmit={this.onTimeSigBeatsInputFormSubmit}>
-          <Input
-            ref={this.props.timeSigBeatsInputRef}
-            value={this.props.timeSigBeatsInput}
-            onChange={this.onTimeSigBeatsInputChange}
-            onFocus={this.onTimeSigBeatsInputFocus}
-            onBlur={this.onTimeSigBeatsInputBlur}
-            fontSize="3rem"
+        <Div>
+          <Button
+            value={-1}
+            onClick={this.onIncrementTimeSigBeatsButtonClick}
+            fontSize="1.5rem"
             border="none"
-          />
-        </Form>
+          >
+            <Icon className="material-icons">remove</Icon>
+          </Button>
 
-        <Button
-          value={1}
-          onClick={this.onIncrementTimeSigBeatsButtonClick}
-          fontSize="1.5rem"
-          border="none"
-        >
-          <Icon className="material-icons">add</Icon>
-        </Button>
+          <Form onSubmit={this.onTimeSigBeatsInputFormSubmit}>
+            <Input
+              ref={this.props.timeSigBeatsInputRef}
+              value={this.props.timeSigBeatsInput}
+              onChange={this.onTimeSigBeatsInputChange}
+              onFocus={this.onTimeSigBeatsInputFocus}
+              onBlur={this.onTimeSigBeatsInputBlur}
+              fontSize="3rem"
+              border="none"
+            />
+          </Form>
+
+          <Button
+            value={1}
+            onClick={this.onIncrementTimeSigBeatsButtonClick}
+            fontSize="1.5rem"
+            border="none"
+          >
+            <Icon className="material-icons">add</Icon>
+          </Button>
+        </Div>
       </Div>
     );
   }
@@ -81,6 +83,7 @@ TimeSigControls.propTypes = {
   setTimeSigBeats: PropTypes.func.isRequired,
   setTimeSigBeatsInput: PropTypes.func.isRequired,
   incrementTimeSigBeats: PropTypes.func.isRequired,
+  setTimeSigBeatNoteLength: PropTypes.func.isRequired,
   MIN_TIME_SIG_BEATS: PropTypes.number.isRequired,
   MAX_TIME_SIG_BEATS: PropTypes.number.isRequired,
   timeSigBeatsInputRef: PropTypes.shape({
