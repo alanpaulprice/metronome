@@ -35,6 +35,7 @@ class App extends Component {
     accent: false,
     timeSigBeats: 4,
     timeSigBeatsInput: '4',
+    timeSigBeatNoteLength: '',
     displayShortcuts: false
   };
 
@@ -107,6 +108,11 @@ class App extends Component {
     );
 
   setTimeSigBeatsInput = value => this.setState({ timeSigBeatsInput: value });
+
+  // ===== TIME SIG BEAT NOTE LENGTH
+
+  setTimeSigBeatNoteLength = newValue =>
+    this.setState({ timeSigBeatNoteLength: newValue });
 
   // ===== VOLUME
 
