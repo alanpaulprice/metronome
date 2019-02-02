@@ -10,17 +10,17 @@ class KeyboardShortcutsButton extends Component {
       <Button
         onClick={this.onKeyboardShortcutsButtonClick}
         position="fixed"
-        top="2.5rem"
-        right="2.5rem"
+        top="1.25rem"
+        right="1.25rem"
         display="flex"
-        height="5rem"
-        width="5rem"
+        height="2.5rem"
+        width="2.5rem"
         padding="0"
-        fontSize="2.5rem"
+        fontSize="1.25rem"
         fontWeight="900"
         color={this.props.displayShortcuts ? '#ffffff' : undefined}
         background="transparent"
-        border="5px solid"
+        border="2.5px solid"
         borderRadius="50%"
         transition="color 0.2s"
       >
