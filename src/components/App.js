@@ -2,6 +2,9 @@ import React, { Component, Fragment } from 'react';
 import { ThemeProvider } from 'styled-components';
 import Sound from './Sound';
 import KeyboardShortcuts from './KeyboardShortcuts';
+import KeyboardShortcutsLegend from './KeyboardShortcutsLegend';
+import KeyboardShortcutsButton from './KeyboardShortcutsButton';
+import Header from './Header';
 import PlayStopButton from './PlayStopButton';
 import TempoInputAndButtons from './TempoInputAndButtons';
 import TempoSlider from './TempoSlider';
@@ -9,10 +12,7 @@ import TapTempoButton from './TapTempoButton';
 import TimeSigControls from './TimeSigControls';
 import VolumeControl from './VolumeControl';
 import AccentToggleButton from './AccentToggleButton';
-import KeyboardShortcutsButton from './KeyboardShortcutsButton';
-import KeyboardShortcutsLegend from './KeyboardShortcutsLegend';
 import Div from '../elements/Div';
-import H1 from '../elements/H1';
 import { Theme, GlobalStyles } from '../styles';
 
 const MIN_TEMPO = 40;
@@ -179,14 +179,7 @@ class App extends Component {
           />
 
           <Div display="flex" flexDirection="column" alignItems="center">
-            <H1
-              fontSize="5rem"
-              fontWeight="900"
-              letterSpacing="-0.425rem"
-              marginTop="5rem"
-            >
-              metronome
-            </H1>
+            <Header />
 
             <PlayStopButton
               playing={this.state.playing}
