@@ -7,8 +7,6 @@ import Input from '../elements/Input';
 import Icon from '../elements/Icon';
 
 class AccentControls extends Component {
-  onAccentToggleButtonClick = () => this.props.toggleAccent();
-
   // if the value isn't valid, use closest valid value
   // blur (triggering input value update) after state has been updated
   onAccentBeatInputFormSubmit = async e => {
@@ -44,20 +42,6 @@ class AccentControls extends Component {
     return (
       <Div>
         <Button
-          onClick={this.onAccentToggleButtonClick}
-          fontSize="1.5rem"
-          textAlign="left"
-          border="none"
-        >
-          accent
-          <Icon className="material-icons" float="right">
-            {this.props.accent
-              ? 'radio_button_checked'
-              : 'radio_button_unchecked'}
-          </Icon>
-        </Button>
-
-        <Button
           value={-1}
           onClick={this.onIncrementAccentBeatButtonClick}
           fontSize="1.5rem"
@@ -92,10 +76,8 @@ class AccentControls extends Component {
 }
 
 AccentControls.propTypes = {
-  accent: PropTypes.bool.isRequired,
   accentBeat: PropTypes.number.isRequired,
   accentBeatInput: PropTypes.string.isRequired,
-  toggleAccent: PropTypes.func.isRequired,
   setAccentBeat: PropTypes.func.isRequired,
   setAccentBeatInput: PropTypes.func.isRequired,
   incrementAccentBeat: PropTypes.func.isRequired,

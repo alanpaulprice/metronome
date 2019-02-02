@@ -8,6 +8,7 @@ import TempoSlider from './TempoSlider';
 import TapTempoButton from './TapTempoButton';
 import AccentControls from './AccentControls';
 import VolumeControl from './VolumeControl';
+import AccentToggleButton from './AccentToggleButton';
 import KeyboardShortcutsButton from './KeyboardShortcutsButton';
 import KeyboardShortcutsLegend from './KeyboardShortcutsLegend';
 import Div from '../elements/Div';
@@ -207,10 +208,8 @@ class App extends Component {
             />
 
             <AccentControls
-              accent={this.state.accent}
               accentBeat={this.state.accentBeat}
               accentBeatInput={this.state.accentBeatInput}
-              toggleAccent={this.toggleAccent}
               setAccentBeat={this.setAccentBeat}
               setAccentBeatInput={this.setAccentBeatInput}
               incrementAccentBeat={this.incrementAccentBeat}
@@ -222,6 +221,11 @@ class App extends Component {
             <VolumeControl
               volume={this.state.volume}
               setVolume={this.setVolume}
+            />
+
+            <AccentToggleButton
+              accent={this.state.accent}
+              toggleAccent={this.toggleAccent}
             />
           </Div>
         </Fragment>
