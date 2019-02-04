@@ -43,7 +43,7 @@ class KeyboardShortcutsLegend extends Component {
         justifyContent="center"
         width="100vw"
         minHeight="100vh"
-        padding="5rem 0"
+        padding="4rem 0"
         background="rgba(0, 0, 0, 75%)"
         textAlign="center"
         transition="color 5s"
