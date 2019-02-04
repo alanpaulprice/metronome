@@ -9,7 +9,7 @@ class KeyboardShortcutsButton extends Component {
     return (
       <Button
         onClick={this.onKeyboardShortcutsButtonClick}
-        position="fixed"
+        position="absolute"
         top="1.25rem"
         right="1.25rem"
         display="flex"

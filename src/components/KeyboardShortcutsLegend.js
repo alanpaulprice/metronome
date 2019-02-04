@@ -35,7 +35,7 @@ class KeyboardShortcutsLegend extends Component {
     return this.props.displayShortcuts ? (
       <Div
         onClick={this.onContainerDivClick}
-        position="fixed"
+        position="absolute"
         top="0"
         left="0"
         display="flex"
