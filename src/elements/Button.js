@@ -9,6 +9,7 @@ const Button = styled.button.attrs(props => ({
   ${props => props.zIndex && `z-index: ${props.zIndex};`}
   ${props => props.width && `width: ${props.width};`}
   ${props => props.height && `height: ${props.height};`}
+  ${props => props.zIndex && `z-index: ${props.zIndex};`}
   ${props => props.flex && `flex: ${props.flex};`}
   ${props => props.marginTop && `margin-top: ${props.marginTop};`}
   padding: ${props => props.padding || '0.5rem'};

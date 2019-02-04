@@ -10,6 +10,7 @@ const Div = styled.div`
   ${props => props.height && `height: ${props.height};`}
   ${props => props.minWidth && `min-width: ${props.minWidth};`}
   ${props => props.minHeight && `min-height: ${props.minHeight};`}
+  ${props => props.zIndex && `z-index: ${props.zIndex};`}
   ${props => props.margin && `margin: ${props.margin};`}
   ${props => props.padding && `padding: ${props.padding};`}
   ${props => props.display && `display: ${props.display};`}
