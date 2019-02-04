@@ -24,8 +24,9 @@ class KeyboardShortcutsButton extends Component {
         border="2.5px solid"
         borderRadius="50%"
         transition="color 0.2s"
+        zIndex="10"
       >
-        {this.props.displayShortcuts ? 'X' : '?'}
+        {this.props.displayShortcuts ? 'x' : '?'}
       </Button>
     );
   }
