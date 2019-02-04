@@ -23,7 +23,7 @@ class KeyboardShortcutsLegend extends Component {
   render() {
     const legendJSX = this.legend.map((obj, index) => (
       <Div key={index} margin="1rem 0">
-        <Div color="#ffffff" fontSize="1rem" fontWeight="900">
+        <Div color="#ffffff" fontSize="1.25rem" fontWeight="900">
           {obj.action}
         </Div>
         <Div color="#ffffff" fontSize="1.5rem">
@@ -43,9 +43,11 @@ class KeyboardShortcutsLegend extends Component {
         justifyContent="center"
         width="100vw"
         minHeight="100vh"
-        background="linear-gradient(90deg, rgba(0, 0, 0, 80%), rgba(0, 0, 0, 100%), rgba(0, 0, 0, 100%), rgba(0, 0, 0, 80%))"
+        padding="1rem 0"
+        background="rgba(0, 0, 0, 75%)"
         textAlign="center"
         transition="color 5s"
+        zIndex="9"
       >
         {legendJSX}
       </Div>
