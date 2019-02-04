@@ -27,6 +27,7 @@ const Div = styled.div`
   ${props => props.border && `border: ${props.border};`}
   ${props => props.opacity && `opacity: ${props.opacity};`}
   ${props => props.transition && `transition: ${props.transition};`}
+  ${props => props.overflow && `overflow: ${props.overflow};`}
 `;
 
 export default Div;
