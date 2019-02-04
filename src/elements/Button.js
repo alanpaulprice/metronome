@@ -15,6 +15,7 @@ const Button = styled.button.attrs(props => ({
   padding: ${props => props.padding || '0.5rem'};
   font-size: ${props => props.fontSize || props.theme.fontSize || '1rem'};
   ${props => props.fontWeight && `font-weight: ${props.fontWeight};`}
+  ${props => props.lineHeight && `line-height: ${props.lineHeight};`}
   text-align: ${props => props.textAlign || 'center'};
   color: ${props => props.color || props.theme.fg || 'black'};
   background: ${props => props.background || props.theme.bg || 'white'};
