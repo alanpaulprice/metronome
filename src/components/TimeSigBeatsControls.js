@@ -40,7 +40,7 @@ class TimeSigBeatsControls extends Component {
 
   render() {
     return (
-      <Div display="flex">
+      <Div display="flex" alignItems="center">
         <Div flex="1 1 0">
           <Button
             value={-1}
