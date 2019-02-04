@@ -7,7 +7,7 @@ import Div from '../elements/Div';
 class TimeSigControls extends Component {
   render() {
     return (
-      <Div width="50%">
+      <Div width="40%">
         <TimeSigBeatsControls
           timeSigBeats={this.props.timeSigBeats}
           timeSigBeatsInput={this.props.timeSigBeatsInput}

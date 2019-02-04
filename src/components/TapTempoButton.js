@@ -13,7 +13,7 @@ class TapTempoButton extends Component {
   render() {
     return (
       <Div
-        width="50%"
+        width="40%"
         display="flex"
         justifyContent="center"
         alignItems="center"
