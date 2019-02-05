@@ -54,10 +54,11 @@ class TempoInputAndButtons extends Component {
         alignItems="center"
       >
         <Button
-          border="none"
           value={-1}
           onClick={this.onIncrementTempoButtonClick}
+          width="25%"
           fontSize="1.5rem"
+          border="none"
         >
           <Icon className="material-icons" fontSize="4rem" fontWeight="900">
             remove
@@ -71,18 +72,18 @@ class TempoInputAndButtons extends Component {
             onChange={this.onTempoInputChange}
             onFocus={this.onTempoInputFocus}
             onBlur={this.onTempoInputBlur}
-            width="10rem"
-            margin="5rem"
+            width="50%"
             fontSize="5rem"
             border="none"
           />
         </Form>
 
         <Button
-          border="none"
           value={1}
           onClick={this.onIncrementTempoButtonClick}
+          width="25%"
           fontSize="1.5rem"
+          border="none"
         >
           <Icon className="material-icons" fontSize="4rem" fontWeight="900">
             add
