@@ -12,6 +12,7 @@ const Div = styled.div`
   ${props => props.minHeight && `min-height: ${props.minHeight};`}
   ${props => props.zIndex && `z-index: ${props.zIndex};`}
   ${props => props.margin && `margin: ${props.margin};`}
+  ${props => props.marginTop && `margin-top: ${props.marginTop};`}
   ${props => props.padding && `padding: ${props.padding};`}
   ${props => props.display && `display: ${props.display};`}
   ${props => props.flexDirection && `flex-direction: ${props.flexDirection};`}
