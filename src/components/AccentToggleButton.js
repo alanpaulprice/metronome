@@ -10,6 +10,7 @@ class AccentToggleButton extends Component {
     return (
       <Button
         onClick={this.onAccentToggleButtonClick}
+        marginTop="5rem"
         fontSize="1.5rem"
         textAlign="left"
         border="none"
