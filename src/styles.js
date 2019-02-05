@@ -23,9 +23,21 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   #root {
+    width: 90%;
     min-width: 320px;
     max-width: 400px;
     margin: 0 auto;
-    padding: 0 10%;
+  }
+
+  @media screen and (min-width: 640px) {
+    html {
+      font-size: 12.5px;
+    }
+  }
+
+  @media screen and (min-width: 960px) {
+    html {
+      font-size: 15px;
+    }
   }
 `;
