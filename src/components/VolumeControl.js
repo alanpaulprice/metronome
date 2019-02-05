@@ -13,6 +13,7 @@ class VolumeControl extends Component {
       <Fragment>
         <Div
           width="100%"
+          marginTop="5rem"
           display="flex"
           justifyContent="center"
           alignItems="center"
