@@ -46,7 +46,13 @@ class TempoInputAndButtons extends Component {
 
   render() {
     return (
-      <Div width="100%" display="flex" justifyContent="center">
+      <Div
+        width="100%"
+        marginTop="5rem"
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+      >
         <Button
           border="none"
           value={-1}
