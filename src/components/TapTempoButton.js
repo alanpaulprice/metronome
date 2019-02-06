@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Button from '../elements/Button';
 import { processTap, currentBeatMS } from '../tap-tempo-logic';
-import Div from '../elements/Div';
+import SquareResponsiveDiv from '../elements/SquareResponsiveDiv';
 
 class TapTempoButton extends Component {
   onTapTempoButtonMouseDown = () => {
@@ -12,22 +12,19 @@ class TapTempoButton extends Component {
 
   render() {
     return (
-      <Div
-        width="40%"
-        display="flex"
-        justifyContent="center"
-        alignItems="center"
-      >
+      <SquareResponsiveDiv width="40%">
         <Button
           onMouseDown={this.onTapTempoButtonMouseDown}
-          padding="1rem"
+          position="absolute"
+          height="100%"
+          width="100%"
           fontSize="1.5rem"
           border="1px solid #ffffff"
           borderRadius="50%"
         >
           tap
         </Button>
-      </Div>
+      </SquareResponsiveDiv>
     );
   }
 }
