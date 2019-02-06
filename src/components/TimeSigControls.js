@@ -34,7 +34,7 @@ class TimeSigControls extends Component {
 
 TimeSigControls.propTypes = {
   timeSigBeats: PropTypes.number.isRequired,
-  timeSigBeatNoteLength: PropTypes.number.isRequired,
+  timeSigBeatNoteLength: PropTypes.string.isRequired,
   timeSigBeatsInput: PropTypes.string.isRequired,
   setTimeSigBeats: PropTypes.func.isRequired,
   setTimeSigBeatsInput: PropTypes.func.isRequired,

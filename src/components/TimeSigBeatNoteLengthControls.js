@@ -8,7 +8,7 @@ class TimeSigBeatNoteLengthControls extends Component {
     this.props.setTimeSigBeatNoteLength(e.currentTarget.value);
 
   render() {
-    const buttons = [2, 4, 8, 16].map(item => (
+    const buttons = ['2', '4', '8', '16'].map(item => (
       <Button
         key={item}
         value={item}
@@ -27,7 +27,7 @@ class TimeSigBeatNoteLengthControls extends Component {
 }
 
 TimeSigBeatNoteLengthControls.propTypes = {
-  timeSigBeatNoteLength: PropTypes.number.isRequired,
+  timeSigBeatNoteLength: PropTypes.string.isRequired,
   setTimeSigBeatNoteLength: PropTypes.func.isRequired
 };
 

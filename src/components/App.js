@@ -35,7 +35,7 @@ class App extends Component {
     accent: false,
     timeSigBeats: 4,
     timeSigBeatsInput: '4',
-    timeSigBeatNoteLength: 4,
+    timeSigBeatNoteLength: '4',
     displayShortcuts: false
   };
 
