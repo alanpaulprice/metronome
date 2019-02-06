@@ -16,6 +16,7 @@ class TempoSlider extends Component {
         value={this.props.tempo}
         onChange={this.onTempoSliderChange}
         width="100%"
+        marginTop="5rem"
       />
     );
   }

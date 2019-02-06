@@ -204,13 +204,18 @@ class App extends Component {
               MAX_TEMPO={MAX_TEMPO}
             />
 
-            <Div width="100%" display="flex" justifyContent="space-between">
+            <Div
+              width="100%"
+              marginTop="5rem"
+              display="flex"
+              justifyContent="space-between"
+            >
               <TapTempoButton
                 setTempo={this.setTempo}
                 ref={this.tapTempoButtonRef}
               />
 
-              <Div
+              <Div // vertical rule
                 heigh="100%"
                 width="5px"
                 background="#ffffff"
