@@ -7,18 +7,10 @@ import Input from '../elements/Input';
 import Icon from '../elements/Icon';
 
 class TimeSigBeatsControls extends Component {
-  // if the value isn't valid, use closest valid value
   // blur (triggering input value update) after state has been updated
   onTimeSigBeatsInputFormSubmit = async e => {
     e.preventDefault();
-    let newTimeSigBeats = parseInt(this.props.timeSigBeatsInput);
-
-    if (newTimeSigBeats < this.props.MIN_TIME_SIG_BEATS)
-      newTimeSigBeats = this.props.MIN_TIME_SIG_BEATS;
-    if (newTimeSigBeats > this.props.MAX_TIME_SIG_BEATS)
-      newTimeSigBeats = this.props.MAX_TIME_SIG_BEATS;
-
-    await this.props.setTimeSigBeats(newTimeSigBeats);
+    await this.props.setTimeSigBeats(this.props.timeSigBeatsInput);
     document.activeElement.blur();
   };
 
@@ -36,7 +28,7 @@ class TimeSigBeatsControls extends Component {
     this.props.setTimeSigBeatsInput(String(this.props.timeSigBeats));
 
   onIncrementTimeSigBeatsButtonClick = e =>
-    this.props.incrementTimeSigBeats(parseInt(e.currentTarget.value));
+    this.props.incrementTimeSigBeats(e.currentTarget.value);
 
   render() {
     return (

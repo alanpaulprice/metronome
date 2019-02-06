@@ -5,7 +5,7 @@ import Button from '../elements/Button';
 
 class TimeSigBeatNoteLengthControls extends Component {
   onTimeSigBeatNoteLengthButtonClick = e =>
-    this.props.setTimeSigBeatNoteLength(parseInt(e.currentTarget.value));
+    this.props.setTimeSigBeatNoteLength(e.currentTarget.value);
 
   render() {
     const buttons = [2, 4, 8, 16].map(item => (

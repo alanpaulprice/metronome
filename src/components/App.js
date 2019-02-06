@@ -108,10 +108,23 @@ class App extends Component {
 
   // ===== TIME SIG BEATS
 
-  setTimeSigBeats = newValue => this.setState({ timeSigBeats: newValue });
+  setTimeSigBeats = newTimeSigBeats => {
+    newTimeSigBeats = parseInt(newTimeSigBeats);
 
-  incrementTimeSigBeats = incr =>
+    // if the value isn't within the allowed range, use closest allowed value
+    if (newTimeSigBeats < MIN_TIME_SIG_BEATS)
+      newTimeSigBeats = MIN_TIME_SIG_BEATS;
+    else if (newTimeSigBeats > MAX_TIME_SIG_BEATS)
+      newTimeSigBeats = MAX_TIME_SIG_BEATS;
+
+    this.setState({ timeSigBeats: newTimeSigBeats });
+  };
+
+  incrementTimeSigBeats = incr => {
+    incr = parseInt(incr);
+
     this.setState(prevState =>
+      // only update state if new value is within allowed range
       legalTimeSigBeatsValue(prevState.timeSigBeats + incr)
         ? {
             ...prevState,
@@ -120,21 +133,24 @@ class App extends Component {
           }
         : null
     );
+  };
 
   setTimeSigBeatsInput = value => this.setState({ timeSigBeatsInput: value });
 
   // ===== TIME SIG BEAT NOTE LENGTH
 
-  setTimeSigBeatNoteLength = newValue =>
-    this.setState({ timeSigBeatNoteLength: newValue });
+  setTimeSigBeatNoteLength = newTimeSigBeatNoteLength =>
+    this.setState({
+      timeSigBeatNoteLength: newTimeSigBeatNoteLength
+    });
 
   // ===== VOLUME
 
   setVolume = value => this.setState({ volume: value });
 
-  // only increment if the new volume is within the allowed range
   incrementVolume = incr =>
     this.setState(prevState =>
+      // only update state if new value is within allowed range
       legalVolumeValue(prevState.volume + incr)
         ? {
             ...prevState,
