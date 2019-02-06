@@ -7,7 +7,7 @@ import SquareResponsiveDiv from '../elements/SquareResponsiveDiv';
 class TapTempoButton extends Component {
   onTapTempoButtonMouseDown = () => {
     processTap();
-    if (currentBeatMS) this.props.setTempo(parseInt(60000 / currentBeatMS));
+    if (currentBeatMS) this.props.setTempo(60000 / currentBeatMS);
   };
 
   render() {

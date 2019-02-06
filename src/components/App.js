@@ -59,11 +59,22 @@ class App extends Component {
 
   // ===== TEMPO
 
-  setTempo = newTempo => this.setState({ tempo: newTempo });
+  setTempo = newTempo => {
+    newTempo = parseInt(newTempo);
+
+    // if the value isn't within the allowed range, use closest allowed value
+    if (newTempo < MIN_TEMPO) newTempo = MIN_TEMPO;
+    else if (newTempo > MAX_TEMPO) newTempo = MAX_TEMPO;
+
+    this.setState({ tempo: newTempo });
+  };
 
   // only increment if the new tempo is within the allowed range
-  incrementTempo = incr =>
+  incrementTempo = incr => {
+    incr = parseInt(incr);
+
     this.setState(prevState =>
+      // only update state if new value is within allowed range
       legalTempoValue(prevState.tempo + incr)
         ? {
             ...prevState,
@@ -72,6 +83,7 @@ class App extends Component {
           }
         : null
     );
+  };
 
   setTempoInput = value => this.setState({ tempoInput: value });
 

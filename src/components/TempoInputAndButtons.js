@@ -11,10 +11,7 @@ class TempoInputAndButtons extends Component {
   // blur (triggering input value update) after state has been updated
   onTempoInputFormSubmit = async e => {
     e.preventDefault();
-    let newTempo = parseInt(this.props.tempoInput);
-    if (newTempo < this.props.MIN_TEMPO) newTempo = this.props.MIN_TEMPO;
-    if (newTempo > this.props.MAX_TEMPO) newTempo = this.props.MAX_TEMPO;
-    await this.props.setTempo(newTempo);
+    await this.props.setTempo(this.props.tempoInput);
     document.activeElement.blur();
   };
 
@@ -32,7 +29,7 @@ class TempoInputAndButtons extends Component {
     this.props.setTempoInput(String(this.props.tempo));
 
   onIncrementTempoButtonClick = e =>
-    this.props.incrementTempo(parseInt(e.currentTarget.value));
+    this.props.incrementTempo(e.currentTarget.value);
 
   // if tempo doesn't match the tempoInput, and tempoInput doesn't have focus,
   // set the tempoInput to tempo

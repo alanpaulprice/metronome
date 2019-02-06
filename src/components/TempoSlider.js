@@ -3,8 +3,7 @@ import PropTypes from 'prop-types';
 import Input from '../elements/Input';
 
 class TempoSlider extends Component {
-  onTempoSliderChange = e =>
-    this.props.setTempo(parseInt(e.currentTarget.value));
+  onTempoSliderChange = e => this.props.setTempo(e.currentTarget.value);
 
   render() {
     return (
