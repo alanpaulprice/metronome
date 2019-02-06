@@ -31,9 +31,6 @@ class VolumeControl extends Component {
           />
           <Icon className="material-icons">volume_up</Icon>
         </Div>
-        <Div width="100%" textAlign="center">
-          {this.props.volume * 100}%
-        </Div>
       </Fragment>
     );
   }
