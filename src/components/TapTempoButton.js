@@ -18,8 +18,8 @@ class TapTempoButton extends Component {
           position="absolute"
           height="100%"
           width="100%"
-          fontSize="1.5rem"
-          border="1px solid #ffffff"
+          fontSize="2.5rem"
+          border="2px solid #ffffff"
           borderRadius="50%"
         >
           tap
