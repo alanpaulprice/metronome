@@ -7,7 +7,12 @@ import Div from '../elements/Div';
 class TimeSigControls extends Component {
   render() {
     return (
-      <Div width="40%">
+      <Div
+        width="40%"
+        display="flex"
+        flexDirection="column"
+        justifyContent="space-between"
+      >
         <TimeSigBeatsControls
           timeSigBeats={this.props.timeSigBeats}
           timeSigBeatsInput={this.props.timeSigBeatsInput}
