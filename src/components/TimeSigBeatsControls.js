@@ -32,19 +32,16 @@ class TimeSigBeatsControls extends Component {
 
   render() {
     return (
-      <Div display="flex" alignItems="center">
-        <Div flex="1 1 0">
-          <Button
-            value={-1}
-            onClick={this.onIncrementTimeSigBeatsButtonClick}
-            flex="1 1 0"
-            border="none"
-          >
-            <Icon className="material-icons" fontSize="2.5rem">
-              remove
-            </Icon>
-          </Button>
-        </Div>
+      <Div display="flex" justifyContent="space-around" alignItems="center">
+        <Button
+          value={-1}
+          onClick={this.onIncrementTimeSigBeatsButtonClick}
+          border="none"
+        >
+          <Icon className="material-icons" fontSize="2.5rem">
+            remove
+          </Icon>
+        </Button>
 
         <Form onSubmit={this.onTimeSigBeatsInputFormSubmit} flex="1 1 0">
           <Input
@@ -53,25 +50,22 @@ class TimeSigBeatsControls extends Component {
             onChange={this.onTimeSigBeatsInputChange}
             onFocus={this.onTimeSigBeatsInputFocus}
             onBlur={this.onTimeSigBeatsInputBlur}
-            width="100%"
+            width="9.375rem"
             maxWidth="5rem"
             fontSize="3.75rem"
             border="none"
           />
         </Form>
 
-        <Div flex="1 1 0">
-          <Button
-            value={1}
-            onClick={this.onIncrementTimeSigBeatsButtonClick}
-            flex="1 1 0"
-            border="none"
-          >
-            <Icon className="material-icons" fontSize="2.5rem">
-              add
-            </Icon>
-          </Button>
-        </Div>
+        <Button
+          value={1}
+          onClick={this.onIncrementTimeSigBeatsButtonClick}
+          border="none"
+        >
+          <Icon className="material-icons" fontSize="2.5rem">
+            add
+          </Icon>
+        </Button>
       </Div>
     );
   }
