@@ -206,7 +206,7 @@ class App extends Component {
             toggleDisplayShortcuts={this.toggleDisplayShortcuts}
           />
 
-          <Div display="flex" flexDirection="column" alignItems="center">
+          <Div display="flex" flexDirection="column">
             <Header />
 
             <PlayStopButton
