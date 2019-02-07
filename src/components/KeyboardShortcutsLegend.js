@@ -23,7 +23,7 @@ class KeyboardShortcutsLegend extends Component {
   render() {
     const legendJSX = this.legend.map((obj, index) => (
       <Div key={index} margin="1rem 0">
-        <Div color="#ffffff" fontSize="1.25rem" fontWeight="900">
+        <Div color="#ffffff" fontSize="1.25rem" fontWeight="700">
           {obj.action}
         </Div>
         <Div color="#ffffff" fontSize="1.5rem">
