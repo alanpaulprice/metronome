@@ -44,17 +44,14 @@ class TempoInputAndButtons extends Component {
   render() {
     return (
       <Div
-        width="100%"
-        marginTop="5rem"
         display="flex"
-        justifyContent="center"
+        justifyContent="space-around"
         alignItems="center"
+        marginTop="5rem"
       >
         <Button
           value={-1}
           onClick={this.onIncrementTempoButtonClick}
-          width="25%"
-          fontSize="1.5rem"
           border="none"
         >
           <Icon className="material-icons" fontSize="4rem" fontWeight="900">
@@ -69,7 +66,7 @@ class TempoInputAndButtons extends Component {
             onChange={this.onTempoInputChange}
             onFocus={this.onTempoInputFocus}
             onBlur={this.onTempoInputBlur}
-            width="50%"
+            width="12.5rem"
             fontSize="5rem"
             border="none"
           />
@@ -78,8 +75,6 @@ class TempoInputAndButtons extends Component {
         <Button
           value={1}
           onClick={this.onIncrementTempoButtonClick}
-          width="25%"
-          fontSize="1.5rem"
           border="none"
         >
           <Icon className="material-icons" fontSize="4rem" fontWeight="900">
