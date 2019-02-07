@@ -24,7 +24,7 @@ export const GlobalStyles = createGlobalStyle`
 
   #root {
     width: 90%;
-    min-width: 320px;
+    min-width: 300px;
     max-width: 400px;
     margin: 0 auto;
   }
