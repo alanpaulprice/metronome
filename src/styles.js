@@ -34,10 +34,4 @@ export const GlobalStyles = createGlobalStyle`
       font-size: 12.5px;
     }
   }
-
-  @media screen and (min-width: 960px) {
-    html {
-      font-size: 15px;
-    }
-  }
 `;
