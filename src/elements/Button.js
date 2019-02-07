@@ -30,6 +30,13 @@ const Button = styled.button.attrs(props => ({
   ${props => props.opacity && `opacity: ${props.opacity};`}
   ${props => props.transition && `transition: ${props.transition};`}
   cursor: ${props => props.cursor || 'pointer'};
+  transition: all 0.2s;
+  &:hover {
+    transform: scale(1.125);
+  }
+  &:active {
+    transform: scale(1);
+  }
 `;
 
 export default Button;
