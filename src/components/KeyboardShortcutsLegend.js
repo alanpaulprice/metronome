@@ -35,13 +35,13 @@ class KeyboardShortcutsLegend extends Component {
     return this.props.displayShortcuts ? (
       <Div
         onClick={this.onContainerDivClick}
-        position="absolute"
+        position="fixed"
         top="0"
+        right="0"
+        bottom="0"
         left="0"
         display="flex"
         flexDirection="column"
-        width="100vw"
-        minHeight="100vh"
         padding="4rem 0"
         background="rgba(0, 0, 0, 80%)"
         textAlign="center"
