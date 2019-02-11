@@ -17,6 +17,9 @@ class TimeSigBeatNoteLengthControls extends Component {
         fontSize="2.5rem"
         border="none"
         opacity={this.props.timeSigBeatNoteLength === item ? '1' : '0.5'}
+        transform={`scale(${
+          this.props.timeSigBeatNoteLength === item ? '1.125' : '1'
+        })`}
       >
         {item}
       </Button>

@@ -28,7 +28,7 @@ const Button = styled.button.attrs(props => ({
   ${props => props.borderRadius && `border-radius: ${props.borderRadius};`}
   outline: ${props => (props.outline ? props.outline : 'none')};
   ${props => props.opacity && `opacity: ${props.opacity};`}
-  ${props => props.transition && `transition: ${props.transition};`}
+  ${props => props.transform && `transform: ${props.transform};`}
   cursor: ${props => props.cursor || 'pointer'};
   transition: all 0.2s;
   &:hover {
