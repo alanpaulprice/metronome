@@ -5,8 +5,10 @@ import Div from '../elements/Div';
 import Button from '../elements/Button';
 
 const TimeSigBeatNoteLengthButton = styled(Button)`
+${props => props.isSelected && 'transform: scale(1.125);'}
+  opacity: ${props => (props.isSelected ? '1' : '0.5')};
   &:hover {
-    ${props => (props.isSelected ? '' : 'opacity: 0.75;')}
+    ${props => props.isSelected || 'opacity: 0.75;'}
   }
 `;
 
@@ -23,10 +25,6 @@ class TimeSigBeatNoteLengthControls extends Component {
         width="25%"
         fontSize="2.5rem"
         border="none"
-        opacity={this.props.timeSigBeatNoteLength === item ? '1' : '0.5'}
-        transform={`scale(${
-          this.props.timeSigBeatNoteLength === item ? '1.125' : '1'
-        })`}
         isSelected={this.props.timeSigBeatNoteLength === item}
       >
         {item}
