@@ -11,7 +11,7 @@ class TimeSigControls extends Component {
         width="40%"
         display="flex"
         flexDirection="column"
-        justifyContent="space-between"
+        justifyContent="space-around"
       >
         <TimeSigBeatsControls
           timeSigBeats={this.props.timeSigBeats}
