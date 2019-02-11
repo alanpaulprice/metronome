@@ -31,12 +31,15 @@ const Button = styled.button.attrs(props => ({
   ${props => props.transform && `transform: ${props.transform};`}
   cursor: ${props => props.cursor || 'pointer'};
   transition: all 0.2s;
-  &:hover {
+  ${props =>
+    props.scaleOnHover
+      ? `&:hover {
     transform: scale(1.125);
   }
   &:active {
     transform: scale(1);
-  }
+  }`
+      : ''}
 `;
 
 export default Button;

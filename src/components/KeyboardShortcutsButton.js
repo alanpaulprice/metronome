@@ -25,6 +25,7 @@ class KeyboardShortcutsButton extends Component {
         borderRadius="50%"
         transition="color 0.2s"
         zIndex="10"
+        scaleOnHover
       >
         {this.props.displayShortcuts ? 'x' : '?'}
       </Button>

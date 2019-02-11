@@ -37,6 +37,7 @@ class TimeSigBeatsControls extends Component {
           value={-1}
           onClick={this.onIncrementTimeSigBeatsButtonClick}
           border="none"
+          scaleOnHover
         >
           <Icon className="material-icons" fontSize="2.5rem">
             remove
@@ -61,6 +62,7 @@ class TimeSigBeatsControls extends Component {
           value={1}
           onClick={this.onIncrementTimeSigBeatsButtonClick}
           border="none"
+          scaleOnHover
         >
           <Icon className="material-icons" fontSize="2.5rem">
             add
