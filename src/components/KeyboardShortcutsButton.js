@@ -1,34 +1,36 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Button from '../elements/Button';
+import Icon from '../elements/Icon';
+import Div from '../elements/Div';
 
 class KeyboardShortcutsButton extends Component {
   onKeyboardShortcutsButtonClick = () => this.props.toggleDisplayShortcuts();
 
   render() {
     return (
-      <Button
-        onClick={this.onKeyboardShortcutsButtonClick}
+      <Div
         position={this.props.displayShortcuts ? 'fixed' : 'absolute'}
-        top="1.25rem"
-        right="1.25rem"
-        display="flex"
-        height="2.75rem"
-        width="2.75rem"
-        padding="0"
-        fontSize="1.5rem"
-        fontWeight="900"
-        lineHeight="1.5rem"
-        color={this.props.displayShortcuts ? '#ffffff' : undefined}
-        background="transparent"
-        border="2.5px solid"
-        borderRadius="50%"
-        transition="color 0.2s"
+        top="10px"
+        right="10px"
         zIndex="10"
-        scaleOnHover
       >
-        {this.props.displayShortcuts ? 'x' : '?'}
-      </Button>
+        <Button
+          onClick={this.onKeyboardShortcutsButtonClick}
+          background="transparent"
+          border="none"
+          transition="color 0.2s"
+          scaleOnHover
+        >
+          <Icon
+            className="material-icons"
+            fontSize="3rem"
+            color={this.props.displayShortcuts ? '#ffffff' : undefined}
+          >
+            {this.props.displayShortcuts ? 'clear' : 'details'}
+          </Icon>
+        </Button>
+      </Div>
     );
   }
 }

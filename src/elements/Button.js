@@ -3,7 +3,6 @@ import styled from 'styled-components';
 const Button = styled.button.attrs(props => ({
   type: props.type || 'button'
 }))`
-  ${props => props.position && `position: ${props.position};`}
   ${props => props.top && `top: ${props.top};`}
   ${props => props.right && `right: ${props.right};`}
   ${props => props.bottom && `bottom: ${props.bottom};`}
@@ -13,9 +12,11 @@ const Button = styled.button.attrs(props => ({
   ${props => props.width && `width: ${props.width};`}
   ${props => props.height && `height: ${props.height};`}
   ${props => props.zIndex && `z-index: ${props.zIndex};`}
-  ${props => props.flex && `flex: ${props.flex};`}
+  ${props => props.margin && `margin: ${props.margin};`}
   ${props => props.marginTop && `margin-top: ${props.marginTop};`}
-  padding: ${props => props.padding || '0.5rem'};
+  ${props => props.display && `display: ${props.display};`}
+  ${props => props.flex && `flex: ${props.flex};`}
+  padding: ${props => props.padding && `padding: ${props.padding};`};
   font-size: ${props => props.fontSize || props.theme.fontSize || '1rem'};
   ${props => props.fontWeight && `font-weight: ${props.fontWeight};`}
   ${props => props.lineHeight && `line-height: ${props.lineHeight};`}
