@@ -3,6 +3,7 @@ import styled from 'styled-components';
 const Button = styled.button.attrs(props => ({
   type: props.type || 'button'
 }))`
+  ${props => props.position && `position: ${props.position};`}
   ${props => props.top && `top: ${props.top};`}
   ${props => props.right && `right: ${props.right};`}
   ${props => props.bottom && `bottom: ${props.bottom};`}
