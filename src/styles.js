@@ -3,8 +3,8 @@ import { createGlobalStyle } from 'styled-components';
 // ===== THEME
 
 export const Theme = {
-  bg: 'hsl(201, 100%, 34%)',
-  fg: 'hsl(43, 68%, 43%)'
+  bg: 'hsl(0, 75%, 25%)',
+  fg: 'hsl(0, 25%, 75%)'
 };
 
 // ===== STYLES
