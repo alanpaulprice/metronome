@@ -20,7 +20,7 @@ class KeyboardShortcutsButton extends Component {
           background="transparent"
           border="none"
           transition="color 0.2s"
-          scaleOnHover
+          scaleOnActive
         >
           <Icon
             className="material-icons"

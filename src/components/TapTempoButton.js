@@ -21,6 +21,7 @@ class TapTempoButton extends Component {
           fontSize="2.5rem"
           border="5px solid"
           borderRadius="50%"
+          scaleOnActive
         >
           tap
         </Button>

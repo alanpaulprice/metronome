@@ -53,7 +53,7 @@ class TempoInputAndButtons extends Component {
           value={-1}
           onClick={this.onIncrementTempoButtonClick}
           border="none"
-          scaleOnHover
+          scaleOnActive
         >
           <Icon className="material-icons" fontSize="4rem" fontWeight="900">
             remove
@@ -77,7 +77,7 @@ class TempoInputAndButtons extends Component {
           value={1}
           onClick={this.onIncrementTempoButtonClick}
           border="none"
-          scaleOnHover
+          scaleOnActive
         >
           <Icon className="material-icons" fontSize="4rem" fontWeight="900">
             add

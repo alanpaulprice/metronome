@@ -10,7 +10,11 @@ class PlayStopButton extends Component {
   render() {
     return (
       <Div display="flex" justifyContent="center" marginTop="5rem">
-        <Button onClick={this.onPlayStopButtonClick} border="none" scaleOnHover>
+        <Button
+          onClick={this.onPlayStopButtonClick}
+          border="none"
+          scaleOnActive
+        >
           <Icon className="material-icons" fontSize="12.5rem">
             {this.props.playing ? 'stop' : 'play_arrow'}
           </Icon>
