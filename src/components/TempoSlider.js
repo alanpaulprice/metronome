@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Input from '../elements/Input';
+import RangeInput from '../elements/RangeInput';
 
 class TempoSlider extends Component {
   onTempoSliderChange = e => this.props.setTempo(e.currentTarget.value);
 
   render() {
     return (
-      <Input
+      <RangeInput
         type="range"
         min={this.props.MIN_TEMPO}
         max={this.props.MAX_TEMPO}

@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import Div from '../elements/Div';
-import Input from '../elements/Input';
+import RangeInput from '../elements/RangeInput';
 import Icon from '../elements/Icon';
 
 class VolumeControl extends Component {
@@ -19,7 +19,7 @@ class VolumeControl extends Component {
           alignItems="center"
         >
           <Icon className="material-icons">volume_mute</Icon>
-          <Input
+          <RangeInput
             type="range"
             min="0"
             max="1"
