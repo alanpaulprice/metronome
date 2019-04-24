@@ -4,7 +4,8 @@ import { createGlobalStyle } from 'styled-components';
 
 export const Theme = {
   bg: 'hsl(0, 75%, 25%)',
-  fg: 'hsl(0, 25%, 90%)'
+  fg: 'hsl(0, 25%, 90%)',
+  fontFam: '"Saira", sans-serif;'
 };
 
 // ===== STYLES

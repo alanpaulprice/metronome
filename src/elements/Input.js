@@ -11,6 +11,7 @@ ${props => props.display && `display: ${props.display};`}
 ${props => props.flex && `flex: ${props.flex};`}
 color: ${props => props.color || props.theme.fg || 'black'};
 background: ${props => props.background || props.theme.bg || 'white'};
+font-family: ${props => props.fontFam || props.theme.fontFam || `inherit`};
 font-size: ${props => props.fontSize || '1rem'};
 text-align: ${props => props.textAlign || 'center'};
 ${props => props.border && `border: ${props.border};`};
